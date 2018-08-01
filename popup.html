@@ -3,7 +3,7 @@
 
 <head>
    <meta charset="utf-8">
-   <title></title>
+   <title>Danmaku Settings</title>
    <script src="./lib/jQuery/jquery-3.3.1.min.js" type="text/javascript"></script>
    <script src="./popup.js" type="text/javascript"></script>
    <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" />
@@ -16,29 +16,29 @@
    <div class="settings container-fluid">
       <h2>Danmaku Settings</h2>
       <ul>
-         <li>
+         <li title="Turn on/off danmaku">
             <label class="item_name" for="enabled">Enabled: </label>
             <input type="checkbox" checked data-toggle="toggle" name="enabled" id="enabled">
          </li>
-         <li>
+         <li title="How long will the danmaku stay on the screen">
             <label class="item_name" for="duration">Duration: </label>
             <input class="slider" type="range" id="duration" name="duration" min="1" step="0.1" max="10" value="5" />
             <input type="text" id="duration-display" name="duration-display" readonly="readonly" />
          </li>
-         <li>
+         <li title="The font size of the danmaku">
             <label class="item_name" for="font_size">Font size: </label>
             <input class="slider" type="range" id="font_size" name="font_size" min="9" step="1" max="48" value="16" />
             <input type="text" id="font_size-display" name="font_size-display" readonly="readonly" />
          </li>
-         <li>
+         <li title="the transparency of the danmaku">
             <label class="item_name" for="opacity">Opacity: </label>
             <input class="slider" type="range" id="opacity" name="opacity" min="0" step="0.1" max="1" value="1" />
             <input type="text" id="opacity-display" name="opacity-display" readonly="readonly" />
          </li>
       </ul>
       <div class="buttonGroup">
-         <button class="btn myBtn" id="rtl">Reset to Default</button>
-         <button class="btn myBtn" id="apply">Apply</button>
+         <button class="btn myBtn" id="rtl" title="Reset to default settings and apply">Reset to Default</button>
+         <button class="btn myBtn" id="apply" title="Apply cu">Apply</button>
       </div>
       <hr>
       <span class="copyright">&copy; <a href="https://github.com/wheatup" target="_blank">wheatup</a> 2018</span>
