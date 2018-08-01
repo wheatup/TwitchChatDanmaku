@@ -6,7 +6,7 @@
 }
 
 #danmaku_overlay .danmaku {
-    display: block;
+    display: inline-block;
     position: absolute;
     left: 100%;
     top: 0;

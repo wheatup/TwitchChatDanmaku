@@ -7,6 +7,7 @@
 
 ul{
    padding: 20px;
+   margin: 0;
 }
 li{
    list-style-type: none;
@@ -40,9 +41,17 @@ input[readonly="readonly"]{
    top: -2px;
 }
 
-#apply{
-   display: block;
+.myBtn{
+   display: inline-block;
    margin:0px auto;
+}
+
+#apply{
+   background-color: #7af;
+}
+
+.buttonGroup{
+   text-align: center;
 }
 
 .slidecontainer {

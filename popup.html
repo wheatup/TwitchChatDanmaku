@@ -27,7 +27,7 @@
          </li>
          <li>
             <label class="item_name" for="font_size">Font size: </label>
-            <input class="slider" type="range" id="font_size" name="font_size" min="9" step="1" max="80" value="16" />
+            <input class="slider" type="range" id="font_size" name="font_size" min="9" step="1" max="48" value="16" />
             <input type="text" id="font_size-display" name="font_size-display" readonly="readonly" />
          </li>
          <li>
@@ -36,7 +36,10 @@
             <input type="text" id="opacity-display" name="opacity-display" readonly="readonly" />
          </li>
       </ul>
-      <button class="btn" id="apply">Apply</button>
+      <div class="buttonGroup">
+         <button class="btn myBtn" id="rtl">Reset to Default</button>
+         <button class="btn myBtn" id="apply">Apply</button>
+      </div>
       <hr>
       <span class="copyright">&copy; <a href="https://github.com/wheatup" target="_blank">wheatup</a> 2018</span>
    </div>

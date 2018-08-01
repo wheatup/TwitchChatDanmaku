@@ -98,11 +98,12 @@ function addNewDanmaku(entry) {
    }, Math.floor(config.duration * 500));
    danmaku.attr('layer', layer);
    overlay.append(danmaku);
-   danmaku.css('height', (config.font_size + 4) + 'px');
+   danmaku.css('height', (parseInt(config.font_size) + 4) + 'px');
    danmaku.css('opacity', config.opacity);
    danmaku.css('animation-duration', `${config.duration}s`);
    danmaku.css('font-size', config.font_size + 'px');
-   danmaku.css('top', (layer * (config.font_size + 4)) + 'px');
+   var top = layer * (parseInt(config.font_size) + 4);
+   danmaku.css('top', top + 'px');
    danmaku.one("webkitAnimationEnd oanimationend msAnimationEnd animationend",
       function(event) {
          danmaku.remove();
