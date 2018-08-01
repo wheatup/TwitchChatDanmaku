@@ -10,19 +10,34 @@ $(document).ready(() => {
       size: 'small'
    });
 
-   if (enabled === 'false' || !enabled) {
-      $('#enabled').bootstrapToggle('off');
-   } else {
+   if(enabled === undefined || enabled === null){
       $('#enabled').bootstrapToggle('on');
-   }
-   if (duration) {
-      $("#duration").val(duration);
-   }
-   if (font_size) {
-      $("#font_size").val(font_size);
-   }
-   if (opacity) {
-      $("#opacity").val(opacity);
+      $("#duration").val(5);
+      $("#font_size").val(24);
+      $("#opacity").val(1);
+      enabled = true;
+      duration = 5;
+      font_size = 24;
+      opacity = 1;
+      localStorage.setItem('enabled', enabled);
+      localStorage.setItem('duration', duration);
+      localStorage.setItem('font_size', font_size);
+      localStorage.setItem('opacity', opacity);
+   }else{
+      if (enabled === 'false' || !enabled) {
+         $('#enabled').bootstrapToggle('off');
+      } else {
+         $('#enabled').bootstrapToggle('on');
+      }
+      if (duration) {
+         $("#duration").val(duration);
+      }
+      if (font_size) {
+         $("#font_size").val(font_size);
+      }
+      if (opacity) {
+         $("#opacity").val(opacity);
+      }
    }
 
    var settings = {
@@ -76,7 +91,7 @@ function onClickApply() {
 function onClickResetToDefault() {
    $('#enabled').bootstrapToggle('on');
    $("#duration").val(5);
-   $("#font_size").val(16);
+   $("#font_size").val(24);
    $("#opacity").val(1);
    document.getElementById('duration-display').value = document.getElementById('duration').value + 's';
    document.getElementById('font_size-display').value = document.getElementById('font_size').value + 'px';
