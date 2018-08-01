@@ -27,6 +27,8 @@ input[type="range"]{
 .item_name{
    display: inline-block;
    width: 80px;
+   text-align: right;
+   margin-right: 5px;
 }
 
 input[readonly="readonly"]{

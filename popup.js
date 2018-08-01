@@ -4,18 +4,24 @@ $(document).ready(() => {
    var font_size = localStorage.getItem('font_size');
    var opacity = localStorage.getItem('opacity');
 
-   if(enabled){
-      $("#enabled").prop('checked', true);
-   }else{
-      $("#enabled").removeAttr('checked');
+   $('#enabled').bootstrapToggle({
+      on: 'Enabled',
+      off: 'Disabled',
+      size: 'small'
+   });
+
+   if (enabled === 'false' || !enabled) {
+      $('#enabled').bootstrapToggle('off');
+   } else {
+      $('#enabled').bootstrapToggle('on');
    }
-   if(duration){
+   if (duration) {
       $("#duration").val(duration);
    }
-   if(font_size){
+   if (font_size) {
       $("#font_size").val(font_size);
    }
-   if(opacity){
+   if (opacity) {
       $("#opacity").val(opacity);
    }
 
@@ -35,9 +41,10 @@ $(document).ready(() => {
 
    $('#apply').click(onClickApply);
    $('#rtl').click(onClickResetToDefault);
+
 });
 
-function onClickApply(){
+function onClickApply() {
    enabled = $("#enabled").prop('checked');
    duration = $("#duration").val();
    font_size = $("#font_size").val();
@@ -59,12 +66,15 @@ function onClickApply(){
       active: true,
       currentWindow: true
    }, function(tabs) {
-      chrome.tabs.sendMessage(tabs[0].id, {type: 'SETTINGS', data: settings});
+      chrome.tabs.sendMessage(tabs[0].id, {
+         type: 'SETTINGS',
+         data: settings
+      });
    });
 }
 
-function onClickResetToDefault(){
-   $("#enabled").prop('checked', true);
+function onClickResetToDefault() {
+   $('#enabled').bootstrapToggle('on');
    $("#duration").val(5);
    $("#font_size").val(16);
    $("#opacity").val(1);
@@ -74,14 +84,14 @@ function onClickResetToDefault(){
    onClickApply();
 }
 
-function onDurationChange(){
+function onDurationChange() {
    $('#duration-display').val(this.value + 's');
 }
 
-function onFontSizeChange(){
+function onFontSizeChange() {
    $('#font_size-display').val(this.value + 'px');
 }
 
-function onOpacityChange(){
+function onOpacityChange() {
    $('#opacity-display').val(this.value);
 }
