@@ -1,6 +1,8 @@
 var logDiv = null;
 var overlay = null;
 var danmakus = {};
+var isVideo = false;
+var count = 0;
 
 var config = {
    enabled: true,
@@ -16,11 +18,20 @@ var _lastEntry = null;
 function findLogDiv() {
    return new Promise((resolve, reject) => {
       let timer = setInterval(() => {
-         var _logDiv = $('div[role=log]');
-         if (_logDiv && _logDiv[0]) {
-            logDiv = $(_logDiv[0]);
-            clearInterval(timer);
-            resolve(logDiv);
+         if(!isVideo){
+            var _logDiv = $('div[role=log]');
+            if (_logDiv && _logDiv[0]) {
+               logDiv = $(_logDiv[0]);
+               clearInterval(timer);
+               resolve(logDiv);
+            }
+         }else{
+            var _logDiv = $('ul[class*=tw-align-items-end]');
+            if (_logDiv && _logDiv[0]) {
+               logDiv = $(_logDiv[0]);
+               clearInterval(timer);
+               resolve(logDiv);
+            }
          }
       }, 500);
    });
@@ -49,18 +60,15 @@ function createOverlay() {
 function digestChatDom(dom) {
    if (!dom) return null;
    let username = $(dom).find('span[data-a-target=chat-message-username]').html();
-   let content = '';
-   let color = '';
-   for (var i = 0; i < dom.children.length; i++) {
-      var raw = dom.children[i];
-      if (raw.tagName !== 'SPAN' || !$(raw).attr('data-a-target')) {
-         continue;
-      } else if ($(raw).attr('data-a-target') === 'emote-name') {
-         content += `<img src="${$($(raw).find('img')[0]).attr('src')}" alt="${$($(raw).find('img')[0]).attr('alt')}"/>`;
-      } else {
-         content += raw.innerHTML;
-      }
+   if(!username) return;
+   //let color = '';
+   if(isVideo && dom.tagName === 'LI'){
+      dom = $(dom).find('div[data-test-selector=comment-message-selector]')[0].children[$(dom).find('div[data-test-selector=comment-message-selector]')[0].children.length - 1];
+   }else{
+      dom = $(dom).find('span[data-a-target=chat-message-text]')[0];
    }
+   let content = dom.outerHTML;
+
    var entry = {
       username: username,
       content: content
@@ -69,7 +77,7 @@ function digestChatDom(dom) {
 }
 
 function addNewDanmaku(entry) {
-   if (!config.enabled) return;
+   if (!config.enabled || !entry) return;
    if (_lastEntry === entry) return;
    _lastEntry = entry;
    var danmaku = $(`<span class='danmaku' title='${entry.username}'>${entry.content}</span>`);
@@ -112,15 +120,19 @@ function addNewDanmaku(entry) {
 }
 
 function start() {
-   logDiv.bind('DOMNodeInserted', () => {
-      var newChatDOM = logDiv[0].children[logDiv[0].children.length - 1];
-      var chatEntry = digestChatDom(newChatDOM);
-      addNewDanmaku(chatEntry);
+   logDiv.unbind('DOMNodeInserted');
+   logDiv.bind('DOMNodeInserted', (event) => {
+      var newChatDOM = event.target;
+      setTimeout(()=>{
+         var chatEntry = digestChatDom(newChatDOM);
+         addNewDanmaku(chatEntry);
+      }, 0);
    });
    console.log('Danmanku ready!');
 }
 
 function init() {
+   isVideo = window.location.href.indexOf('/videos') >= 0;
    findLogDiv().then(createOverlay).then(start);
    chrome.runtime.sendMessage({
       type: "GET_SETTINGS"

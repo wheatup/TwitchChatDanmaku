@@ -3,6 +3,7 @@
     height: 100%;
     top: 0;
     position: absolute;
+    pointer-events: none;
 }
 
 #danmaku_overlay .danmaku {
