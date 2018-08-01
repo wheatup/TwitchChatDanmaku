@@ -1,0 +1,26 @@
+{
+   "manifest_version": 2,
+   "name": "Twitch Chat Danmaku",
+   "version": "0.0.1",
+   "description": "Embed the chat into the stream with a danmaku style, compatible with BetterTTV and other custom emoticons!",
+   "background": {
+      "scripts": ["background.js"],
+      "persistant": false
+   },
+   "icons": {
+      "128": "icons/icon-128.png",
+      "48": "icons/icon-48.png",
+      "16": "icons/icon-16.png"
+   },
+   "permissions": ["*://*.twitch.tv/*", "declarativeContent"],
+   "content_scripts": [{
+      "css": ["css/danmaku.css"],
+      "matches": ["*://*.twitch.tv/*"],
+      "js": ["lib/whevent/index.js", "lib/jQuery/jquery-3.3.1.min.js", "content.js"]
+   }],
+   "browser_action": {
+      "default_title": "Twitch Chat Danmaku",
+      "default_icon": "icons/icon-16.png",
+      "default_popup": "popup.html"
+   }
+}

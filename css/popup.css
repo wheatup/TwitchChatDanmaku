@@ -1,0 +1,86 @@
+.settings{
+   width: 320px;
+   text-align: left;
+   vertical-align: center;
+   margin: 20px;
+}
+
+ul{
+   padding: 20px;
+}
+li{
+   list-style-type: none;
+   line-height: 40px;
+}
+h2{
+   font-size: 30px;
+   display: block;
+   text-align: center;
+   margin-bottom: 10px;
+}
+input[type="range"]{
+   width:100px;
+   position: relative;
+   bottom: -5px;
+}
+.item_name{
+   display: inline-block;
+   width: 80px;
+}
+
+input[readonly="readonly"]{
+   width: 50px;
+   display: inline-block;
+}
+
+#apply{
+   display: block;
+   margin:0px auto;
+}
+
+.slidecontainer {
+    width: 100%; /* Width of the outside container */
+}
+
+.copyright{
+   display: block;
+   text-align: center;
+}
+
+/* The slider itself */
+.slider {
+    -webkit-appearance: none;  /* Override default CSS styles */
+    appearance: none;
+    width: 100%; /* Full-width */
+    height: 25px; /* Specified height */
+    background: #d3d3d3; /* Grey background */
+    outline: none; /* Remove outline */
+    opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+    transition: opacity .2s;
+    border-radius: 3px;
+}
+
+/* Mouse-over effects */
+.slider:hover {
+    opacity: 1; /* Fully shown on mouse-over */
+}
+
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    width: 25px; /* Set a specific slider handle width */
+    height: 25px; /* Slider handle height */
+    background: #4C70AF; /* Green background */
+    cursor: pointer; /* Cursor on hover */
+    border-radius: 3px;
+}
+
+.slider::-moz-range-thumb {
+    width: 25px; /* Set a specific slider handle width */
+    height: 25px; /* Slider handle height */
+    background: #4C70AF; /* Green background */
+    cursor: pointer; /* Cursor on hover */
+    border-radius: 3px;
+}
