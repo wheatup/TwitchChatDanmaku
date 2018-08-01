@@ -8,7 +8,7 @@ var count = 0;
 var config = {
    enabled: true,
    duration: 5,
-   font_size: 16,
+   font_size: 24,
    opacity: 1
 };
 

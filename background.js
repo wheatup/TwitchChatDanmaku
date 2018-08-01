@@ -1,6 +1,6 @@
 function init(){
    var enabled = localStorage.getItem('enabled');
-   if(enabled !== undefined){
+   if(enabled !== undefined && enabled !== null){
       var duration = localStorage.getItem('duration');
       var font_size = localStorage.getItem('font_size');
       var opacity = localStorage.getItem('opacity');
