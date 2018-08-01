@@ -43,9 +43,18 @@ chrome.tabs.onUpdated.addListener(
          chrome.tabs.sendMessage(tabId, {
             type: 'URL_CHANGE',
             data: {url: changeInfo.url}
-         }, function(){
-            init();
          });
+         init();
+      }
+   }
+);
+
+chrome.runtime.onMessage.addListener(
+   function(request, sender, sendResponse) {
+      switch(request.type){
+         case 'GET_SETTINGS':
+            init();
+            break;
       }
    }
 );

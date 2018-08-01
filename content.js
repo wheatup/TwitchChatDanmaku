@@ -11,6 +11,8 @@ var config = {
 
 window.__danmaku_config__ = config;
 
+var _lastEntry = null;
+
 function findLogDiv() {
    return new Promise((resolve, reject) => {
       let timer = setInterval(() => {
@@ -26,7 +28,7 @@ function findLogDiv() {
 
 function createOverlay() {
    return new Promise((resolve, reject) => {
-      if($('#danmaku_overlay') && $('#danmaku_overlay').length > 0){
+      if ($('#danmaku_overlay') && $('#danmaku_overlay').length > 0) {
          overlay = $('#danmaku_overlay');
          resolve();
          return;
@@ -68,6 +70,8 @@ function digestChatDom(dom) {
 
 function addNewDanmaku(entry) {
    if (!config.enabled) return;
+   if (_lastEntry === entry) return;
+   _lastEntry = entry;
    var danmaku = $(`<span class='danmaku' title='${entry.username}'>${entry.content}</span>`);
 
    let layer = 0;
@@ -96,7 +100,7 @@ function addNewDanmaku(entry) {
    overlay.append(danmaku);
    danmaku.css('height', (config.font_size + 4) + 'px');
    danmaku.css('opacity', config.opacity);
-   danmaku.css('animation-duration', `${config.duration}`);
+   danmaku.css('animation-duration', `${config.duration}s`);
    danmaku.css('font-size', config.font_size + 'px');
    danmaku.css('top', (layer * (config.font_size + 4)) + 'px');
    danmaku.one("webkitAnimationEnd oanimationend msAnimationEnd animationend",
@@ -115,8 +119,11 @@ function start() {
    console.log('Danmanku ready!');
 }
 
-function init(){
+function init() {
    findLogDiv().then(createOverlay).then(start);
+   chrome.runtime.sendMessage({
+      type: "GET_SETTINGS"
+   });
 }
 
 $(document).ready(() => {
@@ -124,8 +131,7 @@ $(document).ready(() => {
 });
 
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
-   console.log(request, sender);
-   switch(request.type){
+   switch (request.type) {
       case 'SETTINGS':
          config.enabled = request.data.enabled;
          config.duration = request.data.duration;

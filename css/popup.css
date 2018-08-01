@@ -31,6 +31,13 @@ input[type="range"]{
 input[readonly="readonly"]{
    width: 50px;
    display: inline-block;
+   height: 26px;
+   text-align: center;
+   border-radius: 3px;
+   border: none;
+   background-color: #eee;
+   position: relative;
+   top: -2px;
 }
 
 #apply{
