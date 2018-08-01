@@ -46,7 +46,7 @@ function createOverlay() {
       }
 
       let timer = setInterval(() => {
-         var player = $('.persistent-player');
+         var player = isVideo ? $('.player') : $('.extension-frame-wrapper');
          if (player && player.length > 0) {
             $(player[0]).append('<div id="danmaku_overlay"></div>')
             overlay = $('#danmaku_overlay');
@@ -132,7 +132,7 @@ function start() {
 }
 
 function init() {
-   isVideo = window.location.href.indexOf('/videos') >= 0;
+   isVideo = window.location.href.indexOf('/videos/') >= 0;
    findLogDiv().then(createOverlay).then(start);
    chrome.runtime.sendMessage({
       type: "GET_SETTINGS"
