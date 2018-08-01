@@ -48,6 +48,7 @@ input[readonly="readonly"]{
 
 #apply{
    background-color: #7af;
+   color: white;
 }
 
 .buttonGroup{
