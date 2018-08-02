@@ -73,8 +73,6 @@ function digestChatDom(dom) {
    //let color = '';
    if(isVideoChat){
       dom = $(dom).find('.tw-flex-grow-1')[0];
-   }else{
-      dom = $(dom).find('span[data-a-target=chat-message-text]')[0];
    }
    let content = '';
    let foundUsername = false;
@@ -88,8 +86,8 @@ function digestChatDom(dom) {
       }
       content += ele.outerHTML;
    }else{
-      for(var i = 0; i < dom.parentElement.children.length; i++){
-         let ele = dom.parentElement.children[i];
+      for(var i = 0; i < dom.children.length; i++){
+         let ele = dom.children[i];
          if(!config.show_username){
             if(!foundUsername){
                if($(ele).attr('class') && $(ele).attr('class').indexOf('username') >= 0){
