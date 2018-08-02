@@ -22,6 +22,14 @@
     vertical-align: middle;
 }
 
+#danmaku_overlay .danmaku .chat-image{
+   display: inline-block !important;
+}
+
+#danmaku_overlay .danmaku .tw-placeholder{
+   display: none !important;
+}
+
 #danmaku_overlay .danmaku .mention-fragment{
    background: none;
 }
