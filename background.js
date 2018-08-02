@@ -4,11 +4,17 @@ function init(){
       var duration = localStorage.getItem('duration');
       var font_size = localStorage.getItem('font_size');
       var opacity = localStorage.getItem('opacity');
+      var show_username = localStorage.getItem('show_username');
 
       if(enabled){
          $("#enabled").prop('checked', true);
       }else{
-         $("#enabled").removeAttr('checked');
+         $("#enabled").prop('checked', false);
+      }
+      if(show_username){
+         $("#show_username").prop('checked', true);
+      }else{
+         $("#show_username").prop('checked', false);
       }
       if(duration){
          $("#duration").val(duration);
@@ -20,11 +26,17 @@ function init(){
          $("#opacity").val(opacity);
       }
 
+      enabled = enabled === 'true' || enabled === true;
+      show_username = show_username === 'true' || show_username === true;
+
+
+
       var settings = {
          enabled: enabled,
          duration: duration,
          font_size: font_size,
-         opacity: opacity
+         opacity: opacity,
+         show_username: show_username
       };
 
       chrome.tabs.query({

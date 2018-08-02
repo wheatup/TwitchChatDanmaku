@@ -1,7 +1,7 @@
 {
    "manifest_version": 2,
    "name": "Twitch Chat Danmaku",
-   "version": "1.0.2",
+   "version": "1.0.3",
    "description": "Embed the chat into the stream with a danmaku style, compatible with BetterTTV and other custom emoticons!",
    "background": {
       "scripts": ["lib/jQuery/jquery-3.3.1.min.js", "background.js"],

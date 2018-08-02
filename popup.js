@@ -3,6 +3,16 @@ $(document).ready(() => {
    var duration = localStorage.getItem('duration');
    var font_size = localStorage.getItem('font_size');
    var opacity = localStorage.getItem('opacity');
+   var show_username = localStorage.getItem('show_username');
+   $('#enabled').change(()=>{
+      var flag = $("#enabled").prop('checked');
+      if(flag){
+         $('#further_settings').slideDown(200);
+      }else{
+         $('#further_settings').slideUp(200);
+      }
+   });
+
 
    $('#enabled').bootstrapToggle({
       on: 'Enabled',
@@ -10,8 +20,16 @@ $(document).ready(() => {
       size: 'small'
    });
 
+   $('#show_username').bootstrapToggle({
+      on: 'Show',
+      off: 'Hide',
+      size: 'small'
+   });
+
    if(enabled === undefined || enabled === null){
       $('#enabled').bootstrapToggle('on');
+      $('#further_settings').slideDown(200);
+      $('#show_username').bootstrapToggle('off');
       $("#duration").val(5);
       $("#font_size").val(24);
       $("#opacity").val(1);
@@ -19,15 +37,26 @@ $(document).ready(() => {
       duration = 5;
       font_size = 24;
       opacity = 1;
+      show_username = false;
       localStorage.setItem('enabled', enabled);
       localStorage.setItem('duration', duration);
       localStorage.setItem('font_size', font_size);
       localStorage.setItem('opacity', opacity);
+      localStorage.setItem('show_username', show_username);
    }else{
-      if (enabled === 'false' || !enabled) {
-         $('#enabled').bootstrapToggle('off');
-      } else {
+      enabled = enabled === 'true' || enabled === true;
+      show_username = show_username === 'true' || show_username === true;
+      if (enabled) {
          $('#enabled').bootstrapToggle('on');
+         $('#further_settings').slideDown(200);
+      } else {
+         $('#enabled').bootstrapToggle('off');
+         $('#further_settings').slideUp(200);
+      }
+      if (show_username) {
+         $('#show_username').bootstrapToggle('on');
+      } else {
+         $('#show_username').bootstrapToggle('off');
       }
       if (duration) {
          $("#duration").val(duration);
@@ -44,7 +73,8 @@ $(document).ready(() => {
       enabled: enabled,
       duration: duration,
       font_size: font_size,
-      opacity: opacity
+      opacity: opacity,
+      show_username: show_username
    };
 
    document.getElementById('duration').onchange = onDurationChange;
@@ -54,6 +84,7 @@ $(document).ready(() => {
    document.getElementById('opacity').onchange = onOpacityChange;
    document.getElementById('opacity-display').value = document.getElementById('opacity').value;
 
+
    $('#apply').click(onClickApply);
    $('#rtl').click(onClickResetToDefault);
 
@@ -61,6 +92,7 @@ $(document).ready(() => {
 
 function onClickApply() {
    enabled = $("#enabled").prop('checked');
+   show_username = $("#show_username").prop('checked');
    duration = $("#duration").val();
    font_size = $("#font_size").val();
    opacity = $("#opacity").val();
@@ -69,14 +101,15 @@ function onClickApply() {
       enabled: enabled,
       duration: duration,
       font_size: font_size,
-      opacity: opacity
+      opacity: opacity,
+      show_username: show_username
    };
 
    localStorage.setItem('enabled', enabled);
    localStorage.setItem('duration', duration);
    localStorage.setItem('font_size', font_size);
    localStorage.setItem('opacity', opacity);
-
+   localStorage.setItem('show_username', show_username);
    chrome.tabs.query({
       active: true,
       currentWindow: true
@@ -90,6 +123,7 @@ function onClickApply() {
 
 function onClickResetToDefault() {
    $('#enabled').bootstrapToggle('on');
+   $('#show_username').bootstrapToggle('off');
    $("#duration").val(5);
    $("#font_size").val(24);
    $("#opacity").val(1);
