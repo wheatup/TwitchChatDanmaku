@@ -1,5 +1,15 @@
 # Twitch Chat Danmaku (Twitch聊天弹幕)
 
+## Summary
+
+> * This is a chrome extension that brings danmaku(flying comments) feature to twitch.tv, with fully customizable settings.
+
+> * You can watch twitch chat directly on the stream without keep glancing the chat window, even possible in fullscreen mode.
+
+> * This extension supports all kinds of emoticons, you won't miss any details of any chat!
+
+> * Have fun!
+
 ## Install
 
 ### Online Version (Recommended)
