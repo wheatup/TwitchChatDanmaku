@@ -19,8 +19,7 @@
 > * Add more locale texts.
 
 ### 1.0.6
-> * Add locale feature, now supports English, 中文(简体), 中文(繁體)
-> * Add more locale texts.
+> * Add locale feature, now supports English, 中文(简体), 中文(繁體).
 
 ### 1.0.5
 > * Fixed a bug that single emoticon chat might won't show up properly.
