@@ -6,7 +6,7 @@
 > Download from: [Google App Store](https://chrome.google.com/webstore/detail/twitch-chat-danmaku/koiphfkghjgmncbkcpfnegnbcbomlchg)
 
 ### Standalone Version
-> Download from: [GitHub](https://github.com/wheatup/TwitchChatDanmaku/raw/master/TwitchChatDanmaku1.0.7.crx)
+> Download from: [GitHub](https://github.com/wheatup/TwitchChatDanmaku/raw/master/build/TwitchChatDanmaku1.0.7.crx)
 
 ## Preview
 
