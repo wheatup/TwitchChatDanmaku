@@ -61,5 +61,11 @@
    },
    "hide": {
       "message": "隱藏"
+   },
+   "px": {
+      "message": "px"
+   },
+   "s": {
+      "message": "秒"
    }
 }

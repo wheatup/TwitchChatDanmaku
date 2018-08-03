@@ -1,28 +1,41 @@
-function init(){
+chrome.runtime.onInstalled.addListener(function() {
+   chrome.declarativeContent.onPageChanged.removeRules(undefined, function() {
+      chrome.declarativeContent.onPageChanged.addRules([{
+         conditions: [new chrome.declarativeContent.PageStateMatcher({
+            pageUrl: {
+               hostContains: 'twitch'
+            },
+         })],
+         actions: [new chrome.declarativeContent.ShowPageAction()]
+      }]);
+   });
+});
+
+function init() {
    var enabled = localStorage.getItem('enabled');
-   if(enabled !== undefined && enabled !== null){
+   if (enabled !== undefined && enabled !== null) {
       var duration = localStorage.getItem('duration');
       var font_size = localStorage.getItem('font_size');
       var opacity = localStorage.getItem('opacity');
       var show_username = localStorage.getItem('show_username');
 
-      if(enabled){
+      if (enabled) {
          $("#enabled").prop('checked', true);
-      }else{
+      } else {
          $("#enabled").prop('checked', false);
       }
-      if(show_username){
+      if (show_username) {
          $("#show_username").prop('checked', true);
-      }else{
+      } else {
          $("#show_username").prop('checked', false);
       }
-      if(duration){
+      if (duration) {
          $("#duration").val(duration);
       }
-      if(font_size){
+      if (font_size) {
          $("#font_size").val(font_size);
       }
-      if(opacity){
+      if (opacity) {
          $("#opacity").val(opacity);
       }
 
@@ -43,7 +56,10 @@ function init(){
          active: true,
          currentWindow: true
       }, function(tabs) {
-         chrome.tabs.sendMessage(tabs[0].id, {type: 'SETTINGS', data: settings});
+         chrome.tabs.sendMessage(tabs[0].id, {
+            type: 'SETTINGS',
+            data: settings
+         });
       });
    }
 }
@@ -54,7 +70,9 @@ chrome.tabs.onUpdated.addListener(
       if (changeInfo.url) {
          chrome.tabs.sendMessage(tabId, {
             type: 'URL_CHANGE',
-            data: {url: changeInfo.url}
+            data: {
+               url: changeInfo.url
+            }
          });
          init();
       }
@@ -63,7 +81,7 @@ chrome.tabs.onUpdated.addListener(
 
 chrome.runtime.onMessage.addListener(
    function(request, sender, sendResponse) {
-      switch(request.type){
+      switch (request.type) {
          case 'GET_SETTINGS':
             init();
             break;

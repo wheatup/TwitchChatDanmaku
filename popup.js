@@ -90,9 +90,9 @@ $(document).ready(() => {
    };
 
    document.getElementById('duration').onchange = onDurationChange;
-   document.getElementById('duration-display').value = document.getElementById('duration').value + 's';
+   document.getElementById('duration-display').value = document.getElementById('duration').value + chrome.i18n.getMessage('s');
    document.getElementById('font_size').onchange = onFontSizeChange;
-   document.getElementById('font_size-display').value = document.getElementById('font_size').value + 'px';
+   document.getElementById('font_size-display').value = document.getElementById('font_size').value + chrome.i18n.getMessage('px');
    document.getElementById('opacity').onchange = onOpacityChange;
    document.getElementById('opacity-display').value = document.getElementById('opacity').value;
 
@@ -139,18 +139,18 @@ function onClickResetToDefault() {
    $("#duration").val(5);
    $("#font_size").val(24);
    $("#opacity").val(1);
-   document.getElementById('duration-display').value = document.getElementById('duration').value + 's';
-   document.getElementById('font_size-display').value = document.getElementById('font_size').value + 'px';
+   document.getElementById('duration-display').value = document.getElementById('duration').value + chrome.i18n.getMessage('s');
+   document.getElementById('font_size-display').value = document.getElementById('font_size').value + chrome.i18n.getMessage('px');
    document.getElementById('opacity-display').value = document.getElementById('opacity').value;
    onClickApply();
 }
 
 function onDurationChange() {
-   $('#duration-display').val(this.value + 's');
+   $('#duration-display').val(this.value + chrome.i18n.getMessage('s'));
 }
 
 function onFontSizeChange() {
-   $('#font_size-display').val(this.value + 'px');
+   $('#font_size-display').val(this.value + chrome.i18n.getMessage('px'));
 }
 
 function onOpacityChange() {

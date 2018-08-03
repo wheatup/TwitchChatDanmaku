@@ -61,5 +61,13 @@
    },
    "hide": {
       "message": "Hide"
+   },
+   "px": {
+      "message": "px",
+      "description": "pixel"
+   },
+   "s": {
+      "message": "s",
+      "description": "seconds"
    }
 }

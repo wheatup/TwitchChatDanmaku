@@ -1,6 +1,6 @@
 {
    "appName": {
-      "message": "Twitch聊天弹幕插件"
+      "message": "Twitch聊天弹幕"
    },
    "appDescription": {
       "message": "将Twitch聊天嵌入直播视频内部且以弹幕方式呈现，支持Twitch表情符号和BetterTTV自定义表情符号！"
@@ -61,5 +61,11 @@
    },
    "hide": {
       "message": "隐藏"
+   },
+   "px": {
+      "message": "px"
+   },
+   "s": {
+      "message": "秒"
    }
 }
