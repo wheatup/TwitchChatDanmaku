@@ -32,7 +32,7 @@
 > * Add locale feature, now supports English, 中文(简体), 中文(繁體).
 
 ### 1.0.5
-> * Fixed a bug that single emoticon chat might won't show up properly.
+> * Fixed a bug that single emoticon chat might not show up properly.
 
 ### 1.0.4
 > * Fixed a bug that occasionally some part of the chat is missing.
