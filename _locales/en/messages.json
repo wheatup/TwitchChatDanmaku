@@ -1,0 +1,65 @@
+{
+   "appName": {
+      "message": "Twitch Chat Danmaku"
+   },
+   "appDescription": {
+      "message": "Embed the chat into the stream with a danmaku style, compatible with BetterTTV and other custom emoticons!"
+   },
+   "settingsTitle": {
+      "message": "Danmaku Settings"
+   },
+   "tipEnable": {
+      "message": "Turn on/off danmaku"
+   },
+   "lblEnable": {
+      "message": "Danmaku: "
+   },
+   "tipUsername": {
+      "message": "Show the username of the comment"
+   },
+   "lblUsername": {
+      "message": "Username: "
+   },
+   "tipDuration": {
+      "message": "How long will the danmaku stay on the screen"
+   },
+   "lblDuration": {
+      "message": "Duration: "
+   },
+   "tipFontSize": {
+      "message": "The font size of the danmaku"
+   },
+   "lblFontSize": {
+      "message": "Font Size: "
+   },
+   "tipOpacity": {
+      "message": "The transparency of the danmaku"
+   },
+   "lblOpacity": {
+      "message": "Opacity: "
+   },
+   "tipApply": {
+      "message": "Apply the current settings."
+   },
+   "lblApply": {
+      "message": "Apply"
+   },
+   "tipResetToDefault": {
+      "message": "Reset to default settings and apply"
+   },
+   "lblResetToDefault": {
+      "message": "Reset to Default"
+   },
+   "enable": {
+      "message": "Enable"
+   },
+   "disable": {
+      "message": "Disable"
+   },
+   "show": {
+      "message": "Show"
+   },
+   "hide": {
+      "message": "Hide"
+   }
+}

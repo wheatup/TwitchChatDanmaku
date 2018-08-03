@@ -1,4 +1,16 @@
+var language = window.navigator.userLanguage || window.navigator.language;
+
+function setLocale(){
+   let m, tempHtml = document.body.innerHTML;
+   while(m = /__MSG_(.+?)__/.exec(tempHtml)){
+      tempHtml = tempHtml.replace(m[0], chrome.i18n.getMessage(m[1]));
+   }
+   tempHtml = tempHtml.replace('__VERSION__', chrome.runtime.getManifest().version);
+   document.body.innerHTML = tempHtml;
+}
+
 $(document).ready(() => {
+   setLocale();
    var enabled = localStorage.getItem('enabled');
    var duration = localStorage.getItem('duration');
    var font_size = localStorage.getItem('font_size');
@@ -15,14 +27,14 @@ $(document).ready(() => {
 
 
    $('#enabled').bootstrapToggle({
-      on: 'Enabled',
-      off: 'Disabled',
+      on: chrome.i18n.getMessage('enable'),
+      off: chrome.i18n.getMessage('disable'),
       size: 'small'
    });
 
    $('#show_username').bootstrapToggle({
-      on: 'Show',
-      off: 'Hide',
+      on: chrome.i18n.getMessage('show'),
+      off: chrome.i18n.getMessage('hide'),
       size: 'small'
    });
 
