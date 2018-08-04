@@ -10,6 +10,11 @@ html{
    margin: 20px;
 }
 
+#textDecoration{
+    display: inline-block;
+    width: 150px;
+}
+
 ul{
    padding: 20px;
    margin: 0;

@@ -16,6 +16,7 @@ $(document).ready(() => {
    var font_size = localStorage.getItem('font_size');
    var opacity = localStorage.getItem('opacity');
    var show_username = localStorage.getItem('show_username');
+   var textDecoration = localStorage.getItem('textDecoration');
    $('#enabled').change(()=>{
       var flag = $("#enabled").prop('checked');
       if(flag){
@@ -45,16 +46,19 @@ $(document).ready(() => {
       $("#duration").val(5);
       $("#font_size").val(24);
       $("#opacity").val(1);
+      $("#textDecoration").val('stroke');
       enabled = true;
       duration = 5;
       font_size = 24;
       opacity = 1;
       show_username = false;
+      textDecoration = 'stroke';
       localStorage.setItem('enabled', enabled);
       localStorage.setItem('duration', duration);
       localStorage.setItem('font_size', font_size);
       localStorage.setItem('opacity', opacity);
       localStorage.setItem('show_username', show_username);
+      localStorage.setItem('textDecoration', textDecoration)
    }else{
       enabled = enabled === 'true' || enabled === true;
       show_username = show_username === 'true' || show_username === true;
@@ -79,15 +83,23 @@ $(document).ready(() => {
       if (opacity) {
          $("#opacity").val(opacity);
       }
+      if(textDecoration){
+          $('#textDecoration').val(textDecoration);
+      }
    }
 
    var settings = {
-      enabled: enabled,
-      duration: duration,
-      font_size: font_size,
-      opacity: opacity,
-      show_username: show_username
+      enabled,
+      duration,
+      font_size,
+      opacity,
+      show_username,
+      textDecoration,
    };
+
+   document.getElementById('enabled').onchange = onEnabledChange;
+   document.getElementById('show_username').onchange = onShowUsernameChange;
+   document.getElementById('textDecoration').onchange = onTextDecorationChange;
 
    document.getElementById('duration').onchange = onDurationChange;
    document.getElementById('duration-display').value = document.getElementById('duration').value + chrome.i18n.getMessage('s');
@@ -108,13 +120,15 @@ function onClickApply() {
    duration = $("#duration").val();
    font_size = $("#font_size").val();
    opacity = $("#opacity").val();
+   textDecoration = $('#textDecoration').val();
 
    var settings = {
-      enabled: enabled,
-      duration: duration,
-      font_size: font_size,
-      opacity: opacity,
-      show_username: show_username
+      enabled,
+      duration,
+      font_size,
+      opacity,
+      show_username,
+      textDecoration,
    };
 
    localStorage.setItem('enabled', enabled);
@@ -122,6 +136,7 @@ function onClickApply() {
    localStorage.setItem('font_size', font_size);
    localStorage.setItem('opacity', opacity);
    localStorage.setItem('show_username', show_username);
+   localStorage.setItem('textDecoration', textDecoration);
    chrome.tabs.query({
       active: true,
       currentWindow: true
@@ -139,6 +154,7 @@ function onClickResetToDefault() {
    $("#duration").val(5);
    $("#font_size").val(24);
    $("#opacity").val(1);
+   $('#textDecoration').val('stroke');
    document.getElementById('duration-display').value = document.getElementById('duration').value + chrome.i18n.getMessage('s');
    document.getElementById('font_size-display').value = document.getElementById('font_size').value + chrome.i18n.getMessage('px');
    document.getElementById('opacity-display').value = document.getElementById('opacity').value;
@@ -147,12 +163,27 @@ function onClickResetToDefault() {
 
 function onDurationChange() {
    $('#duration-display').val(this.value + chrome.i18n.getMessage('s'));
+   onClickApply();
 }
 
 function onFontSizeChange() {
    $('#font_size-display').val(this.value + chrome.i18n.getMessage('px'));
+   onClickApply();
 }
 
 function onOpacityChange() {
    $('#opacity-display').val(this.value);
+   onClickApply();
+}
+
+function onEnabledChange(){
+    onClickApply();
+}
+
+function onShowUsernameChange(){
+    onClickApply();
+}
+
+function onTextDecorationChange(){
+    onClickApply();
 }

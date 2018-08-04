@@ -10,7 +10,8 @@ var config = {
    duration: 5,
    font_size: 24,
    opacity: 1,
-   show_username: false
+   show_username: false,
+   textDecoration: 'stroke'
 };
 
 window.__danmaku_config__ = config;
@@ -148,6 +149,18 @@ function addNewDanmaku(entry) {
    danmaku.css('font-size', config.font_size + 'px');
    var top = layer * (parseInt(config.font_size) + 4);
    danmaku.css('top', top + 'px');
+   switch(config.textDecoration){
+       case 'none':
+           danmaku.css('text-shadow', 'none');
+           break;
+       case 'shadow':
+           danmaku.css('text-shadow', '0px 2px 0 black');
+           break;
+       case 'stroke':
+           danmaku.css('text-shadow', '-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000');
+           break;
+   }
+
    danmaku.one("webkitAnimationEnd oanimationend msAnimationEnd animationend",
       function(event) {
          danmaku.remove();

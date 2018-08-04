@@ -67,5 +67,20 @@
    },
    "s": {
       "message": "秒"
+   },
+   "tipTextDecoration": {
+      "message": "Change the text decoration, might affect the performance."
+   },
+   "lblTextDecoration": {
+      "message": "Text Style: "
+   },
+   "lblNone": {
+      "message": "None"
+   },
+   "lblShadow": {
+      "message": "Shadow"
+   },
+   "lblStroke": {
+      "message": "Stroke"
    }
 }

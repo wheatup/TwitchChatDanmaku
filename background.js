@@ -12,12 +12,14 @@ chrome.runtime.onInstalled.addListener(function() {
 });
 
 function init() {
+    console.log('init');
    var enabled = localStorage.getItem('enabled');
    if (enabled !== undefined && enabled !== null) {
       var duration = localStorage.getItem('duration');
       var font_size = localStorage.getItem('font_size');
       var opacity = localStorage.getItem('opacity');
       var show_username = localStorage.getItem('show_username');
+      var textDecoration = localStorage.getItem('textDecoration');
 
       if (enabled) {
          $("#enabled").prop('checked', true);
@@ -38,6 +40,9 @@ function init() {
       if (opacity) {
          $("#opacity").val(opacity);
       }
+      if(textDecoration){
+         $('#textDecoration').val(textDecoration);
+      }
 
       enabled = enabled === 'true' || enabled === true;
       show_username = show_username === 'true' || show_username === true;
@@ -45,11 +50,12 @@ function init() {
 
 
       var settings = {
-         enabled: enabled,
-         duration: duration,
-         font_size: font_size,
-         opacity: opacity,
-         show_username: show_username
+         enabled,
+         duration,
+         font_size,
+         opacity,
+         show_username,
+         textDecoration
       };
 
       chrome.tabs.query({

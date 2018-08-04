@@ -40,11 +40,19 @@
                <input class="slider" type="range" id="opacity" name="opacity" min="0" step="0.1" max="1" value="1" />
                <input type="text" id="opacity-display" name="opacity-display" readonly="readonly" />
             </li>
+            <li title="__MSG_tipTextDecoration__">
+               <label class="item_name" for="opacity">__MSG_lblTextDecoration__</label>
+               <select class="form-control" id="textDecoration">
+                   <option value="none">__MSG_lblNone__</option>
+                   <option value="shadow">__MSG_lblShadow__</option>
+                   <option value="stroke" selected="selected">__MSG_lblStroke__</option>
+               </select>
+            </li>
          </div>
       </ul>
       <div class="buttonGroup">
          <button class="btn myBtn" id="rtl" title="__MSG_tipResetToDefault__">__MSG_lblResetToDefault__</button>
-         <button class="btn myBtn" id="apply" title="__MSG_tipApply__">__MSG_lblApply__</button>
+         <!--<button class="btn myBtn" id="apply" title="__MSG_tipApply__">__MSG_lblApply__</button>-->
       </div>
       <hr>
       <span class="copyright">&copy; <a href="https://github.com/wheatup" target="_blank">wheatup</a> 2018 - ver <span>__VERSION__</span></span>

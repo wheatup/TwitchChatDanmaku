@@ -67,5 +67,20 @@
    },
    "s": {
       "message": "秒"
+   },
+   "tipTextDecoration": {
+      "message": "更改文字樣式，可能會影響效能"
+   },
+   "lblTextDecoration": {
+      "message": "文字樣式: "
+   },
+   "lblNone": {
+      "message": "無"
+   },
+   "lblShadow": {
+      "message": "陰影"
+   },
+   "lblStroke": {
+      "message": "描邊"
    }
 }
