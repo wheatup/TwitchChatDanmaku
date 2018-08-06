@@ -69,18 +69,18 @@
       "message": "秒"
    },
    "tipTextDecoration": {
-      "message": "Change the text decoration, might affect the performance."
+      "message": "更改文字樣式，可能會影響效能"
    },
    "lblTextDecoration": {
-      "message": "Text Style: "
+      "message": "文字樣式: "
    },
    "lblNone": {
-      "message": "None"
+      "message": "無"
    },
    "lblShadow": {
-      "message": "Shadow"
+      "message": "陰影"
    },
    "lblStroke": {
-      "message": "Stroke"
+      "message": "描邊"
    }
 }

@@ -21,6 +21,10 @@
 
 ## Change Logs
 
+### 1.0.9
+> * Fixed some locale translation errors.
+> * Temporarily removed Srpski support due to an encoding error.
+
 ### 1.0.8
 > * Add text style option.
 > * Remove apply button, now all settings will apply instantly.
