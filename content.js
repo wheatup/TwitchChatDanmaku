@@ -1,9 +1,10 @@
-var logDiv = null;
-var overlay = null;
-var danmakus = {};
+'use restrict';
+
+var $logDiv = null;
+var $overlay = null;
+var layers = [];
 var isVideoPlayer = false;
 var isVideoChat = false;
-var count = 0;
 
 var config = {
    enabled: true,
@@ -14,26 +15,23 @@ var config = {
    textDecoration: 'stroke'
 };
 
-window.__danmaku_config__ = config;
-
-var _lastEntry = null;
-
 function findLogDiv() {
    return new Promise((resolve, reject) => {
       let timer = setInterval(() => {
-         var _logDiv = $('div[role=log]');
-         if (_logDiv && _logDiv[0]) {
-            logDiv = $(_logDiv[0]);
+         let _$logDiv = $('div[role=log]');
+         if (_$logDiv && _$logDiv[0]) {
+            $logDiv = $(_$logDiv[0]);
             clearInterval(timer);
             isVideoChat = false;
-            resolve(logDiv);
-         }
-         var _logDiv = $('ul[class*=tw-align-items-end]');
-         if (_logDiv && _logDiv[0]) {
-            logDiv = $(_logDiv[0]);
-            clearInterval(timer);
-            isVideoChat = true;
-            resolve(logDiv);
+            resolve($logDiv);
+         }else{
+            _$logDiv = $('ul[class*=tw-align-items-end]');
+            if (_$logDiv && _$logDiv[0]) {
+               $logDiv = $(_$logDiv[0]);
+               clearInterval(timer);
+               isVideoChat = true;
+               resolve($logDiv);
+            }
          }
       }, 500);
    });
@@ -42,7 +40,7 @@ function findLogDiv() {
 function createOverlay() {
    return new Promise((resolve, reject) => {
       if ($('#danmaku_overlay') && $('#danmaku_overlay').length > 0) {
-         overlay = $('#danmaku_overlay');
+         $overlay = $('#danmaku_overlay');
          resolve();
          return;
       }
@@ -52,13 +50,13 @@ function createOverlay() {
          var videoPlayer = $('.player');
          if (streamPlayer && streamPlayer.length > 0) {
             $(streamPlayer[0]).append('<div id="danmaku_overlay"></div>')
-            overlay = $('#danmaku_overlay');
+            $overlay = $('#danmaku_overlay');
             clearInterval(timer);
             isVideoPlayer = false;
             resolve();
          }else if (videoPlayer && videoPlayer.length > 0) {
             $(videoPlayer[0]).append('<div id="danmaku_overlay"></div>')
-            overlay = $('#danmaku_overlay');
+            $overlay = $('#danmaku_overlay');
             clearInterval(timer);
             isVideoPlayer = true;
             resolve();
@@ -96,7 +94,6 @@ function digestChatDom(dom) {
                }
                continue;
             }
-
             if($(ele).attr('aria-hidden')){
                continue;
             }
@@ -104,7 +101,6 @@ function digestChatDom(dom) {
          content += ele.outerHTML;
       }
    }
-
 
    var entry = {
       username: username,
@@ -115,62 +111,25 @@ function digestChatDom(dom) {
 
 function addNewDanmaku(entry) {
    if (!config.enabled || !entry) return;
-   if (_lastEntry === entry) return;
-   _lastEntry = entry;
-   var danmaku = $(`<span class='danmaku' title='${entry.username}'>${entry.content}</span>`);
-
    let layer = 0;
-   for (; layer < 20; layer++) {
-      if (!danmakus[`L${layer}`]) {
-         danmakus[`L${layer}`] = [];
-         danmakus[`L${layer}`].push(danmaku);
+   let maxLayer = Math.floor($overlay.height() / (parseInt(config.font_size) + 4)) - 1;
+   for (; layer < maxLayer; layer++) {
+      if(!layers[layer]){
+         layers[layer] = true;
          break;
-      } else if (danmakus[`L${layer}`].length <= 0) {
-         danmakus[`L${layer}`].push(danmaku);
-         break;
-      } else {
-         continue;
       }
-   }
-   if (layer >= 20) {
-      layer = 0;
    }
    setTimeout(() => {
-      let l = danmaku.attr('layer');
-      if (danmakus[`L${l}`] && danmakus[`L${l}`].indexOf(danmaku) >= 0) {
-         danmakus[`L${l}`].splice(danmakus[`L${l}`].indexOf(danmaku), 1);
-      }
+      layers[layer] = false;
    }, Math.floor(config.duration * 500));
-   danmaku.attr('layer', layer);
-   overlay.append(danmaku);
-   danmaku.css('height', (parseInt(config.font_size) + 4) + 'px');
-   danmaku.css('opacity', config.opacity);
-   danmaku.css('animation-duration', `${config.duration}s`);
-   danmaku.css('font-size', config.font_size + 'px');
-   var top = layer * (parseInt(config.font_size) + 4);
-   danmaku.css('top', top + 'px');
-   switch(config.textDecoration){
-       case 'none':
-           danmaku.css('text-shadow', 'none');
-           break;
-       case 'shadow':
-           danmaku.css('text-shadow', '0px 2px 0 black');
-           break;
-       case 'stroke':
-           danmaku.css('text-shadow', '-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000');
-           break;
-   }
 
-   danmaku.one("webkitAnimationEnd oanimationend msAnimationEnd animationend",
-      function(event) {
-         danmaku.remove();
-      }
-   );
+   const danmaku = new Danmaku(entry, layer, config);
+   danmaku.attachTo($overlay);
 }
 
 function start() {
-   logDiv.unbind('DOMNodeInserted');
-   logDiv.bind('DOMNodeInserted', (event) => {
+   $logDiv.unbind('DOMNodeInserted');
+   $logDiv.bind('DOMNodeInserted', (event) => {
       var newChatDOM = event.target;
       setTimeout(()=>{
          var chatEntry = digestChatDom(newChatDOM);
@@ -195,6 +154,7 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
    switch (request.type) {
       case 'SETTINGS':
          config = request.data;
+         $overlay.css('display', config.enabled ? 'block' : 'none');
          break;
       case 'URL_CHANGE':
          init();

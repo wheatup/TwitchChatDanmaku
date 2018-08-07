@@ -2,7 +2,7 @@
 
 ## Summary
 
-> * This is a chrome extension that brings danmaku (bullet curtain comments) feature to twitch.tv, with fully customizable settings.
+> * This is a chrome extension that brings danmaku (barrage comments) feature to twitch.tv, with fully customizable settings.
 > * You can watch twitch chat directly on the stream without having to glance at the chat window, even possible in full screen mode.
 > * This extension supports all kinds of emoticons; you won't miss any detail of any chat!
 > * Have fun!
@@ -21,6 +21,12 @@
 
 ## Change Logs
 
+### 1.0.10
+> * New avaliable language: 日本語.
+> * Slightly improves performance.
+> * Disable danmaku will now hide danmaku immediately.
+> * Now maximum count of danmaku rows will be depend on the height of the video area.
+
 ### 1.0.9
 > * Fixed some locale translation errors.
 > * Temporarily removed Srpski support due to an encoding error.
@@ -28,7 +34,7 @@
 ### 1.0.8
 > * Add text style option.
 > * Remove apply button, now all settings will apply instantly.
-> * More supported languages: Srpski, Deutsch
+> * More supported languages: Srpski, Deutsch.
 
 ### 1.0.7
 > * Use page action instead of browser action.
