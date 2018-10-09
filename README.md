@@ -21,6 +21,10 @@
 
 ## Change Logs
 
+### 1.1.3
+> * Drastically increased the performance.
+> * Fixed a bug that may cause some danmaku stay on the screen forever.
+
 ### 1.0.10
 > * New avaliable language: 日本語.
 > * Slightly improves performance.

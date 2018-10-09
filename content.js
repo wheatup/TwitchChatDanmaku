@@ -136,6 +136,7 @@ function start() {
          addNewDanmaku(chatEntry);
       }, 0);
    });
+   // checkDanmaku();
    console.log('Danmanku ready!');
 }
 
