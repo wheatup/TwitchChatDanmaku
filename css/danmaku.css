@@ -13,7 +13,7 @@
    overflow: visible;
    font-weight: bold;
    vertical-align: middle;
-   transition: transform 5s cubic-bezier(.2,.3,.8,.6), visiblity .1s;
+   transition: transform 5s linear, visiblity .1s;
    visibility: hidden;
 }
 

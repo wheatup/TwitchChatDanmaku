@@ -121,7 +121,7 @@ function addNewDanmaku(entry) {
    }
    setTimeout(() => {
       layers[layer] = false;
-   }, Math.floor(config.duration * 500));
+   }, Math.floor(config.duration * 300));
 
    const danmaku = new Danmaku(entry, layer, config);
    danmaku.attachTo($overlay);

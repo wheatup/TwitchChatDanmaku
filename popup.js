@@ -43,13 +43,13 @@ $(document).ready(() => {
       $('#enabled').bootstrapToggle('on');
       $('#further_settings').slideDown(200);
       $('#show_username').bootstrapToggle('off');
-      $("#duration").val(5);
-      $("#font_size").val(24);
+      $("#duration").val(10);
+      $("#font_size").val(32);
       $("#opacity").val(1);
       $("#textDecoration").val('stroke');
       enabled = true;
       duration = 5;
-      font_size = 24;
+      font_size = 32;
       opacity = 1;
       show_username = false;
       textDecoration = 'stroke';
@@ -151,8 +151,8 @@ function onClickApply() {
 function onClickResetToDefault() {
    $('#enabled').bootstrapToggle('on');
    $('#show_username').bootstrapToggle('off');
-   $("#duration").val(5);
-   $("#font_size").val(24);
+   $("#duration").val(10);
+   $("#font_size").val(32);
    $("#opacity").val(1);
    $('#textDecoration').val('stroke');
    document.getElementById('duration-display').value = document.getElementById('duration').value + chrome.i18n.getMessage('s');

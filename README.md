@@ -21,6 +21,9 @@
 
 ## Change Logs
 
+### 1.1.4
+> * Tweek some settings.
+
 ### 1.1.3
 > * Drastically increased the performance.
 > * Fixed a bug that may cause some danmaku stay on the screen forever.

@@ -18,7 +18,7 @@ const Danmaku = function (entry, layer, config) {
          this.html.css('text-shadow', '0px 2px 0 black');
          break;
       case 'stroke':
-         this.html.css('text-shadow', '-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000');
+         this.html.css('text-shadow', '-2px -2px 0 rgba(0,0,0,.6), 2px -2px 0 rgba(0,0,0,.6), -2px 2px 0 rgba(0,0,0,.6), 2px 2px 0 rgba(0,0,0,.6)');
          break;
    }
 }
