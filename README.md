@@ -7,7 +7,7 @@
 
 <hr/>
 
-## Summary
+## <span id="Summary">Summary</span>
 
 > * This is a chrome extension that brings danmaku (barrage comments) feature to twitch.tv, with fully customizable settings.
 > * You can watch twitch chat directly on the stream without having to glance at the chat window, even possible in full screen mode.
@@ -88,7 +88,7 @@
 
 <hr/>
 
-# 中文说明
+# <span id="中文说明-1">中文说明</span>
 
 ## 简介
 
