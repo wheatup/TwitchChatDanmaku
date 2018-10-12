@@ -25,8 +25,8 @@
 ### Standalone Installation
 > 1. Download [TwitchChatDanmaku.crx](https://github.com/wheatup/TwitchChatDanmaku/raw/master/build/TwitchChatDanmaku.crx) file.
 > 2. Open up chrome, in the address bar, type ```chrome://extensions/```, and enter.
-> 3. Click and drag the downloaded file into the viewport.
-> 4. Viola
+> 3. Turn on Developer Mode at the top right corner.
+> 4. Click and drag the downloaded file into the viewport.
 
 ## Preview
 
@@ -107,7 +107,8 @@
 ### 离线安装方法
 > 1. 首先下载 [TwitchChatDanmaku.crx](https://github.com/wheatup/TwitchChatDanmaku/raw/master/build/TwitchChatDanmaku.crx) 文件。
 > 2. 打开chrome，在地址栏输入 ```chrome://extensions/``` 并回车。
-> 3. 将下载的crx文件拖曳至浏览器窗口中完成安装。
+> 3. 在页面右上角，启用开发者模式。
+> 4. 将下载的crx文件拖曳至浏览器窗口中完成安装。
 
 ## 预览
 
