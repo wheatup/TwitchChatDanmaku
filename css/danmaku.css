@@ -13,12 +13,20 @@
    overflow: visible;
    font-weight: bold;
    vertical-align: middle;
-   transition: transform 5s linear, visiblity .1s;
+   transition: transform 5s cubic-bezier(.15,.3,.85,.7), visiblity .1s;
    visibility: hidden;
 }
 
 #danmaku_overlay .danmaku .chat-image {
    display: inline-block !important;
+}
+
+#danmaku_overlay .stroke, #danmaku_overlay .stroke>*, #danmaku_overlay .stroke>*>*, #danmaku_overlay .stroke>*>*>*, #danmaku_overlay .stroke>*>*>*>*, #danmaku_overlay .stroke>*>*>*>*>*, #danmaku_overlay .stroke>*>*>*>*>*>*{
+   text-shadow: -2px -2px 0 rgba(0,0,0,.6), 2px -2px 0 rgba(0,0,0,.6), -2px 2px 0 rgba(0,0,0,.6), 2px 2px 0 rgba(0,0,0,.6) !important;
+}
+
+#danmaku_overlay .shadow, #danmaku_overlay .shadow>*, #danmaku_overlay .shadow>*>*, #danmaku_overlay .shadow>*>*>*, #danmaku_overlay .shadow>*>*>*>*, #danmaku_overlay .shadow>*>*>*>*>*, #danmaku_overlay .shadow>*>*>*>*>*>*{
+   text-shadow: 0px 2px 0 black !important;
 }
 
 #danmaku_overlay .danmaku .tw-placeholder {

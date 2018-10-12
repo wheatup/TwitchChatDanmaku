@@ -43,7 +43,7 @@ $(document).ready(() => {
       $('#enabled').bootstrapToggle('on');
       $('#further_settings').slideDown(200);
       $('#show_username').bootstrapToggle('off');
-      $("#duration").val(10);
+      $("#duration").val(7);
       $("#font_size").val(32);
       $("#opacity").val(1);
       $("#textDecoration").val('stroke');
@@ -151,7 +151,7 @@ function onClickApply() {
 function onClickResetToDefault() {
    $('#enabled').bootstrapToggle('on');
    $('#show_username').bootstrapToggle('off');
-   $("#duration").val(10);
+   $("#duration").val(7);
    $("#font_size").val(32);
    $("#opacity").val(1);
    $('#textDecoration').val('stroke');

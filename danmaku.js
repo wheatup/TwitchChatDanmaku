@@ -12,13 +12,13 @@ const Danmaku = function (entry, layer, config) {
    setTimeout(() => { if (this.html) this.html.remove() }, config.duration * 1000 + 2000);
    switch (config.textDecoration) {
       case 'none':
-         this.html.css('text-shadow', 'none');
+         
          break;
       case 'shadow':
-         this.html.css('text-shadow', '0px 2px 0 black');
+         this.html.addClass('shadow');
          break;
       case 'stroke':
-         this.html.css('text-shadow', '-2px -2px 0 rgba(0,0,0,.6), 2px -2px 0 rgba(0,0,0,.6), -2px 2px 0 rgba(0,0,0,.6), 2px 2px 0 rgba(0,0,0,.6)');
+         this.html.addClass('stroke');
          break;
    }
 }
@@ -31,7 +31,7 @@ Danmaku.prototype.attachTo = function (container) {
    container.append(this.html);
    setTimeout(() => {
       if (this.html) {
-         let myWidth = this.html.width() + width;
+         let myWidth = Math.floor(this.html.width() + 100);
          this.html.css('transform', `translateX(-${myWidth}px)`);
       }
    }, 0);

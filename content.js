@@ -69,7 +69,6 @@ function digestChatDom(dom) {
    if (!dom) return null;
    let username = $(dom).find('span[data-a-target=chat-message-username]').html();
    if(!username) return;
-   //let color = '';
    if(isVideoChat){
       dom = $(dom).find('.tw-flex-grow-1')[0];
    }
@@ -119,9 +118,12 @@ function addNewDanmaku(entry) {
          break;
       }
    }
+   if(layer === maxLayer){
+      layer = Math.floor(Math.random() * maxLayer);
+   }
    setTimeout(() => {
       layers[layer] = false;
-   }, Math.floor(config.duration * 300));
+   }, Math.floor(config.duration * 500));
 
    const danmaku = new Danmaku(entry, layer, config);
    danmaku.attachTo($overlay);
