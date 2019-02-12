@@ -88,5 +88,8 @@
    },
    "tipFont": {
       "message": "设置弹幕的字体"
+   },
+   "default": {
+      "message": "默认"
    }
 }

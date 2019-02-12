@@ -90,5 +90,8 @@
    },
    "tipFont": {
       "message": "Set the font of the danmaku."
+   },
+   "default": {
+      "message": "Default"
    }
 }

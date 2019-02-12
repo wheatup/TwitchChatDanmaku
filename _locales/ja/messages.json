@@ -90,5 +90,8 @@
    },
    "tipFont": {
       "message": "弾幕のフォントを設定する"
+   },
+   "default": {
+      "message": "既定"
    }
 }

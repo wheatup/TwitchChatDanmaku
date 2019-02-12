@@ -43,7 +43,7 @@ function saveSettings() {
 	localStorage.setItem('opacity', settings.opacity);
 	localStorage.setItem('show_username', settings.show_username);
 	localStorage.setItem('textDecoration', settings.textDecoration);
-	localStorage.setItem('font', settings.font);
+	localStorage.setItem('font', settings.font || 'Default');
 }
 
 function loadSettings() {

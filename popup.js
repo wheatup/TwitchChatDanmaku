@@ -49,7 +49,7 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 			onGotSettings();
 			break;
 		case 'GOT_FONTS':
-			request.data.forEach(font => $('#font').append(`<option value="${font}"${settings.font === font ? ' selected="selected"' : ''}>${font}</option>`));
+			request.data.forEach(font => $('#font').append(`<option value="${font}"${settings.font === font ? ' selected="selected"' : ''}>${font === 'Default' ? chrome.i18n.getMessage('default') : font}</option>`));
 			break;
 	}
 });

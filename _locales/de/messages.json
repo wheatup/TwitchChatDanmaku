@@ -90,5 +90,8 @@
    },
    "tipFont": {
       "message": "Stellen Sie die Schriftart des Danmaku ein."
+   },
+   "default": {
+      "message": "Standard"
    }
 }
