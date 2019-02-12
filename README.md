@@ -34,6 +34,9 @@
 
 ## <span id="ChangeLog">Change Logs</span>
 
+### 1.2.1
+> * Minor bugs fixed.
+
 ### 1.2.0
 > * Rewrote most of the shitty codes.
 > * Added font selection.
@@ -120,6 +123,9 @@
 ![preview](https://lh3.googleusercontent.com/eQeZIQNlqrZe_dtKCtNZdv_ZDZoh-vKJ3hPFDI1FmOHyIdQpQDfmZPof8H_1yNvn1803lBj6=w640-h400-e365)
 
 ## <span id="ChangeLogCN">更新日志</span>
+
+### 1.2.1
+> * 修复了一些小BUG。
 
 ### 1.2.0
 > * 重写了大部分代码。

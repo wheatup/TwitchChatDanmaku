@@ -1,11 +1,11 @@
-var $logDiv = null;
-var $overlay = null;
-var layers = [];
-var isVideoPlayer = false;
-var isVideoChat = false;
-var fontList = null;
+let $logDiv = null;
+let $overlay = null;
+let layers = [];
+let isVideoPlayer = false;
+let isVideoChat = false;
+let fontList = null;
 
-var settings = {};
+let settings = {};
 
 function sendMessage(type, data) {
 	chrome.runtime.sendMessage({ type, data });
@@ -42,7 +42,7 @@ function createOverlay() {
 		}
 
 		let timer = setInterval(() => {
-			var streamPlayer = $('.player-root');
+			var streamPlayer = $('.extension-container');
 			var videoPlayer = $('.player');
 			if (streamPlayer && streamPlayer.length > 0) {
 				$(streamPlayer[0]).append('<div id="danmaku_overlay"></div>');
