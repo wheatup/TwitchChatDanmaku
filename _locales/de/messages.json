@@ -84,5 +84,11 @@
    },
    "lblStroke": {
       "message": "Kante"
+   },
+   "lblFont": {
+      "message": "Schriftart: "
+   },
+   "tipFont": {
+      "message": "Stellen Sie die Schriftart des Danmaku ein."
    }
 }

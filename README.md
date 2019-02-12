@@ -34,6 +34,11 @@
 
 ## <span id="ChangeLog">Change Logs</span>
 
+### 1.2.0
+> * Rewrote most of the shitty codes.
+> * Added font selection.
+> * Fixed a gitch that may cause problems on retina screens.
+
 ### 1.1.5
 > * Fixed a bug that the danmaku stays shorter than expected.
 > * Fixed a bug that some of the danmaku is not affected by global style settings.
@@ -115,6 +120,11 @@
 ![preview](https://lh3.googleusercontent.com/eQeZIQNlqrZe_dtKCtNZdv_ZDZoh-vKJ3hPFDI1FmOHyIdQpQDfmZPof8H_1yNvn1803lBj6=w640-h400-e365)
 
 ## <span id="ChangeLogCN">更新日志</span>
+
+### 1.2.0
+> * 重写了大部分代码。
+> * 增加了字体选择。
+> * 修复了一个可能导致视网膜屏显示异常的问题。
 
 ### 1.1.5
 > * 修复了弹幕的显示时间短于预期的BUG。

@@ -84,5 +84,11 @@
    },
    "lblStroke": {
       "message": "Stroke"
+   },
+   "lblFont": {
+      "message": "Font: "
+   },
+   "tipFont": {
+      "message": "Set the font of the danmaku."
    }
 }

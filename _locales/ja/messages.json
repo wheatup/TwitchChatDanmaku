@@ -84,5 +84,11 @@
    },
    "lblStroke": {
       "message": "ストローク"
+   },
+   "lblFont": {
+      "message": "フォント: "
+   },
+   "tipFont": {
+      "message": "弾幕のフォントを設定する"
    }
 }

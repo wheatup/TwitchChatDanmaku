@@ -10,7 +10,7 @@ html{
    margin: 20px;
 }
 
-#textDecoration{
+#textDecoration, #font{
     display: inline-block;
     width: 150px;
 }

@@ -82,5 +82,11 @@
    },
    "lblStroke": {
       "message": "描边"
+   },
+   "lblFont": {
+      "message": "字体："
+   },
+   "tipFont": {
+      "message": "设置弹幕的字体"
    }
 }
