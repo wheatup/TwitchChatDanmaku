@@ -172,19 +172,17 @@ function replaceToggleVisibility() {
 
 function toggleVisibility() {
 	injected = true;
-	$('.right-column .tw-flex-grow-0').toggle();
-	$('.right-column .tw-flex-grow-0').toggleClass('tw-block');
+	let container = $('nav.top-nav~.tw-flex');
+	container.toggleClass('_tcd_full');
 	let svg = $('.right-column__toggle-visibility .tw-svg');
 	let rightarr =
 		'<svg class="tw-svg__asset tw-svg__asset--glypharrright tw-svg__asset--inherit" width="20px" height="20px" version="1.1" viewBox="0 0 20 20" x="0px" y="0px"><path d="M7.463 5.054a.714.714 0 0 0-.463.66v8.572c0 .289.183.55.463.66.28.11.603.05.817-.155l4.5-4.286A.696.696 0 0 0 13 10a.7.7 0 0 0-.22-.505L8.28 5.21a.777.777 0 0 0-.817-.155"></path></svg>';
 	let leftarr =
 		'<svg class="tw-svg__asset tw-svg__asset--glypharrleft tw-svg__asset--inherit" width="20px" height="20px" version="1.1" viewBox="0 0 20 20" x="0px" y="0px"><path d="M12.537 14.946a.714.714 0 0 0 .463-.66V5.714a.715.715 0 0 0-.463-.66.777.777 0 0 0-.817.155l-4.5 4.286A.696.696 0 0 0 7 10a.7.7 0 0 0 .22.505l4.5 4.286a.777.777 0 0 0 .817.155"></path></svg>';
-	if ($('.right-column .tw-flex-grow-0').css('display') !== 'none') {
-		svg.html(rightarr);
-		$('.persistent-player').removeClass('_tcd_full');
-	} else {
-		$('.persistent-player').addClass('_tcd_full');
+	if (container.hasClass('_tcd_full')) {
 		svg.html(leftarr);
+	} else {
+		svg.html(rightarr);
 	}
 }
 

@@ -53,6 +53,10 @@
    vertical-align: middle;
 }
 
-._tcd_full{
+._tcd_full .persistent-player{
 	width: 100% !important;
+}
+
+._tcd_full .right-column div.tw-flex-grow-0, ._tcd_full .right-column div.tw-flex-grow-0.tw-block{
+	display: none !important;
 }
