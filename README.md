@@ -34,6 +34,10 @@
 
 ## <span id="ChangeLog">Change Logs</span>
 
+### 1.2.2
+> * Max font size increased to 100px!
+> * When you collapse the chat manually, you won't get logged out from chat server!
+
 ### 1.2.1
 > * Minor bugs fixed.
 
@@ -123,6 +127,10 @@
 ![preview](https://lh3.googleusercontent.com/eQeZIQNlqrZe_dtKCtNZdv_ZDZoh-vKJ3hPFDI1FmOHyIdQpQDfmZPof8H_1yNvn1803lBj6=w640-h400-e365)
 
 ## <span id="ChangeLogCN">更新日志</span>
+
+### 1.2.2
+> * 最大字号提升至100像素！
+> * 当手动隐藏聊天区时，你将不会从聊天服务器登出！
 
 ### 1.2.1
 > * 修复了一些小BUG。

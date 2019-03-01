@@ -3,7 +3,7 @@
       "message": "Twitch Chat Danmaku"
    },
    "appDescription": {
-      "message": "Embed the chat into the stream with a danmaku style, compatible with BetterTTV and other custom emoticons!"
+      "message": "Put the chat into the stream using danmaku style(a chat overlay, similar to niconico/bilibili), compatible with BetterTTV and other custom emoticons!"
    },
    "settingsTitle": {
       "message": "Danmaku Settings"
