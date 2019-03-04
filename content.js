@@ -151,6 +151,10 @@ function init() {
 		.then(start);
 	sendMessage('GET_SETTINGS');
 	sendMessage('GET_FONTS');
+	if (checkTimer) {
+		clearInterval(checkTimer);
+	}
+	checkTimer = setInterval(check, 1000);
 }
 
 let injected = false;
@@ -170,10 +174,34 @@ function replaceToggleVisibility() {
 	});
 }
 
+let checkTimer = null;
+function check() {
+	let container = $('nav.top-nav~.tw-flex');
+	if (container.hasClass('_tcd_full')) {
+		if ($('.whispers') && $('.whispers').hasClass('whispers--right-column-expanded')) {
+			$('.whispers').removeClass('whispers--right-column-expanded');
+		}
+	} else {
+		if ($('.whispers') && !$('.whispers').hasClass('whispers--right-column-expanded')) {
+			$('.whispers').addClass('whispers--right-column-expanded');
+		}
+	}
+}
+
 function toggleVisibility() {
 	injected = true;
 	let container = $('nav.top-nav~.tw-flex');
-	container.toggleClass('_tcd_full');
+	if (container.hasClass('_tcd_full')) {
+		container.removeClass('_tcd_full');
+		if ($('.whispers') && !$('.whispers').hasClass('whispers--right-column-expanded')) {
+			$('.whispers').addClass('whispers--right-column-expanded');
+		}
+	} else {
+		container.addClass('_tcd_full');
+		if ($('.whispers') && $('.whispers').hasClass('whispers--right-column-expanded')) {
+			$('.whispers').removeClass('whispers--right-column-expanded');
+		}
+	}
 	let svg = $('.right-column__toggle-visibility .tw-svg');
 	let rightarr =
 		'<svg class="tw-svg__asset tw-svg__asset--glypharrright tw-svg__asset--inherit" width="20px" height="20px" version="1.1" viewBox="0 0 20 20" x="0px" y="0px"><path d="M7.463 5.054a.714.714 0 0 0-.463.66v8.572c0 .289.183.55.463.66.28.11.603.05.817-.155l4.5-4.286A.696.696 0 0 0 13 10a.7.7 0 0 0-.22-.505L8.28 5.21a.777.777 0 0 0-.817-.155"></path></svg>';
