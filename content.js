@@ -158,7 +158,10 @@ function init() {
 }
 
 let injected = false;
+let replaced = false;
 function replaceToggleVisibility() {
+	if(replaced) return;
+	replaced = true;
 	let toggle = $('.right-column__toggle-visibility');
 	toggle.click(e => {
 		if (!$('.right-column .tw-flex-grow-0').is(':visible') || $('.right-column .tw-flex-grow-0').width() <= 5) {
