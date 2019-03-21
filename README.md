@@ -34,6 +34,9 @@
 
 ## <span id="ChangeLog">Change Logs</span>
 
+### 1.3.5
+> * Fix a glitch that the settings panel won't showing up on laatest chrome.
+
 ### 1.3.3
 > * Major glitch fixed.
 
@@ -130,6 +133,9 @@
 ![preview](https://lh3.googleusercontent.com/eQeZIQNlqrZe_dtKCtNZdv_ZDZoh-vKJ3hPFDI1FmOHyIdQpQDfmZPof8H_1yNvn1803lBj6=w640-h400-e365)
 
 ## <span id="ChangeLogCN">更新日志</span>
+
+### 1.3.5
+> * 修复在新版本chrome无法打开设置面板的bug。
 
 ### 1.3.3
 > * BUG修复。
