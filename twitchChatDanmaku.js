@@ -142,7 +142,7 @@ function start() {
 		}, 0);
 	});
 	replaceToggleVisibility();
-	console.log('Danmanku ready!');
+	console.log('%c[Twitch Chat Danmaku] If you like this extension, please consider to support the dev by sending a donation via https://www.paypal.me/wheatup. Thanks! Pepega', 'color: #295; font-weight: bold;');
 }
 
 function init() {
