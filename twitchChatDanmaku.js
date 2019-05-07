@@ -14,14 +14,14 @@ function sendMessage(type, data) {
 function findLogDiv() {
 	return new Promise((resolve, reject) => {
 		let timer = setInterval(() => {
-			let _$logDiv = $('div[role=log]');
+			let _$logDiv = $("div[role=log]");
 			if (_$logDiv && _$logDiv[0]) {
 				$logDiv = $(_$logDiv[0]);
 				clearInterval(timer);
 				isVideoChat = false;
 				resolve($logDiv);
 			} else {
-				_$logDiv = $('ul[class*=tw-align-items-end]');
+				_$logDiv = $("ul[class*=tw-align-items-end]");
 				if (_$logDiv && _$logDiv[0]) {
 					$logDiv = $(_$logDiv[0]);
 					clearInterval(timer);
@@ -35,24 +35,24 @@ function findLogDiv() {
 
 function createOverlay() {
 	return new Promise(resolve => {
-		if ($('#danmaku_overlay') && $('#danmaku_overlay').length > 0) {
-			$overlay = $('#danmaku_overlay');
+		if ($("#danmaku_overlay") && $("#danmaku_overlay").length > 0) {
+			$overlay = $("#danmaku_overlay");
 			resolve();
 			return;
 		}
 
 		let timer = setInterval(() => {
-			var streamPlayer = $('.extension-container');
-			var videoPlayer = $('.player');
+			var streamPlayer = $(".extension-container");
+			var videoPlayer = $(".player");
 			if (streamPlayer && streamPlayer.length > 0) {
 				$(streamPlayer[0]).append('<div id="danmaku_overlay"></div>');
-				$overlay = $('#danmaku_overlay');
+				$overlay = $("#danmaku_overlay");
 				clearInterval(timer);
 				isVideoPlayer = false;
 				resolve();
 			} else if (videoPlayer && videoPlayer.length > 0) {
 				$(videoPlayer[0]).append('<div id="danmaku_overlay"></div>');
-				$overlay = $('#danmaku_overlay');
+				$overlay = $("#danmaku_overlay");
 				clearInterval(timer);
 				isVideoPlayer = true;
 				resolve();
@@ -64,20 +64,20 @@ function createOverlay() {
 function digestChatDom(dom) {
 	if (!dom) return null;
 	let username = $(dom)
-		.find('span[data-a-target=chat-message-username]')
+		.find("span[data-a-target=chat-message-username]")
 		.html();
 	if (!username) return;
 	if (isVideoChat) {
-		dom = $(dom).find('.tw-flex-grow-1')[0];
+		dom = $(dom).find(".tw-flex-grow-1")[0];
 	}
-	let content = '';
+	let content = "";
 	let foundUsername = false;
 	if (isVideoChat) {
-		let ele = '';
+		let ele = "";
 		if (settings.show_username) {
 			ele = dom;
 		} else {
-			ele = $(dom).find('div[data-test-selector=comment-message-selector]')[0];
+			ele = $(dom).find("div[data-test-selector=comment-message-selector]")[0];
 			ele = ele.children[ele.children.length - 1];
 		}
 		content += ele.outerHTML;
@@ -87,16 +87,16 @@ function digestChatDom(dom) {
 			if (!settings.show_username) {
 				if (!foundUsername) {
 					if (
-						$(ele).attr('class') &&
+						$(ele).attr("class") &&
 						$(ele)
-							.attr('class')
-							.indexOf('username') >= 0
+							.attr("class")
+							.indexOf("username") >= 0
 					) {
 						foundUsername = true;
 					}
 					continue;
 				}
-				if ($(ele).attr('aria-hidden')) {
+				if ($(ele).attr("aria-hidden")) {
 					continue;
 				}
 			}
@@ -110,6 +110,8 @@ function digestChatDom(dom) {
 	};
 	return entry;
 }
+
+let timers = [];
 
 function addNewDanmaku(entry) {
 	if (!settings.enabled || !entry) return;
@@ -125,13 +127,16 @@ function addNewDanmaku(entry) {
 		layer = Math.floor(Math.random() * maxLayer);
 	}
 
-
 	const danmaku = new Danmaku(entry, layer, settings);
+
 	setTimeout(() => {
 		let width = danmaku.html.width() || 100;
-		width = Math.max(width, 100);
-		width = Math.min(width, 1000);
-		setTimeout(() => {
+		width = Math.max(width, 160);
+		width = Math.min(width, 2000);
+		if (timers[layer]) {
+			clearTimeout(timers[layer]);
+		}
+		timers[layer] = setTimeout(() => {
 			layers[layer] = false;
 		}, Math.floor(settings.duration * width * 2));
 	}, 50);
@@ -139,8 +144,8 @@ function addNewDanmaku(entry) {
 }
 
 function start() {
-	$logDiv.unbind('DOMNodeInserted');
-	$logDiv.bind('DOMNodeInserted', event => {
+	$logDiv.unbind("DOMNodeInserted");
+	$logDiv.bind("DOMNodeInserted", event => {
 		var newChatDOM = event.target;
 		setTimeout(() => {
 			var chatEntry = digestChatDom(newChatDOM);
@@ -148,15 +153,18 @@ function start() {
 		}, 0);
 	});
 	replaceToggleVisibility();
-	console.log('%c[Twitch Chat Danmaku] If you like this extension, please consider to support the dev by sending a donation via https://www.paypal.me/wheatup. Thanks! Pepega', 'color: #fff; font-weight: bold; background-color: #295; border-radius: 3px; padding: 2px 5px;');
+	console.log(
+		"%c[Twitch Chat Danmaku] If you like this extension, please consider to support the dev by sending a donation via https://www.paypal.me/wheatup. Thanks! Pepega",
+		"color: #fff; font-weight: bold; background-color: #295; border-radius: 3px; padding: 2px 5px;"
+	);
 }
 
 function init() {
 	findLogDiv()
 		.then(createOverlay)
 		.then(start);
-	sendMessage('GET_SETTINGS');
-	sendMessage('GET_FONTS');
+	sendMessage("GET_SETTINGS");
+	sendMessage("GET_FONTS");
 	if (checkTimer) {
 		clearInterval(checkTimer);
 	}
@@ -168,9 +176,9 @@ let replaced = false;
 function replaceToggleVisibility() {
 	if (replaced) return;
 	replaced = true;
-	let toggle = $('.right-column__toggle-visibility');
+	let toggle = $(".right-column__toggle-visibility");
 	toggle.click(e => {
-		if (!$('.right-column .tw-flex-grow-0').is(':visible') || $('.right-column .tw-flex-grow-0').width() <= 5) {
+		if (!$(".right-column .tw-flex-grow-0").is(":visible") || $(".right-column .tw-flex-grow-0").width() <= 5) {
 			if (!injected) {
 			} else {
 				toggleVisibility();
@@ -185,38 +193,38 @@ function replaceToggleVisibility() {
 
 let checkTimer = null;
 function check() {
-	let container = $('nav.top-nav~.tw-flex');
-	if (container.hasClass('_tcd_full')) {
-		if ($('.whispers') && $('.whispers').hasClass('whispers--right-column-expanded')) {
-			$('.whispers').removeClass('whispers--right-column-expanded');
+	let container = $("nav.top-nav~.tw-flex");
+	if (container.hasClass("_tcd_full")) {
+		if ($(".whispers") && $(".whispers").hasClass("whispers--right-column-expanded")) {
+			$(".whispers").removeClass("whispers--right-column-expanded");
 		}
 	} else {
-		if ($('.whispers') && !$('.whispers').hasClass('whispers--right-column-expanded')) {
-			$('.whispers').addClass('whispers--right-column-expanded');
+		if ($(".whispers") && !$(".whispers").hasClass("whispers--right-column-expanded")) {
+			$(".whispers").addClass("whispers--right-column-expanded");
 		}
 	}
 }
 
 function toggleVisibility() {
 	injected = true;
-	let container = $('nav.top-nav~.tw-flex');
-	if (container.hasClass('_tcd_full')) {
-		container.removeClass('_tcd_full');
-		if ($('.whispers') && !$('.whispers').hasClass('whispers--right-column-expanded')) {
-			$('.whispers').addClass('whispers--right-column-expanded');
+	let container = $("nav.top-nav~.tw-flex");
+	if (container.hasClass("_tcd_full")) {
+		container.removeClass("_tcd_full");
+		if ($(".whispers") && !$(".whispers").hasClass("whispers--right-column-expanded")) {
+			$(".whispers").addClass("whispers--right-column-expanded");
 		}
 	} else {
-		container.addClass('_tcd_full');
-		if ($('.whispers') && $('.whispers').hasClass('whispers--right-column-expanded')) {
-			$('.whispers').removeClass('whispers--right-column-expanded');
+		container.addClass("_tcd_full");
+		if ($(".whispers") && $(".whispers").hasClass("whispers--right-column-expanded")) {
+			$(".whispers").removeClass("whispers--right-column-expanded");
 		}
 	}
-	let svg = $('.right-column__toggle-visibility .tw-svg');
+	let svg = $(".right-column__toggle-visibility .tw-svg");
 	let rightarr =
 		'<svg class="tw-svg__asset tw-svg__asset--glypharrright tw-svg__asset--inherit" width="20px" height="20px" version="1.1" viewBox="0 0 20 20" x="0px" y="0px"><path d="M7.463 5.054a.714.714 0 0 0-.463.66v8.572c0 .289.183.55.463.66.28.11.603.05.817-.155l4.5-4.286A.696.696 0 0 0 13 10a.7.7 0 0 0-.22-.505L8.28 5.21a.777.777 0 0 0-.817-.155"></path></svg>';
 	let leftarr =
 		'<svg class="tw-svg__asset tw-svg__asset--glypharrleft tw-svg__asset--inherit" width="20px" height="20px" version="1.1" viewBox="0 0 20 20" x="0px" y="0px"><path d="M12.537 14.946a.714.714 0 0 0 .463-.66V5.714a.715.715 0 0 0-.463-.66.777.777 0 0 0-.817.155l-4.5 4.286A.696.696 0 0 0 7 10a.7.7 0 0 0 .22.505l4.5 4.286a.777.777 0 0 0 .817.155"></path></svg>';
-	if (container.hasClass('_tcd_full')) {
+	if (container.hasClass("_tcd_full")) {
 		svg.html(leftarr);
 	} else {
 		svg.html(rightarr);
@@ -227,20 +235,20 @@ $(document).ready(() => {
 	init();
 });
 
-chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
+chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
 	switch (request.type) {
-		case 'GOT_SETTINGS':
+		case "GOT_SETTINGS":
 			settings = request.data;
-			$overlay.css('display', settings.enabled ? 'block' : 'none');
+			$overlay.css("display", settings.enabled ? "block" : "none");
 			break;
-		case 'UPDATE_SETTINGS':
+		case "UPDATE_SETTINGS":
 			settings = request.data;
-			$overlay.css('display', settings.enabled ? 'block' : 'none');
+			$overlay.css("display", settings.enabled ? "block" : "none");
 			break;
-		case 'URL_CHANGE':
+		case "URL_CHANGE":
 			init();
 			break;
-		case 'GOT_FONTS':
+		case "GOT_FONTS":
 			fontList = request.data;
 			break;
 	}
