@@ -124,11 +124,17 @@ function addNewDanmaku(entry) {
 	if (layer === maxLayer) {
 		layer = Math.floor(Math.random() * maxLayer);
 	}
-	setTimeout(() => {
-		layers[layer] = false;
-	}, Math.floor(settings.duration * 500));
+
 
 	const danmaku = new Danmaku(entry, layer, settings);
+	setTimeout(() => {
+		let width = danmaku.html.width() || 100;
+		width = Math.max(width, 100);
+		width = Math.min(width, 1000);
+		setTimeout(() => {
+			layers[layer] = false;
+		}, Math.floor(settings.duration * width * 2));
+	}, 50);
 	danmaku.attachTo($overlay);
 }
 
@@ -142,7 +148,7 @@ function start() {
 		}, 0);
 	});
 	replaceToggleVisibility();
-	console.log('%c[Twitch Chat Danmaku] If you like this extension, please consider to support the dev by sending a donation via https://www.paypal.me/wheatup. Thanks! Pepega', 'color: #295; font-weight: bold;');
+	console.log('%c[Twitch Chat Danmaku] If you like this extension, please consider to support the dev by sending a donation via https://www.paypal.me/wheatup. Thanks! Pepega', 'color: #fff; font-weight: bold; background-color: #295; border-radius: 3px; padding: 2px 5px;');
 }
 
 function init() {
@@ -160,7 +166,7 @@ function init() {
 let injected = false;
 let replaced = false;
 function replaceToggleVisibility() {
-	if(replaced) return;
+	if (replaced) return;
 	replaced = true;
 	let toggle = $('.right-column__toggle-visibility');
 	toggle.click(e => {
@@ -221,7 +227,7 @@ $(document).ready(() => {
 	init();
 });
 
-chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
+chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 	switch (request.type) {
 		case 'GOT_SETTINGS':
 			settings = request.data;

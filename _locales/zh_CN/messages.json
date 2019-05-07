@@ -1,95 +1,101 @@
 {
-   "appName": {
-      "message": "Twitch聊天弹幕"
-   },
-   "appDescription": {
-      "message": "将Twitch聊天嵌入直播视频内部且以弹幕方式呈现，支持Twitch表情符号和BetterTTV自定义表情符号！"
-   },
-   "settingsTitle": {
-      "message": "弹幕设置"
-   },
-   "tipEnable": {
-      "message": "开启/关闭弹幕"
-   },
-   "lblEnable": {
-      "message": "弹幕: "
-   },
-   "tipUsername": {
-      "message": "是否显示弹幕的发送者"
-   },
-   "lblUsername": {
-      "message": "显示用户: "
-   },
-   "tipDuration": {
-      "message": "每条弹幕的持续时间"
-   },
-   "lblDuration": {
-      "message": "持续时间: "
-   },
-   "tipFontSize": {
-      "message": "弹幕的字体大小"
-   },
-   "lblFontSize": {
-      "message": "字体大小: "
-   },
-   "tipOpacity": {
-      "message": "弹幕的透明度"
-   },
-   "lblOpacity": {
-      "message": "透明度: "
-   },
-   "tipApply": {
-      "message": "应用当前设置"
-   },
-   "lblApply": {
-      "message": "应用"
-   },
-   "tipResetToDefault": {
-      "message": "恢复至默认设置并应用"
-   },
-   "lblResetToDefault": {
-      "message": "恢复默认"
-   },
-   "enable": {
-      "message": "开启"
-   },
-   "disable": {
-      "message": "关闭"
-   },
-   "show": {
-      "message": "显示"
-   },
-   "hide": {
-      "message": "隐藏"
-   },
-   "px": {
-      "message": "px"
-   },
-   "s": {
-      "message": "秒"
-   },
-   "tipTextDecoration": {
-      "message": "更改文字样式，可能会影响性能"
-   },
-   "lblTextDecoration": {
-      "message": "文字样式: "
-   },
-   "lblNone": {
-      "message": "无"
-   },
-   "lblShadow": {
-      "message": "投影"
-   },
-   "lblStroke": {
-      "message": "描边"
-   },
-   "lblFont": {
-      "message": "字体："
-   },
-   "tipFont": {
-      "message": "设置弹幕的字体"
-   },
-   "default": {
-      "message": "默认"
-   }
+	"appName": {
+		"message": "Twitch聊天弹幕"
+	},
+	"appDescription": {
+		"message": "将Twitch聊天嵌入直播视频内部且以弹幕方式呈现，支持Twitch表情符号和BetterTTV自定义表情符号！"
+	},
+	"settingsTitle": {
+		"message": "弹幕设置"
+	},
+	"tipEnable": {
+		"message": "开启/关闭弹幕"
+	},
+	"lblEnable": {
+		"message": "弹幕: "
+	},
+	"tipUsername": {
+		"message": "是否显示弹幕的发送者"
+	},
+	"lblUsername": {
+		"message": "显示用户: "
+	},
+	"tipDuration": {
+		"message": "每条弹幕的持续时间"
+	},
+	"lblDuration": {
+		"message": "持续时间: "
+	},
+	"tipFontSize": {
+		"message": "弹幕的字体大小"
+	},
+	"lblFontSize": {
+		"message": "字体大小: "
+	},
+	"tipOpacity": {
+		"message": "弹幕的透明度"
+	},
+	"lblOpacity": {
+		"message": "透明度: "
+	},
+	"tipApply": {
+		"message": "应用当前设置"
+	},
+	"lblApply": {
+		"message": "应用"
+	},
+	"tipResetToDefault": {
+		"message": "恢复至默认设置并应用"
+	},
+	"lblResetToDefault": {
+		"message": "恢复默认"
+	},
+	"enable": {
+		"message": "开启"
+	},
+	"disable": {
+		"message": "关闭"
+	},
+	"show": {
+		"message": "显示"
+	},
+	"hide": {
+		"message": "隐藏"
+	},
+	"px": {
+		"message": "px"
+	},
+	"s": {
+		"message": "秒"
+	},
+	"tipTextDecoration": {
+		"message": "更改文字样式，可能会影响性能"
+	},
+	"lblTextDecoration": {
+		"message": "文字样式: "
+	},
+	"lblNone": {
+		"message": "无"
+	},
+	"lblShadow": {
+		"message": "投影"
+	},
+	"lblStroke": {
+		"message": "描边"
+	},
+	"lblFont": {
+		"message": "字体："
+	},
+	"tipFont": {
+		"message": "设置弹幕的字体"
+	},
+	"lblBold": {
+		"message": "粗体："
+	},
+	"tipBold": {
+		"message": "是否为粗体"
+	},
+	"default": {
+		"message": "默认"
+	}
 }

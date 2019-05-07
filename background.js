@@ -1,5 +1,5 @@
 let fonts = [];
-let settings = { enabled: true, duration: 7, font_size: 28, opacity: 1, show_username: false, textDecoration: 'stroke', font: 'Default' };
+let settings = { enabled: true, duration: 7, font_size: 28, opacity: 1, show_username: false, textDecoration: 'stroke', font: 'Default', bold: true };
 
 function sendMessage(type, data, tabId = null) {
 	chrome.runtime.sendMessage({ type, data });
@@ -43,6 +43,7 @@ function saveSettings() {
 	localStorage.setItem('opacity', settings.opacity);
 	localStorage.setItem('show_username', settings.show_username);
 	localStorage.setItem('textDecoration', settings.textDecoration);
+	localStorage.setItem('bold', settings.bold);
 	localStorage.setItem('font', settings.font || 'Default');
 }
 
@@ -56,6 +57,7 @@ function loadSettings() {
 		settings.opacity = localStorage.getItem('opacity');
 		settings.textDecoration = localStorage.getItem('textDecoration');
 		settings.font = localStorage.getItem('font');
+		settings.bold = localStorage.getItem('bold') === 'true' || localStorage.getItem('bold') === true;
 		settings.show_username = localStorage.getItem('show_username');
 		settings.show_username = (settings.show_username === 'true' || settings.show_username === true);
 	} else {

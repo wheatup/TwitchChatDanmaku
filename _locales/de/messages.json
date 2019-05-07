@@ -1,97 +1,103 @@
 {
-   "appName": {
-      "message": "Twitch Chat Danmaku"
-   },
-   "appDescription": {
-      "message": "Betten Sie den Chat mit einem Danmaku-Stil in dem Stream ein. Kompatibel mit BetterTTV und anderen Emoticons!"
-   },
-   "settingsTitle": {
-      "message": "Einstellungen"
-   },
-   "tipEnable": {
-      "message": "Ein-/ausschalten"
-   },
-   "lblEnable": {
-      "message": "Danmaku: "
-   },
-   "tipUsername": {
-      "message": "Zeige der Benutzername des Kommentars"
-   },
-   "lblUsername": {
-      "message": "Benutzername: "
-   },
-   "tipDuration": {
-      "message": "Wie lange werden die Danmaku auf dem Bildschirm bleiben"
-   },
-   "lblDuration": {
-      "message": "Dauer: "
-   },
-   "tipFontSize": {
-      "message": "Schriftgröße des Danmaku"
-   },
-   "lblFontSize": {
-      "message": "Schriftgröße: "
-   },
-   "tipOpacity": {
-      "message": "Die Transparenz des Danmaku"
-   },
-   "lblOpacity": {
-      "message": "Opazität: "
-   },
-   "tipApply": {
-      "message": "Übernehmen Sie die aktuellen Einstellungen."
-   },
-   "lblApply": {
-      "message": "Übernehmen"
-   },
-   "tipResetToDefault": {
-      "message": "Auf Standardeinstellungen zurücksetzen und anwenden"
-   },
-   "lblResetToDefault": {
-      "message": "Standardeinstellungen"
-   },
-   "enable": {
-      "message": "Aktivieren"
-   },
-   "disable": {
-      "message": "Deaktivieren"
-   },
-   "show": {
-      "message": "Zeigen"
-   },
-   "hide": {
-      "message": "Ausblenden"
-   },
-   "px": {
-      "message": "px",
-      "description": "pixel"
-   },
-   "s": {
-      "message": "s",
-      "description": "seconds"
-   },
-   "tipTextDecoration": {
-      "message": "Ändern Sie die Textdekoration (kann sich auf die Leistung auswirken)"
-   },
-   "lblTextDecoration": {
-      "message": "Text-Stil: "
-   },
-   "lblNone": {
-      "message": "Nichts"
-   },
-   "lblShadow": {
-      "message": "Schatten"
-   },
-   "lblStroke": {
-      "message": "Kante"
-   },
-   "lblFont": {
-      "message": "Schriftart: "
-   },
-   "tipFont": {
-      "message": "Stellen Sie die Schriftart des Danmaku ein."
-   },
-   "default": {
-      "message": "Standard"
-   }
+	"appName": {
+		"message": "Twitch Chat Danmaku"
+	},
+	"appDescription": {
+		"message": "Betten Sie den Chat mit einem Danmaku-Stil in dem Stream ein. Kompatibel mit BetterTTV und anderen Emoticons!"
+	},
+	"settingsTitle": {
+		"message": "Einstellungen"
+	},
+	"tipEnable": {
+		"message": "Ein-/ausschalten"
+	},
+	"lblEnable": {
+		"message": "Danmaku: "
+	},
+	"tipUsername": {
+		"message": "Zeige der Benutzername des Kommentars"
+	},
+	"lblUsername": {
+		"message": "Benutzername: "
+	},
+	"tipDuration": {
+		"message": "Wie lange werden die Danmaku auf dem Bildschirm bleiben"
+	},
+	"lblDuration": {
+		"message": "Dauer: "
+	},
+	"tipFontSize": {
+		"message": "Schriftgröße des Danmaku"
+	},
+	"lblFontSize": {
+		"message": "Schriftgröße: "
+	},
+	"tipOpacity": {
+		"message": "Die Transparenz des Danmaku"
+	},
+	"lblOpacity": {
+		"message": "Opazität: "
+	},
+	"tipApply": {
+		"message": "Übernehmen Sie die aktuellen Einstellungen."
+	},
+	"lblApply": {
+		"message": "Übernehmen"
+	},
+	"tipResetToDefault": {
+		"message": "Auf Standardeinstellungen zurücksetzen und anwenden"
+	},
+	"lblResetToDefault": {
+		"message": "Standardeinstellungen"
+	},
+	"enable": {
+		"message": "Aktivieren"
+	},
+	"disable": {
+		"message": "Deaktivieren"
+	},
+	"show": {
+		"message": "Zeigen"
+	},
+	"hide": {
+		"message": "Ausblenden"
+	},
+	"px": {
+		"message": "px",
+		"description": "pixel"
+	},
+	"s": {
+		"message": "s",
+		"description": "seconds"
+	},
+	"tipTextDecoration": {
+		"message": "Ändern Sie die Textdekoration (kann sich auf die Leistung auswirken)"
+	},
+	"lblTextDecoration": {
+		"message": "Text-Stil: "
+	},
+	"lblNone": {
+		"message": "Nichts"
+	},
+	"lblShadow": {
+		"message": "Schatten"
+	},
+	"lblStroke": {
+		"message": "Kante"
+	},
+	"lblFont": {
+		"message": "Schriftart: "
+	},
+	"tipFont": {
+		"message": "Stellen Sie die Schriftart des Danmaku ein."
+	},
+	"lblBold": {
+		"message": "Fett: "
+	},
+	"tipBold": {
+		"message": "Fett"
+	},
+	"default": {
+		"message": "Standard"
+	}
 }

@@ -1,97 +1,103 @@
 {
-   "appName": {
-      "message": "Twitch Chat Danmaku"
-   },
-   "appDescription": {
-      "message": "Display the chat as danmaku(chat overlay) with fully customizable settings, compatible with emoticons!"
-   },
-   "settingsTitle": {
-      "message": "Danmaku Settings"
-   },
-   "tipEnable": {
-      "message": "Turn on/off danmaku"
-   },
-   "lblEnable": {
-      "message": "Danmaku: "
-   },
-   "tipUsername": {
-      "message": "Show the username of the comment"
-   },
-   "lblUsername": {
-      "message": "Username: "
-   },
-   "tipDuration": {
-      "message": "How long will the danmaku stay on the screen"
-   },
-   "lblDuration": {
-      "message": "Duration: "
-   },
-   "tipFontSize": {
-      "message": "The font size of the danmaku"
-   },
-   "lblFontSize": {
-      "message": "Font Size: "
-   },
-   "tipOpacity": {
-      "message": "The transparency of the danmaku"
-   },
-   "lblOpacity": {
-      "message": "Opacity: "
-   },
-   "tipApply": {
-      "message": "Apply the current settings."
-   },
-   "lblApply": {
-      "message": "Apply"
-   },
-   "tipResetToDefault": {
-      "message": "Reset to default settings and apply"
-   },
-   "lblResetToDefault": {
-      "message": "Reset to Default"
-   },
-   "enable": {
-      "message": "Enable"
-   },
-   "disable": {
-      "message": "Disable"
-   },
-   "show": {
-      "message": "Show"
-   },
-   "hide": {
-      "message": "Hide"
-   },
-   "px": {
-      "message": "px",
-      "description": "pixel"
-   },
-   "s": {
-      "message": "s",
-      "description": "seconds"
-   },
-   "tipTextDecoration": {
-      "message": "Change the text decoration, might affect the performance."
-   },
-   "lblTextDecoration": {
-      "message": "Text Style: "
-   },
-   "lblNone": {
-      "message": "None"
-   },
-   "lblShadow": {
-      "message": "Shadow"
-   },
-   "lblStroke": {
-      "message": "Stroke"
-   },
-   "lblFont": {
-      "message": "Font: "
-   },
-   "tipFont": {
-      "message": "Set the font of the danmaku."
-   },
-   "default": {
-      "message": "Default"
-   }
+	"appName": {
+		"message": "Twitch Chat Danmaku"
+	},
+	"appDescription": {
+		"message": "Display the chat as danmaku(chat overlay) with fully customizable settings, compatible with emoticons!"
+	},
+	"settingsTitle": {
+		"message": "Danmaku Settings"
+	},
+	"tipEnable": {
+		"message": "Turn on/off danmaku"
+	},
+	"lblEnable": {
+		"message": "Danmaku: "
+	},
+	"tipUsername": {
+		"message": "Show the username of the comment"
+	},
+	"lblUsername": {
+		"message": "Username: "
+	},
+	"tipDuration": {
+		"message": "How long will the danmaku stay on the screen"
+	},
+	"lblDuration": {
+		"message": "Duration: "
+	},
+	"tipFontSize": {
+		"message": "The font size of the danmaku"
+	},
+	"lblFontSize": {
+		"message": "Font Size: "
+	},
+	"tipOpacity": {
+		"message": "The transparency of the danmaku"
+	},
+	"lblOpacity": {
+		"message": "Opacity: "
+	},
+	"tipApply": {
+		"message": "Apply the current settings."
+	},
+	"lblApply": {
+		"message": "Apply"
+	},
+	"tipResetToDefault": {
+		"message": "Reset to default settings and apply"
+	},
+	"lblResetToDefault": {
+		"message": "Reset to Default"
+	},
+	"enable": {
+		"message": "Enable"
+	},
+	"disable": {
+		"message": "Disable"
+	},
+	"show": {
+		"message": "Show"
+	},
+	"hide": {
+		"message": "Hide"
+	},
+	"px": {
+		"message": "px",
+		"description": "pixel"
+	},
+	"s": {
+		"message": "s",
+		"description": "seconds"
+	},
+	"tipTextDecoration": {
+		"message": "Change the text decoration, might affect the performance."
+	},
+	"lblTextDecoration": {
+		"message": "Text Style: "
+	},
+	"lblNone": {
+		"message": "None"
+	},
+	"lblShadow": {
+		"message": "Shadow"
+	},
+	"lblStroke": {
+		"message": "Stroke"
+	},
+	"lblFont": {
+		"message": "Font: "
+	},
+	"tipFont": {
+		"message": "Set the font of the danmaku."
+	},
+	"lblBold": {
+		"message": "Bold: "
+	},
+	"tipBold": {
+		"message": "Bold text?"
+	},
+	"default": {
+		"message": "Default"
+	}
 }

@@ -12,7 +12,6 @@
    position: absolute;
    white-space: nowrap;
    overflow: visible;
-   font-weight: bold;
    vertical-align: middle;
    transition: transform 5s cubic-bezier(.15,.3,.85,.7), visiblity .1s;
    visibility: hidden;

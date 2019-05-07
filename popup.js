@@ -39,6 +39,7 @@ function onGotSettings() {
 	$('#enabled').bootstrapToggle(settings.enabled ? 'on' : 'off');
 	$('#show_username').bootstrapToggle(settings.show_username ? 'on' : 'off');
 	$('#textDecoration').val(settings.textDecoration);
+	$('#bold').bootstrapToggle(settings.bold ? 'on' : 'off');
 	apply();
 }
 
@@ -72,6 +73,7 @@ $(document).ready(() => {
 	document.getElementById('show_username').onchange = onShowUsernameChange;
 	document.getElementById('textDecoration').onchange = onTextDecorationChange;
 	document.getElementById('font').onchange = onFontChange;
+	document.getElementById('bold').onchange = onBoldChange;
 
 	document.getElementById('duration').onchange = onDurationChange;
 	document.getElementById('duration-display').value = document.getElementById('duration').value + chrome.i18n.getMessage('s');
@@ -103,6 +105,7 @@ function onClickResetToDefault() {
 	$('#font').val(settings.font);
 	$('#font_size').val(settings.font_size);
 	$('#opacity').val(settings.opacity);
+	$('#bold').attr('checked', settings.bold ? 'checked' : '');
 	$('#enabled').bootstrapToggle(settings.enabled ? 'on' : 'off');
 	$('#show_username').bootstrapToggle(settings.show_username ? 'on' : 'off');
 	$('#textDecoration').val(settings.textDecoration);
@@ -124,6 +127,12 @@ function onFontSizeChange() {
 
 function onFontChange() {
 	settings.font = this.value;
+	apply();
+	sendMessage('UPDATE_SETTINGS', settings);
+}
+
+function onBoldChange({target}){
+	settings.bold = target.checked;
 	apply();
 	sendMessage('UPDATE_SETTINGS', settings);
 }
