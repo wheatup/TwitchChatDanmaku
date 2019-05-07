@@ -100,12 +100,12 @@ function apply() {
 }
 
 function onClickResetToDefault() {
-	settings = { enabled: true, duration: 7, font_size: 28, opacity: 1, show_username: false, textDecoration: 'stroke', font: 'Default' };
+	settings = { enabled: true, duration: 7, font_size: 28, opacity: 1, show_username: false, textDecoration: 'stroke', font: 'Default', bold: true };
 	$('#duration').val(settings.duration);
 	$('#font').val(settings.font);
 	$('#font_size').val(settings.font_size);
 	$('#opacity').val(settings.opacity);
-	$('#bold').attr('checked', settings.bold ? 'checked' : '');
+	$('#bold').bootstrapToggle(settings.bold ? 'on' : 'off');
 	$('#enabled').bootstrapToggle(settings.enabled ? 'on' : 'off');
 	$('#show_username').bootstrapToggle(settings.show_username ? 'on' : 'off');
 	$('#textDecoration').val(settings.textDecoration);
@@ -131,8 +131,8 @@ function onFontChange() {
 	sendMessage('UPDATE_SETTINGS', settings);
 }
 
-function onBoldChange({target}){
-	settings.bold = target.checked;
+function onBoldChange(){
+	settings.bold = $('#bold').prop('checked');
 	apply();
 	sendMessage('UPDATE_SETTINGS', settings);
 }

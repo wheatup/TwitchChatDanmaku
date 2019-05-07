@@ -1,6 +1,6 @@
 ## <span id="ChangeLog">Change Logs</span>
 
-### 1.3.9
+### 1.3.10
 > * Minor bug fix.
 
 ### 1.3.8
@@ -84,7 +84,7 @@
 
 ## <span id="ChangeLogCN">更新日志</span>
 
-### 1.3.9
+### 1.3.10
 > * 修复一个小bug。
 
 ### 1.3.8

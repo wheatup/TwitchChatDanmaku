@@ -130,9 +130,9 @@ function addNewDanmaku(entry) {
 	const danmaku = new Danmaku(entry, layer, settings);
 
 	setTimeout(() => {
-		let width = danmaku.html.width() || 100;
+		let width = danmaku.html.width() || 160;
 		width = Math.max(width, 160);
-		width = Math.min(width, 2000);
+		width = Math.min(width, 1000);
 		if (timers[layer]) {
 			clearTimeout(timers[layer]);
 		}
