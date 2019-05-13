@@ -32,6 +32,10 @@
 
 ![preview](https://lh3.googleusercontent.com/eQeZIQNlqrZe_dtKCtNZdv_ZDZoh-vKJ3hPFDI1FmOHyIdQpQDfmZPof8H_1yNvn1803lBj6=w640-h400-e365)
 
+## Known Problems
+
+* This extension conflicts with [FrankerFaceZ](https://chrome.google.com/webstore/detail/frankerfacez/fadndhdgpmmaapbmfcknlfgcflmmmieb) and will not show danmaku properly if both are installed.
+
 # <span id="中文说明-1">中文说明</span>
 
 ## 简介
@@ -57,3 +61,7 @@
 ## 预览
 
 ![preview](https://lh3.googleusercontent.com/eQeZIQNlqrZe_dtKCtNZdv_ZDZoh-vKJ3hPFDI1FmOHyIdQpQDfmZPof8H_1yNvn1803lBj6=w640-h400-e365)
+
+## 已知问题
+
+* 本扩展与 [FrankerFaceZ](https://chrome.google.com/webstore/detail/frankerfacez/fadndhdgpmmaapbmfcknlfgcflmmmieb) 扩展冲突，两者都安装的情况下无法正常显示弹幕。
