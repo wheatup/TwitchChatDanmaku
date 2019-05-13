@@ -1,5 +1,8 @@
 ## <span id="ChangeLog">Change Logs</span>
 
+### 1.3.10
+> * Minor bug fix.
+
 ### 1.3.8
 > * Kinda fixed the overlapping danmaku issue(Unless the danmaku is too long or too many).
 > * Added a checkbox that enable/disables the bold font.
@@ -80,6 +83,9 @@
 <hr/>
 
 ## <span id="ChangeLogCN">更新日志</span>
+
+### 1.3.10
+> * 修复一个小bug。
 
 ### 1.3.8
 > * 略微修复了弹幕重叠的问题（除非弹幕太长或者太多）。
