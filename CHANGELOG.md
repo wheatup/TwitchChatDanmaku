@@ -1,5 +1,8 @@
 ## <span id="ChangeLog">Change Logs</span>
 
+### 1.4.1
+> * Added compatibilities with new Twitch layout.
+
 ### 1.3.10
 > * Minor bug fix.
 
@@ -83,6 +86,9 @@
 <hr/>
 
 ## <span id="ChangeLogCN">更新日志</span>
+
+### 1.4.1
+> * 兼容最新版twitch界面。
 
 ### 1.3.10
 > * 修复一个小bug。
