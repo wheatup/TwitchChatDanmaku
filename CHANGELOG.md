@@ -1,5 +1,8 @@
 ## <span id="ChangeLog">Change Logs</span>
 
+### 1.4.2
+> * Fixed a problem that collapsing the chat might not work in theatre mode.
+
 ### 1.4.1
 > * Added compatibilities with new Twitch layout.
 
@@ -86,6 +89,9 @@
 <hr/>
 
 ## <span id="ChangeLogCN">更新日志</span>
+
+### 1.4.2
+> * 修复了在影院模式下收起聊天室可能不起作用。
 
 ### 1.4.1
 > * 兼容最新版twitch界面。
