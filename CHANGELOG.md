@@ -1,5 +1,8 @@
 ## <span id="ChangeLog">Change Logs</span>
 
+### 1.4.3
+> * Fixed a bug that danmaku might not show up for some users.
+
 ### 1.4.2
 > * Fixed a problem that collapsing the chat might not work in theatre mode.
 
@@ -89,6 +92,9 @@
 <hr/>
 
 ## <span id="ChangeLogCN">更新日志</span>
+
+### 1.4.3
+> * 修复了对于某些用户没有弹幕出现的bug。
 
 ### 1.4.2
 > * 修复了在影院模式下收起聊天室可能不起作用。

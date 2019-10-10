@@ -37,7 +37,8 @@
    background: none;
 }
 
-#danmaku_overlay .danmaku .video-chat__message {
+#danmaku_overlay .danmaku .video-chat__message,
+#danmaku_overlay .danmaku .text-fragment {
    color: white;
 }
 

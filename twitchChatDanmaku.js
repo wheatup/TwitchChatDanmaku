@@ -1,7 +1,6 @@
 let $logDiv = null;
 let $overlay = null;
 let layers = [];
-let isVideoPlayer = false;
 let isVideoChat = false;
 let fontList = null;
 
@@ -42,19 +41,15 @@ function createOverlay() {
 		}
 
 		let timer = setInterval(() => {
-			var streamPlayer = $(".passthrough-events");
-			var videoPlayer = $(".highwind-video-player__overlay");
-			if (streamPlayer && streamPlayer.length > 0) {
-				$(streamPlayer[0]).append('<div id="danmaku_overlay"></div>');
+			var streamPlayer = document.querySelector('.passthrough-events') ||
+				document.querySelector('.video-player__container') ||
+				document.querySelector('.highwind-video-player__overlay') ||
+				document.querySelector('[class*=video-player]');
+				
+			if (streamPlayer) {
+				streamPlayer.insertAdjacentHTML('beforeend', '<div id="danmaku_overlay"></div>');
 				$overlay = $("#danmaku_overlay");
 				clearInterval(timer);
-				isVideoPlayer = false;
-				resolve();
-			} else if (videoPlayer && videoPlayer.length > 0) {
-				$(videoPlayer[0]).append('<div id="danmaku_overlay"></div>');
-				$overlay = $("#danmaku_overlay");
-				clearInterval(timer);
-				isVideoPlayer = true;
 				resolve();
 			}
 		}, 500);
@@ -210,7 +205,7 @@ function replaceToggleVisibility() {
 					header.classList.add('tw-sm-pd-r-1');
 				}
 
-				if(whispers) {
+				if (whispers) {
 					whispers.classList.add('whispers--right-column-expanded-beside');
 				}
 			} else {
@@ -232,7 +227,7 @@ function replaceToggleVisibility() {
 					header.classList.add('tw-sm-pd-r-4');
 				}
 
-				if(whispers) {
+				if (whispers) {
 					whispers.classList.remove('whispers--right-column-expanded-beside');
 				}
 			}
