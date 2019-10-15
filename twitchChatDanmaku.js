@@ -250,7 +250,6 @@ async function init() {
 }
 
 $(document).ready(init);
-// window.addEventListener('load', init);
 
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 	switch (request.type) {

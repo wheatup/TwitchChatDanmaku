@@ -5,6 +5,7 @@
    position: absolute;
    pointer-events: none;
 	overflow: hidden;
+	z-index: 10;
 }
 
 #danmaku_overlay .danmaku {
