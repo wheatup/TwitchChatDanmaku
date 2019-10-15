@@ -1,7 +1,10 @@
 ## <span id="ChangeLog">Change Logs</span>
 
+### 1.4.4
+> * Fix a bug that danmaku will not appear while the tag is opened at background. ([issue](https://github.com/wheatup/TwitchChatDanmaku/issues/2))
+
 ### 1.4.3
-> * Fixed a bug that danmaku might not show up for some users.
+> * Fixed a bug that danmaku might not show up for some users. ([issue](https://github.com/wheatup/TwitchChatDanmaku/issues/1))
 
 ### 1.4.2
 > * Fixed a problem that collapsing the chat might not work in theatre mode.
@@ -93,8 +96,11 @@
 
 ## <span id="ChangeLogCN">更新日志</span>
 
+### 1.4.4
+> * 修复了在后台页面打开标签页时没有弹幕出现的bug。([issue](https://github.com/wheatup/TwitchChatDanmaku/issues/2))
+
 ### 1.4.3
-> * 修复了对于某些用户没有弹幕出现的bug。
+> * 修复了对于某些用户没有弹幕出现的bug。([issue](https://github.com/wheatup/TwitchChatDanmaku/issues/1))
 
 ### 1.4.2
 > * 修复了在影院模式下收起聊天室可能不起作用。

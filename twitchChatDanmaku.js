@@ -45,7 +45,7 @@ function createOverlay() {
 				document.querySelector('.video-player__container') ||
 				document.querySelector('.highwind-video-player__overlay') ||
 				document.querySelector('[class*=video-player]');
-				
+
 			if (streamPlayer) {
 				streamPlayer.insertAdjacentHTML('beforeend', '<div id="danmaku_overlay"></div>');
 				$overlay = $("#danmaku_overlay");
@@ -138,42 +138,15 @@ function addNewDanmaku(entry) {
 	danmaku.attachTo($overlay);
 }
 
-function start() {
-	$logDiv.unbind("DOMNodeInserted");
-	$logDiv.bind("DOMNodeInserted", event => {
-		var newChatDOM = event.target;
-		setTimeout(() => {
-			var chatEntry = digestChatDom(newChatDOM);
-			addNewDanmaku(chatEntry);
-		}, 0);
-	});
-	replaceToggleVisibility();
-	console.log(
-		"%c[Twitch Chat Danmaku] If you like this extension, please consider to support the dev by sending a donation via https://www.paypal.me/wheatup. Thanks! Pepega",
-		"color: #fff; font-weight: bold; background-color: #295; border-radius: 3px; padding: 2px 5px;"
-	);
-}
-
-async function init() {
-	await findLogDiv();
-	await createOverlay();
-	start();
-	sendMessage("GET_SETTINGS");
-	sendMessage("GET_FONTS");
-	if (checkTimer) {
-		clearInterval(checkTimer);
-	}
-	checkTimer = setInterval(check, 1000);
-}
-
-let injected = false;
 let replaced = false;
 function replaceToggleVisibility() {
 	if (replaced) return;
+	let toggle = document.querySelector(".right-column__toggle-visibility");
+	if (!toggle) return;
 	replaced = true;
 
-	let toggle = $(".right-column__toggle-visibility");
-	toggle.click(e => {
+	let injected = false;
+	toggle.addEventListener('click', e => {
 		const rightColumn = document.querySelector('.right-column');
 		const header = document.querySelector('.channel-header .tw-full-height.tw-pd-l-05');
 		const theatre = document.querySelector('.persistent-player--theatre');
@@ -236,29 +209,55 @@ function replaceToggleVisibility() {
 	});
 }
 
-let checkTimer = null;
-function check() {
-	let container = $("nav.top-nav~.tw-flex");
-	if (container.hasClass("_tcd_full")) {
-		if ($(".whispers") && $(".whispers").hasClass("whispers--right-column-expanded")) {
-			$(".whispers").removeClass("whispers--right-column-expanded");
+let gotSettings = false;
+let gotFonts = false;
+async function start() {
+	$logDiv.unbind("DOMNodeInserted");
+	$logDiv.bind("DOMNodeInserted", event => {
+		var newChatDOM = event.target;
+		setTimeout(() => {
+			var chatEntry = digestChatDom(newChatDOM);
+			addNewDanmaku(chatEntry);
+		}, 0);
+	});
+	
+	console.log(
+		"%c[Twitch Chat Danmaku] If you like this extension, please consider to support the dev by sending a donation via https://www.paypal.me/wheatup. Thanks! Pepega",
+		"color: #fff; font-weight: bold; background-color: #295; border-radius: 3px; padding: 2px 5px;"
+	);
+
+	while (!gotSettings || !gotFonts || !replaced) {
+		if(!gotSettings){
+			sendMessage("GET_SETTINGS");
 		}
-	} else {
-		if ($(".whispers") && !$(".whispers").hasClass("whispers--right-column-expanded")) {
-			$(".whispers").addClass("whispers--right-column-expanded");
+
+		if(!gotFonts){
+			sendMessage("GET_FONTS");
 		}
+
+		if(!replaced){
+			replaceToggleVisibility();
+		}
+
+		await sleep(1000);
 	}
 }
 
-$(document).ready(() => {
-	init();
-});
+async function init() {
+	await findLogDiv();
+	await createOverlay();
+	start();
+}
+
+$(document).ready(init);
+// window.addEventListener('load', init);
 
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 	switch (request.type) {
 		case "GOT_SETTINGS":
 			settings = request.data;
 			$overlay.css("display", settings.enabled ? "block" : "none");
+			gotSettings = true;
 			break;
 		case "UPDATE_SETTINGS":
 			settings = request.data;
@@ -269,6 +268,10 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 			break;
 		case "GOT_FONTS":
 			fontList = request.data;
+			gotFonts = true;
 			break;
 	}
 });
+
+
+const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
