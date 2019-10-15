@@ -1,5 +1,8 @@
 ## <span id="ChangeLog">Change Logs</span>
 
+### 1.4.5
+> * Fix a bug that sometimes danmaku got blocked by the video. ([issue](https://github.com/wheatup/TwitchChatDanmaku/issues/2#issuecomment-542020202))
+
 ### 1.4.4
 > * Fix a bug that danmaku will not appear while the tag is opened at background. ([issue](https://github.com/wheatup/TwitchChatDanmaku/issues/2))
 
@@ -95,6 +98,9 @@
 <hr/>
 
 ## <span id="ChangeLogCN">更新日志</span>
+
+### 1.4.5
+> * 修复了某些情况下弹幕可能被视频盖住导致不可见的bug。 ([issue](https://github.com/wheatup/TwitchChatDanmaku/issues/2#issuecomment-542020202))
 
 ### 1.4.4
 > * 修复了在后台页面打开标签页时没有弹幕出现的bug。([issue](https://github.com/wheatup/TwitchChatDanmaku/issues/2))
