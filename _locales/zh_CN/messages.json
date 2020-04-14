@@ -38,6 +38,24 @@
 	"lblOpacity": {
 		"message": "透明度: "
 	},
+	"tipDanmakuDensity": {
+		"message": "弹幕的密度"
+	},
+	"lblDanmakuDensity": {
+		"message": "弹幕密度: "
+	},
+	"lblDanmakuDensity_0": {
+		"message": "1/4屏"
+	},
+	"lblDanmakuDensity_1": {
+		"message": "半屏"
+	},
+	"lblDanmakuDensity_2": {
+		"message": "3/4屏"
+	},
+	"lblDanmakuDensity_3": {
+		"message": "不限"
+	},
 	"tipApply": {
 		"message": "应用当前设置"
 	},

@@ -110,8 +110,9 @@ let timers = [];
 
 function addNewDanmaku(entry) {
 	if (!settings.enabled || !entry) return;
+	const density = [0.25, 0.5, 0.75, 1][settings.danmaku_density];
 	let layer = 0;
-	let maxLayer = Math.floor($overlay.height() / (parseInt(settings.font_size) + 4)) - 1;
+	let maxLayer = Math.floor($overlay.height() * density / (parseInt(settings.font_size) + 4)) - 1;
 	for (; layer < maxLayer; layer++) {
 		if (!layers[layer]) {
 			layers[layer] = true;
@@ -254,12 +255,12 @@ $(document).ready(init);
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 	switch (request.type) {
 		case "GOT_SETTINGS":
-			settings = request.data;
+			Object.assign(settings, request.data);
 			$overlay.css("display", settings.enabled ? "block" : "none");
 			gotSettings = true;
 			break;
 		case "UPDATE_SETTINGS":
-			settings = request.data;
+			Object.assign(settings, request.data);
 			$overlay.css("display", settings.enabled ? "block" : "none");
 			break;
 		case "URL_CHANGE":

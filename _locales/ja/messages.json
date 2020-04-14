@@ -38,6 +38,24 @@
 	"lblOpacity": {
 		"message": "透明度: "
 	},
+	"tipDanmakuDensity": {
+		"message": "弾幕の高さ制限"
+	},
+	"lblDanmakuDensity": {
+		"message": "高さ制限: "
+	},
+	"lblDanmakuDensity_0": {
+		"message": "1/4"
+	},
+	"lblDanmakuDensity_1": {
+		"message": "半分"
+	},
+	"lblDanmakuDensity_2": {
+		"message": "3/4"
+	},
+	"lblDanmakuDensity_3": {
+		"message": "なし"
+	},
 	"tipApply": {
 		"message": "現在の設定を適用する"
 	},

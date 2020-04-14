@@ -38,6 +38,24 @@
 	"lblOpacity": {
 		"message": "透明度 "
 	},
+	"tipDanmakuDensity": {
+		"message": "彈幕的高度限制"
+	},
+	"lblDanmakuDensity": {
+		"message": "最大高度: "
+	},
+	"lblDanmakuDensity_0": {
+		"message": "1/4"
+	},
+	"lblDanmakuDensity_1": {
+		"message": "1/2"
+	},
+	"lblDanmakuDensity_2": {
+		"message": "3/4"
+	},
+	"lblDanmakuDensity_3": {
+		"message": "無限"
+	},
 	"tipApply": {
 		"message": "套用目前設置"
 	},

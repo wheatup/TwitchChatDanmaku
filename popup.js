@@ -39,6 +39,7 @@ function onGotSettings() {
 	$('#enabled').bootstrapToggle(settings.enabled ? 'on' : 'off');
 	$('#show_username').bootstrapToggle(settings.show_username ? 'on' : 'off');
 	$('#textDecoration').val(settings.textDecoration);
+	$('#danmaku_density').val(settings.danmaku_density);
 	$('#bold').bootstrapToggle(settings.bold ? 'on' : 'off');
 	apply();
 }
@@ -72,15 +73,17 @@ $(document).ready(() => {
 	document.getElementById('enabled').onchange = onEnabledChange;
 	document.getElementById('show_username').onchange = onShowUsernameChange;
 	document.getElementById('textDecoration').onchange = onTextDecorationChange;
+	document.getElementById('danmaku_density').oninput = onDanmakuDensityChange;
 	document.getElementById('font').onchange = onFontChange;
 	document.getElementById('bold').onchange = onBoldChange;
 
-	document.getElementById('duration').onchange = onDurationChange;
+	document.getElementById('duration').oninput = onDurationChange;
 	document.getElementById('duration-display').value = document.getElementById('duration').value + chrome.i18n.getMessage('s');
-	document.getElementById('font_size').onchange = onFontSizeChange;
+	document.getElementById('font_size').oninput = onFontSizeChange;
 	document.getElementById('font_size-display').value = document.getElementById('font_size').value + chrome.i18n.getMessage('px');
-	document.getElementById('opacity').onchange = onOpacityChange;
+	document.getElementById('opacity').oninput = onOpacityChange;
 	document.getElementById('opacity-display').value = document.getElementById('opacity').value;
+	document.getElementById('danmaku_density-display').value = chrome.i18n.getMessage('lblDanmakuDensity_' + document.getElementById('danmaku_density').value);
 
 	$('#rtl').click(onClickResetToDefault);
 
@@ -97,10 +100,22 @@ function apply() {
 	$('#duration-display').val(settings.duration + chrome.i18n.getMessage('s'));
 	$('#font_size-display').val(settings.font_size + chrome.i18n.getMessage('px'));
 	$('#opacity-display').val(settings.opacity);
+	$('#danmaku_density-display').val(chrome.i18n.getMessage('lblDanmakuDensity_' + settings.danmaku_density));
 }
 
 function onClickResetToDefault() {
-	settings = { enabled: true, duration: 7, font_size: 28, opacity: 1, show_username: false, textDecoration: 'stroke', font: 'Default', bold: true };
+	settings = { 
+		enabled: true, 
+		duration: 7, 
+		font_size: 28, 
+		opacity: 1, 
+		show_username: false, 
+		textDecoration: 'stroke', 
+		font: 'Default', 
+		bold: true, 
+		danmaku_density: 3 
+	};
+
 	$('#duration').val(settings.duration);
 	$('#font').val(settings.font);
 	$('#font_size').val(settings.font_size);
@@ -109,6 +124,7 @@ function onClickResetToDefault() {
 	$('#enabled').bootstrapToggle(settings.enabled ? 'on' : 'off');
 	$('#show_username').bootstrapToggle(settings.show_username ? 'on' : 'off');
 	$('#textDecoration').val(settings.textDecoration);
+	$('#danmaku_density').val(settings.danmaku_density);
 	apply();
 	sendMessage('UPDATE_SETTINGS', settings);
 }
@@ -157,6 +173,13 @@ function onShowUsernameChange() {
 
 function onTextDecorationChange() {
 	settings.textDecoration = $('#textDecoration').val();
+	apply();
+	sendMessage('UPDATE_SETTINGS', settings);
+}
+
+
+function onDanmakuDensityChange() {
+	settings.danmaku_density = $('#danmaku_density').val();
 	apply();
 	sendMessage('UPDATE_SETTINGS', settings);
 }

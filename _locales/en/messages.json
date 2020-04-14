@@ -38,6 +38,24 @@
 	"lblOpacity": {
 		"message": "Opacity: "
 	},
+	"tipDanmakuDensity": {
+		"message": "The maximum coverage of the danmaku"
+	},
+	"lblDanmakuDensity": {
+		"message": "Max Height: "
+	},
+	"lblDanmakuDensity_0": {
+		"message": "1/4"
+	},
+	"lblDanmakuDensity_1": {
+		"message": "Half"
+	},
+	"lblDanmakuDensity_2": {
+		"message": "3/4"
+	},
+	"lblDanmakuDensity_3": {
+		"message": "Full"
+	},
 	"tipApply": {
 		"message": "Apply the current settings."
 	},

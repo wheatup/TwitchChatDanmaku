@@ -1,10 +1,13 @@
 ## <span id="ChangeLog">Change Logs</span>
 
+### 1.4.6
+> * Added maximum height customization, now you can avoid danmaku covering the whole screen.
+
 ### 1.4.5
-> * Fix a bug that sometimes danmaku got blocked by the video. ([issue](https://github.com/wheatup/TwitchChatDanmaku/issues/2#issuecomment-542020202))
+> * Fixed a bug that sometimes danmaku got blocked by the video. ([issue](https://github.com/wheatup/TwitchChatDanmaku/issues/2#issuecomment-542020202))
 
 ### 1.4.4
-> * Fix a bug that danmaku will not appear while the tag is opened at background. ([issue](https://github.com/wheatup/TwitchChatDanmaku/issues/2))
+> * Fixed a bug that danmaku will not appear while the tag is opened at background. ([issue](https://github.com/wheatup/TwitchChatDanmaku/issues/2))
 
 ### 1.4.3
 > * Fixed a bug that danmaku might not show up for some users. ([issue](https://github.com/wheatup/TwitchChatDanmaku/issues/1))
@@ -98,6 +101,9 @@
 <hr/>
 
 ## <span id="ChangeLogCN">更新日志</span>
+
+### 1.4.6
+> * 增加了弹幕高度的选项，现在你可以防止弹幕占据整个屏幕。
 
 ### 1.4.5
 > * 修复了某些情况下弹幕可能被视频盖住导致不可见的bug。 ([issue](https://github.com/wheatup/TwitchChatDanmaku/issues/2#issuecomment-542020202))
