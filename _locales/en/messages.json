@@ -39,10 +39,10 @@
 		"message": "Opacity: "
 	},
 	"tipDanmakuDensity": {
-		"message": "The maximum coverage of the danmaku"
+		"message": "The maximum height of the danmaku"
 	},
 	"lblDanmakuDensity": {
-		"message": "Max Height: "
+		"message": "Density: "
 	},
 	"lblDanmakuDensity_0": {
 		"message": "1/4"

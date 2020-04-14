@@ -27,7 +27,6 @@ const Danmaku = function (entry, layer, config) {
 }
 
 Danmaku.prototype.attachTo = function (container) {
-	console.log();
 	let width = container.width();
 	this.html.addClass('danmaku');
 	this.html.css('transform', `translateX(${width}px)`);
