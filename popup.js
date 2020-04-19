@@ -51,19 +51,19 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 			onGotSettings();
 			break;
 		case 'GOT_FONTS':
-      if (request.data.length > 0) {
-        request.data.forEach((font) =>
-          $("#font").append(
-            `<option value="${font}"${
-              settings.font === font ? ' selected="selected"' : ""
-            }>${
-              font === "Default" ? chrome.i18n.getMessage("default") : font
-            }</option>`
-          )
-        );
-      } else {
-        $("#font").closest("li").hide();
-      }
+			if (request.data.length > 0) {
+				request.data.forEach((font) =>
+					$("#font").append(
+						`<option value="${font}"${
+							settings.font === font ? ' selected="selected"' : ""
+						}>${
+							font === "Default" ? chrome.i18n.getMessage("default") : font
+						}</option>`
+					)
+				);
+			} else {
+				$("#font").closest("li").hide();
+			}
 			break;
 	}
 });
