@@ -30,20 +30,23 @@ function sendMessage(type, data, tabId = null) {
 }
 
 chrome.runtime.onInstalled.addListener(function() {
-	chrome.declarativeContent.onPageChanged.removeRules(undefined, function() {
-		chrome.declarativeContent.onPageChanged.addRules([
-			{
-				conditions: [
-					new chrome.declarativeContent.PageStateMatcher({
-						pageUrl: {
-							hostContains: 'twitch'
-						}
-					})
-				],
-				actions: [new chrome.declarativeContent.ShowPageAction()]
-			}
-		]);
-	});
+	if (typeof chrome.declarativeContent !== "undefined") {
+		// Supports chrome.declarativeContent
+		chrome.declarativeContent.onPageChanged.removeRules(undefined, function () {
+			chrome.declarativeContent.onPageChanged.addRules([
+				{
+					conditions: [
+						new chrome.declarativeContent.PageStateMatcher({
+							pageUrl: {
+								hostContains: "twitch",
+							},
+						}),
+					],
+					actions: [new chrome.declarativeContent.ShowPageAction()],
+				},
+			]);
+		});
+	}
 });
 
 function saveSettings() {
@@ -82,6 +85,17 @@ chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
 		sendMessage('URL_CHANGE', changeInfo.url, tabId);
 		loadSettings();
 	}
+
+	if (typeof chrome.declarativeContent === 'undefined') {
+		// Doesn't support chrome.declarativeContent
+		if (changeInfo.status === "complete") {
+			if (/twitch/.test(tab.url)) {
+				chrome.pageAction.show(tabId);
+			} else {
+				chrome.pageAction.hide(tabId);
+			}
+		}
+	}
 });
 
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
@@ -95,13 +109,20 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
 			saveSettings();
 			break;
 		case 'GET_FONTS':
-			chrome.fontSettings.getFontList(data => {
-				fonts = ['Default'];
-				for (let font of data) {
-					fonts.push(font.displayName);
-				}
-				sendMessage('GOT_FONTS', fonts);
-			});
+			if (typeof chrome.fontSettings !== "undefined") {
+				// Supports chrome.fontSettings
+				chrome.fontSettings.getFontList((data) => {
+					fonts = ["Default"];
+					for (let font of data) {
+						fonts.push(font.displayName);
+					}
+					sendMessage("GOT_FONTS", fonts);
+				});
+			} else {
+				Promise.resolve().then(() => {
+					sendMessage("GOT_FONTS", fonts);
+				});
+			}
 			break;
 	}
 });
