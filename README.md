@@ -28,6 +28,14 @@
 > 3. Turn on Developer Mode at the top right corner.
 > 4. Click and drag the downloaded file into the viewport.
 
+### For Firefox Users
+
+* Thanks to [Chih-Hsuan Fan](https://github.com/pc035860), this extension now ~~partially~~ supports FireFox!
+* *The custom font feature is disabled for FireFox due to support discrepancies, sorry for the inconvenience.*
+
+> 1. Move to [Twitch Chat Danmaku for FireFox](about:blank) and install it!
+
+
 ## Preview
 
 ![preview](https://lh3.googleusercontent.com/eQeZIQNlqrZe_dtKCtNZdv_ZDZoh-vKJ3hPFDI1FmOHyIdQpQDfmZPof8H_1yNvn1803lBj6=w640-h400-e365)
@@ -57,6 +65,13 @@
 > 2. 打开chrome，在地址栏输入 ```chrome://extensions/``` 并回车。
 > 3. 在页面右上角，启用开发者模式。
 > 4. 将下载的crx文件拖曳至浏览器窗口中完成安装。
+
+### 火狐浏览器安装方法
+
+* 感谢 [Chih-Hsuan Fan](https://github.com/pc035860) 的贡献，本扩展现已~~部分~~支持火狐浏览器！
+* *因浏览器支持原因，火狐版本暂不支持自定义字体，望理解。*
+
+> 1. Move to [Twitch Chat Danmaku for FireFox](about:blank) and install it!
 
 ## 预览
 
