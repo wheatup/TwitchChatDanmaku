@@ -12,7 +12,7 @@
       "48": "icons/icon-48.png",
       "16": "icons/icon-16.png"
    },
-   "permissions": ["*://*.twitch.tv/*", "declarativeContent", "fontSettings"],
+   "permissions": ["*://*.twitch.tv/*", "declarativeContent", "fontSettings", "tabs"],
    "content_scripts": [{
       "css": ["css/danmaku.css"],
       "matches": ["*://*.twitch.tv/*"],
