@@ -33,7 +33,7 @@
 * Thanks to [Chih-Hsuan Fan](https://github.com/pc035860), this extension now ~~partially~~ supports FireFox!
 * *The custom font feature is disabled for FireFox due to support discrepancies, sorry for the inconvenience.*
 
-> 1. Move to [Twitch Chat Danmaku for FireFox](about:blank) and install it!
+> 1. Move to [Twitch Chat Danmaku for FireFox](https://addons.mozilla.org/en-US/firefox/addon/twitch-chat-danmaku/) and install it!
 
 
 ## Preview
@@ -71,7 +71,7 @@
 * 感谢 [Chih-Hsuan Fan](https://github.com/pc035860) 的贡献，本扩展现已~~部分~~支持火狐浏览器！
 * *因浏览器支持原因，火狐版本暂不支持自定义字体，望理解。*
 
-> 1. Move to [Twitch Chat Danmaku for FireFox](about:blank) and install it!
+> 1. 移步至[Twitch聊天弹幕火狐版](https://addons.mozilla.org/en-US/firefox/addon/twitch-chat-danmaku/)并安装。
 
 ## 预览
 
