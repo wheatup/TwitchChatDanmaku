@@ -1,5 +1,8 @@
 ## <span id="ChangeLog">Change Logs</span>
 
+### 1.4.8
+> * Fix an issue that causes the BTTV Emoji is too big.
+
 ### 1.4.6
 > * Added maximum height customization, now you can avoid danmaku covering the whole screen.
 
@@ -101,6 +104,9 @@
 <hr/>
 
 ## <span id="ChangeLogCN">更新日志</span>
+
+### 1.4.8
+> * 修复了一个导致BTTV Emoji尺寸过大的问题。
 
 ### 1.4.6
 > * 增加了弹幕高度的选项，现在你可以防止弹幕占据整个屏幕。

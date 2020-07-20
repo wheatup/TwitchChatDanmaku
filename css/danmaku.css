@@ -49,9 +49,17 @@
 }
 
 #danmaku_overlay .danmaku img {
-   max-height: 125%;
+   max-width: 1.25em;
+   max-height: 1.25em;
    width: auto;
    vertical-align: middle;
+}
+
+#danmaku_overlay .bttv-emoji img {
+	height: auto;
+   width: 1em;
+   margin-bottom: -4px;
+   display: inline-block;
 }
 
 ._tcd_full .persistent-player{
