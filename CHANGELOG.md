@@ -1,5 +1,8 @@
 ## <span id="ChangeLog">Change Logs</span>
 
+### 1.4.9
+> * Fixed a glitch that danmaku is not showing.
+
 ### 1.4.8
 > * Fix an issue that causes the BTTV Emoji is too big.
 
@@ -104,6 +107,9 @@
 <hr/>
 
 ## <span id="ChangeLogCN">更新日志</span>
+
+### 1.4.9
+> * 修复了弹幕无法显示的问题。
 
 ### 1.4.8
 > * 修复了一个导致BTTV Emoji尺寸过大的问题。

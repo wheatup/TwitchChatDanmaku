@@ -13,14 +13,14 @@ function sendMessage(type, data) {
 function findLogDiv() {
 	return new Promise((resolve, reject) => {
 		let timer = setInterval(() => {
-			let _$logDiv = $("div[role=log]");
+			let _$logDiv = $('div[role=log]');
 			if (_$logDiv && _$logDiv[0]) {
 				$logDiv = $(_$logDiv[0]);
 				clearInterval(timer);
 				isVideoChat = false;
 				resolve($logDiv);
 			} else {
-				_$logDiv = $("ul[class*=tw-align-items-end]");
+				_$logDiv = $('ul[class*=tw-align-items-end]');
 				if (_$logDiv && _$logDiv[0]) {
 					$logDiv = $(_$logDiv[0]);
 					clearInterval(timer);
@@ -33,22 +33,23 @@ function findLogDiv() {
 }
 
 function createOverlay() {
-	return new Promise(resolve => {
-		if ($("#danmaku_overlay") && $("#danmaku_overlay").length > 0) {
-			$overlay = $("#danmaku_overlay");
+	return new Promise((resolve) => {
+		if ($('#danmaku_overlay') && $('#danmaku_overlay').length > 0) {
+			$overlay = $('#danmaku_overlay');
 			resolve();
 			return;
 		}
 
 		let timer = setInterval(() => {
-			var streamPlayer = document.querySelector('.passthrough-events') ||
+			var streamPlayer =
+				document.querySelector('.passthrough-events') ||
 				document.querySelector('.video-player__container') ||
 				document.querySelector('.highwind-video-player__overlay') ||
 				document.querySelector('[class*=video-player]');
 
 			if (streamPlayer) {
 				streamPlayer.insertAdjacentHTML('beforeend', '<div id="danmaku_overlay"></div>');
-				$overlay = $("#danmaku_overlay");
+				$overlay = $('#danmaku_overlay');
 				clearInterval(timer);
 				resolve();
 			}
@@ -58,40 +59,37 @@ function createOverlay() {
 
 function digestChatDom(dom) {
 	if (!dom) return null;
-	let username = $(dom)
-		.find("span[data-a-target=chat-message-username]")
-		.html();
+	let username = $(dom).find('span[data-a-target=chat-message-username]').html();
 	if (!username) return;
 	if (isVideoChat) {
-		dom = $(dom).find(".tw-flex-grow-1")[0];
+		dom = $(dom).find('.tw-flex-grow-1')[0];
 	}
-	let content = "";
+	let content = '';
 	let foundUsername = false;
 	if (isVideoChat) {
-		let ele = "";
+		let ele = '';
 		if (settings.show_username) {
 			ele = dom;
 		} else {
-			ele = $(dom).find("div[data-test-selector=comment-message-selector]")[0];
+			ele = $(dom).find('div[data-test-selector=comment-message-selector]')[0];
 			ele = ele.children[ele.children.length - 1];
 		}
 		content += ele.outerHTML;
 	} else {
+		let d = dom.querySelector('[class*=username-container]') || dom.querySelector('.text-fragment');
+		if (d) {
+			dom = d.parentElement;
+		}
 		for (var i = 0; i < dom.children.length; i++) {
 			let ele = dom.children[i];
 			if (!settings.show_username) {
 				if (!foundUsername) {
-					if (
-						$(ele).attr("class") &&
-						$(ele)
-							.attr("class")
-							.indexOf("username") >= 0
-					) {
+					if ($(ele).attr('class') && $(ele).attr('class').indexOf('username') >= 0) {
 						foundUsername = true;
 					}
 					continue;
 				}
-				if ($(ele).attr("aria-hidden")) {
+				if ($(ele).attr('aria-hidden')) {
 					continue;
 				}
 			}
@@ -103,6 +101,8 @@ function digestChatDom(dom) {
 		username: username,
 		content: content
 	};
+
+	console.log(entry);
 	return entry;
 }
 
@@ -112,7 +112,7 @@ function addNewDanmaku(entry) {
 	if (!settings.enabled || !entry) return;
 	const density = [0.25, 0.5, 0.75, 1][settings.danmaku_density] || 1;
 	let layer = 0;
-	let maxLayer = Math.floor($overlay.height() * density / (parseInt(settings.font_size) + 4)) - 1;
+	let maxLayer = Math.floor(($overlay.height() * density) / (parseInt(settings.font_size) + 4)) - 1;
 	for (; layer < maxLayer; layer++) {
 		if (!layers[layer]) {
 			layers[layer] = true;
@@ -142,12 +142,12 @@ function addNewDanmaku(entry) {
 let replaced = false;
 function replaceToggleVisibility() {
 	if (replaced) return;
-	let toggle = document.querySelector(".right-column__toggle-visibility");
+	let toggle = document.querySelector('.right-column__toggle-visibility');
 	if (!toggle) return;
 	replaced = true;
 
 	let injected = false;
-	toggle.addEventListener('click', e => {
+	toggle.addEventListener('click', (e) => {
 		const rightColumn = document.querySelector('.right-column');
 		const header = document.querySelector('.channel-header .tw-full-height.tw-pd-l-05');
 		const theatre = document.querySelector('.persistent-player--theatre');
@@ -172,7 +172,10 @@ function replaceToggleVisibility() {
 				rightColumn.children[0].classList.add('tw-block');
 				rightColumn.children[0].classList.remove('tw-hide');
 
-				rightColumn.querySelector('[data-a-target=right-column__toggle-collapse-btn] .tw-icon__svg').querySelector('path').setAttribute('d', 'M4 16V4H2v12h2zM13 15l-1.5-1.5L14 11H6V9h8l-2.5-2.5L13 5l5 5-5 5z');
+				rightColumn
+					.querySelector('[data-a-target=right-column__toggle-collapse-btn] .tw-icon__svg')
+					.querySelector('path')
+					.setAttribute('d', 'M4 16V4H2v12h2zM13 15l-1.5-1.5L14 11H6V9h8l-2.5-2.5L13 5l5 5-5 5z');
 
 				if (header) {
 					header.classList.remove('tw-sm-pd-r-4');
@@ -195,7 +198,10 @@ function replaceToggleVisibility() {
 				rightColumn.children[0].classList.remove('tw-block');
 				rightColumn.children[0].classList.add('tw-hide');
 
-				rightColumn.querySelector('[data-a-target=right-column__toggle-collapse-btn] .tw-icon__svg').querySelector('path').setAttribute('d', 'M16 16V4h2v12h-2zM6 9l2.501-2.5-1.5-1.5-5 5 5 5 1.5-1.5-2.5-2.5h8V9H6z');
+				rightColumn
+					.querySelector('[data-a-target=right-column__toggle-collapse-btn] .tw-icon__svg')
+					.querySelector('path')
+					.setAttribute('d', 'M16 16V4h2v12h-2zM6 9l2.501-2.5-1.5-1.5-5 5 5 5 1.5-1.5-2.5-2.5h8V9H6z');
 				if (header) {
 					header.classList.remove('tw-sm-pd-r-1');
 					header.classList.add('tw-sm-pd-r-4');
@@ -213,30 +219,30 @@ function replaceToggleVisibility() {
 let gotSettings = false;
 let gotFonts = false;
 async function start() {
-	$logDiv.unbind("DOMNodeInserted");
-	$logDiv.bind("DOMNodeInserted", event => {
+	$logDiv.unbind('DOMNodeInserted');
+	$logDiv.bind('DOMNodeInserted', (event) => {
 		var newChatDOM = event.target;
 		setTimeout(() => {
 			var chatEntry = digestChatDom(newChatDOM);
 			addNewDanmaku(chatEntry);
 		}, 0);
 	});
-	
+
 	console.log(
-		"%c[Twitch Chat Danmaku] If you like this extension, please consider to support the dev by sending a donation via https://www.paypal.me/wheatup. Thanks! Pepega",
-		"color: #fff; font-weight: bold; background-color: #295; border-radius: 3px; padding: 2px 5px;"
+		'%c[Twitch Chat Danmaku] If you like this extension, please consider to support the dev by sending a donation via https://www.paypal.me/wheatup. Thanks! Pepega',
+		'color: #fff; font-weight: bold; background-color: #295; border-radius: 3px; padding: 2px 5px;'
 	);
 
 	while (!gotSettings || !gotFonts || !replaced) {
-		if(!gotSettings){
-			sendMessage("GET_SETTINGS");
+		if (!gotSettings) {
+			sendMessage('GET_SETTINGS');
 		}
 
-		if(!gotFonts){
-			sendMessage("GET_FONTS");
+		if (!gotFonts) {
+			sendMessage('GET_FONTS');
 		}
 
-		if(!replaced){
+		if (!replaced) {
 			replaceToggleVisibility();
 		}
 
@@ -254,24 +260,23 @@ $(document).ready(init);
 
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 	switch (request.type) {
-		case "GOT_SETTINGS":
+		case 'GOT_SETTINGS':
 			Object.assign(settings, request.data);
-			$overlay.css("display", settings.enabled ? "block" : "none");
+			$overlay.css('display', settings.enabled ? 'block' : 'none');
 			gotSettings = true;
 			break;
-		case "UPDATE_SETTINGS":
+		case 'UPDATE_SETTINGS':
 			Object.assign(settings, request.data);
-			$overlay.css("display", settings.enabled ? "block" : "none");
+			$overlay.css('display', settings.enabled ? 'block' : 'none');
 			break;
-		case "URL_CHANGE":
+		case 'URL_CHANGE':
 			init();
 			break;
-		case "GOT_FONTS":
+		case 'GOT_FONTS':
 			fontList = request.data;
 			gotFonts = true;
 			break;
 	}
 });
 
-
-const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
+const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
