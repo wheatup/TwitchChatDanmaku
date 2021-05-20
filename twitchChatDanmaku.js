@@ -14,13 +14,14 @@ function findLogDiv() {
 	return new Promise((resolve, reject) => {
 		let timer = setInterval(() => {
 			let _$logDiv = $('div[role=log]');
+			// let _$logDiv = $('div[role=log]');
 			if (_$logDiv && _$logDiv[0]) {
 				$logDiv = $(_$logDiv[0]);
 				clearInterval(timer);
 				isVideoChat = false;
 				resolve($logDiv);
 			} else {
-				_$logDiv = $('ul[class*=tw-align-items-end]');
+				_$logDiv = $('.video-chat ul');
 				if (_$logDiv && _$logDiv[0]) {
 					$logDiv = $(_$logDiv[0]);
 					clearInterval(timer);
@@ -61,20 +62,21 @@ function digestChatDom(dom) {
 	if (!dom) return null;
 	let username = $(dom).find('span[data-a-target=chat-message-username]').html();
 	if (!username) return;
-	if (isVideoChat) {
-		dom = $(dom).find('.tw-flex-grow-1')[0];
-	}
+	// if (isVideoChat) {
+	// 	dom = $(dom).find('.tw-flex-grow-1')[0];
+	// }
 	let content = '';
 	let foundUsername = false;
 	if (isVideoChat) {
 		let ele = '';
 		if (settings.show_username) {
-			ele = dom;
+			ele = $(dom).find('.video-chat__message-menu')[0].previousSibling;
 		} else {
-			ele = $(dom).find('div[data-test-selector=comment-message-selector]')[0];
-			ele = ele.children[ele.children.length - 1];
+			ele = $(dom).find('.text-fragment')[0];
+			// ele = ele.children[ele.children.length - 1];
 		}
-		content += ele.outerHTML;
+		if (ele && ele.outerHTML)
+			content += ele.outerHTML;
 	} else {
 		let d = dom.querySelector('[class*=username-container]') || dom.querySelector('.text-fragment');
 		if (d) {
@@ -93,7 +95,8 @@ function digestChatDom(dom) {
 					continue;
 				}
 			}
-			content += ele.outerHTML;
+			if (ele && ele.outerHTML)
+				content += ele.outerHTML;
 		}
 	}
 
@@ -101,8 +104,6 @@ function digestChatDom(dom) {
 		username: username,
 		content: content
 	};
-
-	console.log(entry);
 	return entry;
 }
 
@@ -222,6 +223,9 @@ async function start() {
 	$logDiv.unbind('DOMNodeInserted');
 	$logDiv.bind('DOMNodeInserted', (event) => {
 		var newChatDOM = event.target;
+
+		if (!newChatDOM.className) return;
+
 		setTimeout(() => {
 			var chatEntry = digestChatDom(newChatDOM);
 			addNewDanmaku(chatEntry);
