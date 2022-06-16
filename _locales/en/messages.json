@@ -56,6 +56,24 @@
 	"lblDanmakuDensity_3": {
 		"message": "Full"
 	},
+	"tipMessageLength": {
+		"message": "Length limit"
+	},
+	"lblMessageLength": {
+		"message": "Length: "
+	},
+	"tipBlockUsers": {
+		"message": "Block Users"
+	},
+	"lblBlockUsers": {
+		"message": "Users: "
+	},
+	"tipBlockMessages": {
+		"message": "Block Messages"
+	},
+	"lblBlockMessages": {
+		"message": "Messages: "
+	},
 	"tipApply": {
 		"message": "Apply the current settings."
 	},

@@ -56,6 +56,24 @@
 	"lblDanmakuDensity_3": {
 		"message": "なし"
 	},
+	"tipMessageLength": {
+		"message": "弾幕として表示する文字数の制限"
+	},
+	"lblMessageLength": {
+		"message": "文字数: "
+	},
+	"tipBlockUsers": {
+		"message": "弾幕として表示しないユーザー"
+	},
+	"lblBlockUsers": {
+		"message": "ユーザー: "
+	},
+	"tipBlockMessages": {
+		"message": "弾幕として表示しないコメント"
+	},
+	"lblBlockMessages": {
+		"message": "コメント: "
+	},
 	"tipApply": {
 		"message": "現在の設定を適用する"
 	},
@@ -63,10 +81,10 @@
 		"message": "適用"
 	},
 	"tipResetToDefault": {
-		"message": "既定の設定を戻る"
+		"message": "既定の設定に戻る"
 	},
 	"lblResetToDefault": {
-		"message": "既定の設定を戻る"
+		"message": "既定の設定に戻る"
 	},
 	"enable": {
 		"message": "有効"

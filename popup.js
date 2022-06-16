@@ -41,6 +41,9 @@ function onGotSettings() {
 	$('#textDecoration').val(settings.textDecoration);
 	$('#danmaku_density').val(settings.danmaku_density);
 	$('#bold').bootstrapToggle(settings.bold ? 'on' : 'off');
+	$('#message_length').val(settings.message_length);
+	$('#block_users').val(settings.block_users);
+	$('#block_messages').val(settings.block_messages);
 	apply();
 }
 
@@ -91,11 +94,16 @@ $(document).ready(() => {
 
 	document.getElementById('duration').oninput = onDurationChange;
 	document.getElementById('duration-display').value = document.getElementById('duration').value + chrome.i18n.getMessage('s');
+	document.getElementById('message_length').oninput = onMessageLengthChange;
+	document.getElementById('message_length-display').value = document.getElementById('message_length').value;
 	document.getElementById('font_size').oninput = onFontSizeChange;
 	document.getElementById('font_size-display').value = document.getElementById('font_size').value + chrome.i18n.getMessage('px');
 	document.getElementById('opacity').oninput = onOpacityChange;
 	document.getElementById('opacity-display').value = document.getElementById('opacity').value;
 	document.getElementById('danmaku_density-display').value = chrome.i18n.getMessage('lblDanmakuDensity_' + document.getElementById('danmaku_density').value);
+	document.getElementById('block_users').oninput = onBlockUsersChange;
+	document.getElementById('block_messages').oninput = onBlockMessagesChange;
+
 
 	$('#rtl').click(onClickResetToDefault);
 
@@ -110,6 +118,7 @@ function apply() {
 		$('#further_settings').slideUp(200);
 	}
 	$('#duration-display').val(settings.duration + chrome.i18n.getMessage('s'));
+	$('#message_length-display').val(settings.message_length);
 	$('#font_size-display').val(settings.font_size + chrome.i18n.getMessage('px'));
 	$('#opacity-display').val(settings.opacity);
 	$('#danmaku_density-display').val(chrome.i18n.getMessage('lblDanmakuDensity_' + settings.danmaku_density));
@@ -119,13 +128,16 @@ function onClickResetToDefault() {
 	settings = { 
 		enabled: true, 
 		duration: 7, 
-		font_size: 28, 
-		opacity: 1, 
+		font_size: 36, 
+		opacity: 0.7, 
 		show_username: false, 
 		textDecoration: 'stroke', 
 		font: 'Default', 
 		bold: true, 
-		danmaku_density: 3 
+		danmaku_density: 3,
+		message_length: 50,
+		block_users: '',
+		block_messages: ''
 	};
 
 	$('#duration').val(settings.duration);
@@ -137,12 +149,21 @@ function onClickResetToDefault() {
 	$('#show_username').bootstrapToggle(settings.show_username ? 'on' : 'off');
 	$('#textDecoration').val(settings.textDecoration);
 	$('#danmaku_density').val(settings.danmaku_density);
+	$('#message_length').val(settings.message_length);
+	$('#block_users').val(settings.block_users);
+	$('#block_messages').val(settings.block_messages);
 	apply();
 	sendMessage('UPDATE_SETTINGS', settings);
 }
 
 function onDurationChange() {
 	settings.duration = this.value;
+	apply();
+	sendMessage('UPDATE_SETTINGS', settings);
+}
+
+function onMessageLengthChange() {
+	settings.message_length = this.value;
 	apply();
 	sendMessage('UPDATE_SETTINGS', settings);
 }
@@ -192,6 +213,18 @@ function onTextDecorationChange() {
 
 function onDanmakuDensityChange() {
 	settings.danmaku_density = $('#danmaku_density').val();
+	apply();
+	sendMessage('UPDATE_SETTINGS', settings);
+}
+
+function onBlockUsersChange() {
+	settings.block_users = $('#block_users').val();
+	apply();
+	sendMessage('UPDATE_SETTINGS', settings);
+}
+
+function onBlockMessagesChange() {
+	settings.block_messages = $('#block_messages').val();
 	apply();
 	sendMessage('UPDATE_SETTINGS', settings);
 }

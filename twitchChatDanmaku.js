@@ -66,6 +66,7 @@ function digestChatDom(dom) {
 	// 	dom = $(dom).find('.tw-flex-grow-1')[0];
 	// }
 	let content = '';
+	let message = '';
 	let foundUsername = false;
 	if (isVideoChat) {
 		let ele = '';
@@ -75,8 +76,14 @@ function digestChatDom(dom) {
 			ele = $(dom).find('.text-fragment')[0];
 			// ele = ele.children[ele.children.length - 1];
 		}
-		if (ele && ele.outerHTML)
-			content += ele.outerHTML;
+		if (ele) {
+			if(ele.innerHTML){
+				message += ele.innerHTML;
+			}
+			if(ele.outerHTML){
+				content += ele.outerHTML;
+			}
+		}
 	} else {
 		let d = dom.querySelector('[class*=username-container]') || dom.querySelector('.text-fragment');
 		if (d) {
@@ -95,19 +102,44 @@ function digestChatDom(dom) {
 					continue;
 				}
 			}
-			if (ele && ele.outerHTML)
-				content += ele.outerHTML;
+			if (ele) {
+				if(ele.innerText){
+					message += ele.innerText;
+				}
+				if(ele.outerHTML){
+					content += ele.outerHTML;
+				}
+			}
 		}
 	}
 
 	var entry = {
 		username: username,
-		content: content
+		content: content,
+		message: message
 	};
 	return entry;
 }
 
 let timers = [];
+
+function Restriction(entry){
+	if (!settings.enabled || !entry) return;
+	let check = ''; 
+	let usersarray = String(settings.block_users).split(' ');
+	let messagesarray = String(settings.block_messages).split(' ');
+	if(usersarray[0] != '') {
+		check = usersarray.find(val => val.match(new RegExp(String(entry.username), 'g')));
+	}
+	if(messagesarray[0] != '') {
+		check = messagesarray.find(val => String(entry.message).match(new RegExp(String(val))));
+	}
+	if(String(entry.message).length > settings.message_length) {
+		check = "EXCESS";
+	}
+
+	return check;
+}
 
 function addNewDanmaku(entry) {
 	if (!settings.enabled || !entry) return;
@@ -228,7 +260,9 @@ async function start() {
 
 		setTimeout(() => {
 			var chatEntry = digestChatDom(newChatDOM);
-			addNewDanmaku(chatEntry);
+			if(!Restriction(chatEntry)){
+				addNewDanmaku(chatEntry);
+			}
 		}, 0);
 	});
 

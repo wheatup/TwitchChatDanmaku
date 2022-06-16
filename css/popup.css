@@ -114,3 +114,8 @@ input[readonly="readonly"]{
     cursor: pointer; /* Cursor on hover */
     border-radius: 3px;
 }
+
+.w50 {
+   display: inline-block;
+   width: 150px;
+}

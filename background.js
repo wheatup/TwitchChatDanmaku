@@ -2,13 +2,16 @@ let fonts = [];
 let settings = { 
 	enabled: true, 
 	duration: 7, 
-	font_size: 28, 
-	opacity: 1, 
+	font_size: 36, 
+	opacity: 0.7, 
 	show_username: false, 
 	textDecoration: 'stroke', 
 	font: 'Default', 
 	bold: true, 
-	danmaku_density: 3 
+	danmaku_density: 3,
+	message_length: 50,
+	block_users: '',
+	block_messages: ''
 };
 
 function sendMessage(type, data, tabId = null) {
@@ -59,6 +62,8 @@ function saveSettings() {
 	localStorage.setItem('bold', settings.bold);
 	localStorage.setItem('font', settings.font || 'Default');
 	localStorage.setItem('danmaku_density', settings.danmaku_density || 3);
+	localStorage.setItem('block_users', settings.block_users);
+	localStorage.setItem('block_messages', settings.block_messages);
 }
 
 function loadSettings() {
@@ -75,6 +80,8 @@ function loadSettings() {
 		settings.show_username = localStorage.getItem('show_username');
 		settings.show_username = (settings.show_username === 'true' || settings.show_username === true);
 		settings.danmaku_density = localStorage.getItem('danmaku_density');
+		settings.block_users = localStorage.getItem('block_users');
+		settings.block_messages = localStorage.getItem('block_messages');
 	} else {
 		saveSettings();
 	}
