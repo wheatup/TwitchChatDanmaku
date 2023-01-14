@@ -14,16 +14,21 @@ function findLogDiv() {
 	return new Promise((resolve, reject) => {
 		let timer = setInterval(() => {
 			let _$logDiv = $('div[role=log]');
-			// let _$logDiv = $('div[role=log]');
+			let _$videoChatUl = $(".video-chat ul");
+			let _$messageContainer = $(".chat-scrollable-area__message-container");
 			if (_$logDiv && _$logDiv[0]) {
 				$logDiv = $(_$logDiv[0]);
 				clearInterval(timer);
 				isVideoChat = false;
 				resolve($logDiv);
+			} else if (_$videoChatUl && _$videoChatUl[0]) {
+				$logDiv = $(_$videoChatUl[0]);
+				clearInterval(timer);
+				isVideoChat = true;
+				resolve($logDiv);
 			} else {
-				_$logDiv = $('.video-chat ul');
-				if (_$logDiv && _$logDiv[0]) {
-					$logDiv = $(_$logDiv[0]);
+				if (_$messageContainer && _$messageContainer[0]) {
+					$logDiv = $(_$messageContainer[0]);
 					clearInterval(timer);
 					isVideoChat = true;
 					resolve($logDiv);
