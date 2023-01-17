@@ -1,7 +1,10 @@
 ## <span id="ChangeLog">Change Logs</span>
 
+### 1.4.11
+> * Fixed a problem that danmaku is not showing.
+
 ### 1.4.10
-> * Fixed a problem causes damnaku is not showing on VODs
+> * Fixed a problem causes danmaku is not showing on VODs
 ### 1.4.9
 > * Fixed a glitch that danmaku is not showing.
 
@@ -109,6 +112,9 @@
 <hr/>
 
 ## <span id="ChangeLogCN">更新日志</span>
+
+### 1.4.11
+> * 修复了弹幕无法显示的问题。
 
 ### 1.4.10
 > * 修复了在直播录像中无法显示弹幕的问题。

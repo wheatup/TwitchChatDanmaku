@@ -27,11 +27,12 @@ const Danmaku = function (entry, layer, config) {
 }
 
 Danmaku.prototype.attachTo = function (container) {
-	let width = container.width();
+	let width = container.clientWidth;
 	this.html.addClass('danmaku');
 	this.html.css('transform', `translateX(${width}px)`);
 	this.html.css('visibility', `visible`);
-	container.append(this.html);
+	container.insertAdjacentElement('beforeend', this.html[0]);
+	
 	setTimeout(() => {
 		if (this.html) {
 			let myWidth = Math.floor(this.html.width() + 100);

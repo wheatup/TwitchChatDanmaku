@@ -6,105 +6,84 @@ let fontList = null;
 
 let settings = {};
 
+const waitUntil = condition => new Promise(resolve => {
+	let res;
+	const tick = () => {
+		if (res = condition()) {
+			resolve(res);
+		}
+		requestAnimationFrame(tick);
+	};
+	tick();
+});
+
 function sendMessage(type, data) {
 	chrome.runtime.sendMessage({ type, data });
 }
 
-function findLogDiv() {
-	return new Promise((resolve, reject) => {
-		let timer = setInterval(() => {
-			let _$logDiv = $('div[role=log]');
-			// let _$logDiv = $('div[role=log]');
-			if (_$logDiv && _$logDiv[0]) {
-				$logDiv = $(_$logDiv[0]);
-				clearInterval(timer);
-				isVideoChat = false;
-				resolve($logDiv);
-			} else {
-				_$logDiv = $('.video-chat ul');
-				if (_$logDiv && _$logDiv[0]) {
-					$logDiv = $(_$logDiv[0]);
-					clearInterval(timer);
-					isVideoChat = true;
-					resolve($logDiv);
-				}
-			}
-		}, 500);
-	});
+async function findLogDiv() {
+	$logDiv = await waitUntil(() =>
+		document.querySelector('.chat-scrollable-area__message-container') ||
+		document.querySelector('.video-chat__message-list-wrapper ul')
+	);
+
+	return $logDiv;
 }
 
-function createOverlay() {
-	return new Promise((resolve) => {
-		if ($('#danmaku_overlay') && $('#danmaku_overlay').length > 0) {
-			$overlay = $('#danmaku_overlay');
-			resolve();
-			return;
-		}
+async function createOverlay() {
+	if (document.querySelector('#danmaku_overlay')) {
+		return;
+	}
 
-		let timer = setInterval(() => {
-			var streamPlayer =
-				document.querySelector('.passthrough-events') ||
-				document.querySelector('.video-player__container') ||
-				document.querySelector('.highwind-video-player__overlay') ||
-				document.querySelector('[class*=video-player]');
+	const streamPlayer = await waitUntil(() =>
+		document.querySelector('.passthrough-events') ||
+		document.querySelector('.video-player__container') ||
+		document.querySelector('.highwind-video-player__overlay') ||
+		document.querySelector('[class*=video-player]') ||
+		document.querySelector('.persistent-player')
+	);
 
-			if (streamPlayer) {
-				streamPlayer.insertAdjacentHTML('beforeend', '<div id="danmaku_overlay"></div>');
-				$overlay = $('#danmaku_overlay');
-				clearInterval(timer);
-				resolve();
-			}
-		}, 500);
-	});
+	$overlay = document.createElement('div');
+	$overlay.id = 'danmaku_overlay';
+	streamPlayer.appendChild($overlay);
+	return $overlay;
 }
 
 function digestChatDom(dom) {
-	if (!dom) return null;
-	let username = $(dom).find('span[data-a-target=chat-message-username]').html();
-	if (!username) return;
-	// if (isVideoChat) {
-	// 	dom = $(dom).find('.tw-flex-grow-1')[0];
-	// }
+	let username = '';
 	let content = '';
-	let foundUsername = false;
-	if (isVideoChat) {
-		let ele = '';
-		if (settings.show_username) {
-			ele = $(dom).find('.video-chat__message-menu')[0].previousSibling;
+
+	if (dom.classList.contains('chat-line__message')) {
+		const $author = dom.querySelector('.chat-line__username-container');
+		if (!$author) return;
+
+		if (!settings.show_username) {
+			username = $author.outerHTML;
+			content = [...$author.parentElement.childNodes].pop().outerHTML;
 		} else {
-			ele = $(dom).find('.text-fragment')[0];
-			// ele = ele.children[ele.children.length - 1];
+			username = '';
+			content = $author.parentElement.outerHTML;
 		}
-		if (ele && ele.outerHTML)
-			content += ele.outerHTML;
+
+	} else if (dom.tagName === 'LI') {
+		const $author = dom.querySelector('.video-chat__message-author');
+		if (!$author) return;
+
+		if (!settings.show_username) {
+			username = $author.outerHTML;
+			content = dom.querySelector('.video-chat__message > span:last-of-type')?.outerHTML;
+		} else {
+			username = '';
+			content = $author.parentElement.outerHTML;
+		}
 	} else {
-		let d = dom.querySelector('[class*=username-container]') || dom.querySelector('.text-fragment');
-		if (d) {
-			dom = d.parentElement;
-		}
-		for (var i = 0; i < dom.children.length; i++) {
-			let ele = dom.children[i];
-			if (!settings.show_username) {
-				if (!foundUsername) {
-					if ($(ele).attr('class') && $(ele).attr('class').indexOf('username') >= 0) {
-						foundUsername = true;
-					}
-					continue;
-				}
-				if ($(ele).attr('aria-hidden')) {
-					continue;
-				}
-			}
-			if (ele && ele.outerHTML)
-				content += ele.outerHTML;
-		}
+		return;
 	}
 
-	var entry = {
-		username: username,
-		content: content
+	return {
+		username,
+		content
 	};
-	return entry;
 }
 
 let timers = [];
@@ -113,7 +92,7 @@ function addNewDanmaku(entry) {
 	if (!settings.enabled || !entry) return;
 	const density = [0.25, 0.5, 0.75, 1][settings.danmaku_density] || 1;
 	let layer = 0;
-	let maxLayer = Math.floor(($overlay.height() * density) / (parseInt(settings.font_size) + 4)) - 1;
+	let maxLayer = Math.floor(($overlay.clientHeight * density) / (parseInt(settings.font_size) + 4)) - 1;
 	for (; layer < maxLayer; layer++) {
 		if (!layers[layer]) {
 			layers[layer] = true;
@@ -219,18 +198,13 @@ function replaceToggleVisibility() {
 
 let gotSettings = false;
 let gotFonts = false;
+const insertEvent = ({ target }) => {
+	setTimeout(() => addNewDanmaku(digestChatDom(target)), 0);
+};
+
 async function start() {
-	$logDiv.unbind('DOMNodeInserted');
-	$logDiv.bind('DOMNodeInserted', (event) => {
-		var newChatDOM = event.target;
-
-		if (!newChatDOM.className) return;
-
-		setTimeout(() => {
-			var chatEntry = digestChatDom(newChatDOM);
-			addNewDanmaku(chatEntry);
-		}, 0);
-	});
+	$logDiv.removeEventListener('DOMNodeInserted', insertEvent);
+	$logDiv.addEventListener('DOMNodeInserted', insertEvent);
 
 	console.log(
 		'%c[Twitch Chat Danmaku] If you like this extension, please consider to support the dev by sending a donation via https://www.paypal.me/wheatup. Thanks! Pepega',
@@ -266,12 +240,12 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 	switch (request.type) {
 		case 'GOT_SETTINGS':
 			Object.assign(settings, request.data);
-			$overlay.css('display', settings.enabled ? 'block' : 'none');
+			$overlay.style.display = settings.enabled ? 'block' : 'none';
 			gotSettings = true;
 			break;
 		case 'UPDATE_SETTINGS':
 			Object.assign(settings, request.data);
-			$overlay.css('display', settings.enabled ? 'block' : 'none');
+			$overlay.style.display = settings.enabled ? 'block' : 'none';
 			break;
 		case 'URL_CHANGE':
 			init();

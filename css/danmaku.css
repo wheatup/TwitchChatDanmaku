@@ -69,3 +69,7 @@
 ._tcd_full .right-column div.tw-flex-grow-0, ._tcd_full .right-column div.tw-flex-grow-0.tw-block{
 	display: none !important;
 }
+
+#danmaku_overlay span[aria-hidden="true"]:not([class]) {
+	color: white !important;
+}
