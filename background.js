@@ -2,7 +2,7 @@ let fonts = [];
 let settings = { 
 	enabled: true, 
 	duration: 7, 
-	font_size: 28, 
+	fontSize: 28, 
 	opacity: 1, 
 	show_username: false, 
 	textDecoration: 'stroke', 
@@ -52,7 +52,7 @@ chrome.runtime.onInstalled.addListener(function() {
 function saveSettings() {
 	localStorage.setItem('enabled', settings.enabled);
 	localStorage.setItem('duration', settings.duration);
-	localStorage.setItem('font_size', settings.font_size);
+	localStorage.setItem('fontSize', settings.fontSize);
 	localStorage.setItem('opacity', settings.opacity);
 	localStorage.setItem('show_username', settings.show_username);
 	localStorage.setItem('textDecoration', settings.textDecoration);
@@ -67,7 +67,7 @@ function loadSettings() {
 	if (enabled !== null && enabled !== '' && typeof enabled !== 'undefined') {
 		settings.enabled = enabled === 'true' || enabled === true;
 		settings.duration = localStorage.getItem('duration');
-		settings.font_size = localStorage.getItem('font_size');
+		settings.fontSize = localStorage.getItem('fontSize');
 		settings.opacity = localStorage.getItem('opacity');
 		settings.textDecoration = localStorage.getItem('textDecoration');
 		settings.font = localStorage.getItem('font');
@@ -90,9 +90,9 @@ chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
 		// Doesn't support chrome.declarativeContent
 		if (changeInfo.status === "complete") {
 			if (/twitch/.test(tab.url)) {
-				chrome.pageAction.show(tabId);
+				chrome.action.show(tabId);
 			} else {
-				chrome.pageAction.hide(tabId);
+				chrome.action.hide(tabId);
 			}
 		}
 	}

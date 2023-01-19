@@ -4,12 +4,12 @@ const Danmaku = function (entry, layer, config) {
 	this.layer = layer;
 	this.html = $(`<span title='${this.username}'>${this.content}</span>`);
 	this.html.attr('layer', layer);
-	this.html.css('height', (parseInt(config.font_size) + 4) + 'px');
+	this.html.css('height', (parseInt(config.fontSize) + 4) + 'px');
 	this.html.css('opacity', config.opacity);
 	this.html.css('font-weight', config.bold ? 'bold' : 'default');
 	this.html.css('transition-duration', `${config.duration}s`);
-	this.html.css('font-size', config.font_size + 'px');
-	this.html.css('top', (layer * (parseInt(config.font_size) + 4)) + 'px');
+	this.html.css('font-size', config.fontSize + 'px');
+	this.html.css('top', (layer * (parseInt(config.fontSize) + 4)) + 'px');
 	if (config.font && config.font !== 'Default') {
 		this.html.css('font-family', config.font);
 	}

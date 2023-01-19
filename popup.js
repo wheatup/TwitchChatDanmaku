@@ -34,7 +34,7 @@ function sendMessage(type, data, tabId = null) {
 function onGotSettings() {
 	$('#duration').val(settings.duration);
 	$('#font').val(settings.font);
-	$('#font_size').val(settings.font_size);
+	$('#fontSize').val(settings.fontSize);
 	$('#opacity').val(settings.opacity);
 	$('#enabled').bootstrapToggle(settings.enabled ? 'on' : 'off');
 	$('#show_username').bootstrapToggle(settings.show_username ? 'on' : 'off');
@@ -91,8 +91,8 @@ $(document).ready(() => {
 
 	document.getElementById('duration').oninput = onDurationChange;
 	document.getElementById('duration-display').value = document.getElementById('duration').value + chrome.i18n.getMessage('s');
-	document.getElementById('font_size').oninput = onFontSizeChange;
-	document.getElementById('font_size-display').value = document.getElementById('font_size').value + chrome.i18n.getMessage('px');
+	document.getElementById('fontSize').oninput = onFontSizeChange;
+	document.getElementById('fontSize-display').value = document.getElementById('fontSize').value + chrome.i18n.getMessage('px');
 	document.getElementById('opacity').oninput = onOpacityChange;
 	document.getElementById('opacity-display').value = document.getElementById('opacity').value;
 	document.getElementById('danmaku_density-display').value = chrome.i18n.getMessage('lblDanmakuDensity_' + document.getElementById('danmaku_density').value);
@@ -110,7 +110,7 @@ function apply() {
 		$('#further_settings').slideUp(200);
 	}
 	$('#duration-display').val(settings.duration + chrome.i18n.getMessage('s'));
-	$('#font_size-display').val(settings.font_size + chrome.i18n.getMessage('px'));
+	$('#fontSize-display').val(settings.fontSize + chrome.i18n.getMessage('px'));
 	$('#opacity-display').val(settings.opacity);
 	$('#danmaku_density-display').val(chrome.i18n.getMessage('lblDanmakuDensity_' + settings.danmaku_density));
 }
@@ -119,7 +119,7 @@ function onClickResetToDefault() {
 	settings = { 
 		enabled: true, 
 		duration: 7, 
-		font_size: 28, 
+		fontSize: 28, 
 		opacity: 1, 
 		show_username: false, 
 		textDecoration: 'stroke', 
@@ -130,7 +130,7 @@ function onClickResetToDefault() {
 
 	$('#duration').val(settings.duration);
 	$('#font').val(settings.font);
-	$('#font_size').val(settings.font_size);
+	$('#fontSize').val(settings.fontSize);
 	$('#opacity').val(settings.opacity);
 	$('#bold').bootstrapToggle(settings.bold ? 'on' : 'off');
 	$('#enabled').bootstrapToggle(settings.enabled ? 'on' : 'off');
@@ -148,7 +148,7 @@ function onDurationChange() {
 }
 
 function onFontSizeChange() {
-	settings.font_size = this.value;
+	settings.fontSize = this.value;
 	apply();
 	sendMessage('UPDATE_SETTINGS', settings);
 }

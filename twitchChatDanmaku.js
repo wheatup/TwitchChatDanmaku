@@ -92,7 +92,7 @@ function addNewDanmaku(entry) {
 	if (!settings.enabled || !entry) return;
 	const density = [0.25, 0.5, 0.75, 1][settings.danmaku_density] || 1;
 	let layer = 0;
-	let maxLayer = Math.floor(($overlay.clientHeight * density) / (parseInt(settings.font_size) + 4)) - 1;
+	let maxLayer = Math.floor(($overlay.clientHeight * density) / (parseInt(settings.fontSize) + 4)) - 1;
 	for (; layer < maxLayer; layer++) {
 		if (!layers[layer]) {
 			layers[layer] = true;
