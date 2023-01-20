@@ -60,9 +60,11 @@ button {
 html body {
   color: var(--clrText);
   background-color: var(--clrBg);
-  padding: 1rem 2rem;
-  width: 30rem;
+  padding: 1rem 1.2rem;
+  width: 28rem;
   margin: 0 auto;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 h2 {
@@ -74,6 +76,14 @@ h2 {
 
 form {
   font-size: 1.4rem;
+}
+form .further-settings {
+  overflow-y: hidden;
+  max-height: 240px;
+  transition: max-height 0.3s;
+}
+form .further-settings.hidden {
+  max-height: 0;
 }
 form .buttonGroup {
   display: flex;
@@ -123,6 +133,9 @@ form .entry .control {
   display: flex;
   align-items: center;
 }
+form .entry .control [name] {
+  flex: 1;
+}
 form input[type=checkbox] {
   display: none;
 }
@@ -158,8 +171,8 @@ form input[type=checkbox]:checked + .checkbox::before {
 form input[type=range] {
   appearance: none;
   -webkit-appearance: none;
-  max-width: 12rem;
   background-color: transparent;
+  width: 100%;
 }
 form input[type=range]::-webkit-slider-runnable-track {
   width: 100%;
@@ -206,12 +219,11 @@ form output {
   background-color: var(--clrBgDark);
   font-size: 1.2rem;
   height: 1.8rem;
-  width: 4rem;
+  width: 5rem;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 4px;
-  flex: 1;
   margin-left: 0.5rem;
   overflow: hidden;
   color: var(--clrTextLight);

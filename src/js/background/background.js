@@ -15,4 +15,10 @@ on('GET_USER_SETTINGS', async () => {
 	emit('USER_SETTINGS', settings);
 });
 
+on('SET_USER_SETTINGS', async data => {
+	await waitUntil(() => ready);
+	settings = updateSettings(data);
+	// emit('USER_SETTINGS', settings);
+});
+
 init();

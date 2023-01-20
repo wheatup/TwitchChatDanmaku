@@ -13,17 +13,17 @@
 		<hr />
 
 		<form class="settings">
-			<div class="entry" title="__MSG_tipEnable__">
+			<div class="entry" data-entry="enabled" title="__MSG_tipEnable__">
 				<label class="item-name" for="enabled">__MSG_lblEnable__</label>
 				<div class="control">
-					<input type="checkbox" checked data-toggle="toggle" name="enabled" id="enabled" />
+					<input type="checkbox" data-toggle="toggle" name="enabled" id="enabled" />
 					<label class="checkbox" for="enabled"></label>
 				</div>
 			</div>
 
 
-			<ul class="further-settings">
-				<li class="entry" title="__MSG_tipUsername__">
+			<ul class="further-settings hidden">
+				<li class="entry" data-entry="showUsername" title="__MSG_tipUsername__">
 					<label class="item-name" for="showUsername">__MSG_lblUsername__</label>
 					<div class="control">
 						<input type="checkbox" data-toggle="toggle" name="showUsername" id="showUsername" />
@@ -31,15 +31,15 @@
 					</div>
 				</li>
 
-				<li class="entry" title="__MSG_tipDuration__">
+				<li class="entry" data-entry="duration" title="__MSG_tipDuration__">
 					<label class="item-name" for="duration">__MSG_lblDuration__</label>
 					<div class="control">
 						<input class="slider" type="range" id="duration" name="duration" min="1" step="1" max="20" value="15" />
-						<output data-source="display">output</output>
+						<output data-source="duration">output</output>
 					</div>
 				</li>
 
-				<li class="entry" title="__MSG_tipOpacity__">
+				<li class="entry" data-entry="opacity" title="__MSG_tipOpacity__">
 					<label class="item-name" for="opacity">__MSG_lblOpacity__</label>
 					<div class="control">
 						<input class="slider" type="range" id="opacity" name="opacity" min="0" step="0.1" max="1" value="1" />
@@ -47,22 +47,22 @@
 					</div>
 				</li>
 
-				<li class="entry" title="__MSG_tipFont__">
+				<li class="entry" data-entry="font" title="__MSG_tipFont__">
 					<label class="item-name" for="font">__MSG_lblFont__</label>
 					<div class="control">
-						<select class="form-control" id="font"></select>
+						<select class="form-control" id="font" name="font"></select>
 					</div>
 				</li>
 
-				<li class="entry" title="__MSG_tipBold__">
+				<li class="entry" data-entry="bold" title="__MSG_tipBold__">
 					<label class="item-name" for="bold">__MSG_lblBold__</label>
 					<div class="control">
-						<input type="checkbox" checked data-toggle="toggle" name="bold" id="bold" />
+						<input type="checkbox" data-toggle="toggle" name="bold" id="bold" />
 						<label class="checkbox" for="bold"></label>
 					</div>
 				</li>
 
-				<li class="entry" title="__MSG_tipFontSize__">
+				<li class="entry" data-entry="fontSize" title="__MSG_tipFontSize__">
 					<label class="item-name" for="fontSize">__MSG_lblFontSize__</label>
 					<div class="control">
 						<input class="slider" type="range" id="fontSize" name="fontSize" min="12" step="1" max="100" value="24" />
@@ -70,22 +70,22 @@
 					</div>
 				</li>
 
-				<li class="entry" title="__MSG_tipTextDecoration__">
+				<li class="entry" data-entry="textDecoration" title="__MSG_tipTextDecoration__">
 					<label class="item-name" for="textDecoration">__MSG_lblTextDecoration__</label>
 					<div class="control">
-						<select class="form-control" id="textDecoration">
+						<select class="form-control" name="textDecoration" id="textDecoration">
 							<option value="none">__MSG_lblNone__</option>
 							<option value="shadow">__MSG_lblShadow__</option>
-							<option value="stroke" selected="selected">__MSG_lblStroke__</option>
+							<option value="stroke">__MSG_lblStroke__</option>
 						</select>
 					</div>
 				</li>
 
-				<li class="entry" title="__MSG_tipDanmakuDensity__">
+				<li class="entry" data-entry="danmakuDensity" title="__MSG_tipDanmakuDensity__">
 					<label class="item-name" for="danmakuDensity">__MSG_lblDanmakuDensity__</label>
 					<div class="control">
 						<input class="slider" type="range" id="danmakuDensity" name="danmakuDensity" min="0" step="1" max="3" value="3" />
-						<output data-source="fontSize">output</output>
+						<output data-source="danmakuDensity">output</output>
 					</div>
 				</li>
 			</ul>

@@ -14,10 +14,24 @@ let settings = {
 	...DEFAULT_SETTINGS
 };
 
-export const updateSettings = async (update, reset) => {
-	const USER_SETTINGS = { ...(reset ? DEFAULT_SETTINGS : settings), ...update };
-	await chrome.storage.sync.set({ USER_SETTINGS });
-	return USER_SETTINGS;
+export const uploadSettings = (() => {
+	let timer;
+	return async () => {
+		if (timer) {
+			clearTimeout(timer);
+		}
+		timer = setTimeout(async () => {
+			console.log('UPLOADING SETTINGS', settings);
+			await chrome.storage.sync.set({ USER_SETTINGS: settings });
+			return settings;
+		}, 2000);
+	}
+})();
+
+export const updateSettings = (update, reset) => {
+	settings = { ...(reset ? DEFAULT_SETTINGS : settings), ...update };
+	uploadSettings();
+	return settings;
 };
 
 export const getUserSettings = async () => {

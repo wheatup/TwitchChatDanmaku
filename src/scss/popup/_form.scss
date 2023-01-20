@@ -20,6 +20,7 @@ form {
 			align-items: center;
 
 			[name] {
+				flex: 1;
 			}
 
 			output {
@@ -70,8 +71,8 @@ form {
 		&[type='range'] {
 			appearance: none;
 			-webkit-appearance: none;
-			max-width: 12rem;
 			background-color: transparent;
+			width: 100%;
 
 			&::-webkit-slider-runnable-track {
 				width: 100%;
@@ -93,7 +94,6 @@ form {
 			}
 
 			&:hover::-webkit-slider-thumb {
-				// transform: scale(1.1);
 				box-shadow: none;
 			}
 		}
@@ -127,12 +127,11 @@ form {
 		background-color: var(--clrBgDark);
 		font-size: 1.2rem;
 		height: 1.8rem;
-		width: 4rem;
+		width: 5rem;
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		border-radius: 4px;
-		flex: 1;
 		margin-left: 0.5rem;
 		overflow: hidden;
 		color: var(--clrTextLight);
