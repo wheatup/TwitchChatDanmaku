@@ -4,7 +4,7 @@
 	"version": "2.0.0",
 	"description": "__MSG_appDescription__",
 	"background": {
-		"service_worker": "background.js",
+		"service_worker": "src/js/background/background.js",
 		"type": "module"
 	},
 	"icons": {
