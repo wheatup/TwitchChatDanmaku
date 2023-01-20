@@ -12,37 +12,37 @@
 		"message": "弾幕の表示"
 	},
 	"lblEnable": {
-		"message": "弾幕: "
+		"message": "弾幕"
 	},
 	"tipUsername": {
 		"message": "コメントの名前が表示"
 	},
 	"lblUsername": {
-		"message": "名前: "
+		"message": "名前"
 	},
 	"tipDuration": {
 		"message": "弾幕が表示の期間"
 	},
 	"lblDuration": {
-		"message": "期間: "
+		"message": "期間"
 	},
 	"tipFontSize": {
 		"message": "弾幕の文字のサイズ"
 	},
 	"lblFontSize": {
-		"message": "サイズ: "
+		"message": "サイズ"
 	},
 	"tipOpacity": {
 		"message": "弾幕の透明度"
 	},
 	"lblOpacity": {
-		"message": "透明度: "
+		"message": "透明度"
 	},
 	"tipDanmakuDensity": {
 		"message": "弾幕の高さ制限"
 	},
 	"lblDanmakuDensity": {
-		"message": "高さ制限: "
+		"message": "高さ制限"
 	},
 	"lblDanmakuDensity_0": {
 		"message": "1/4"
@@ -92,7 +92,7 @@
 		"message": "弾幕のスタイルを変更する、パフォーマンスに影響する可能性があります"
 	},
 	"lblTextDecoration": {
-		"message": "スタイル: "
+		"message": "スタイル"
 	},
 	"lblNone": {
 		"message": "無し"
@@ -104,7 +104,7 @@
 		"message": "ストローク"
 	},
 	"lblFont": {
-		"message": "フォント: "
+		"message": "フォント"
 	},
 	"tipFont": {
 		"message": "弾幕のフォントを設定する"

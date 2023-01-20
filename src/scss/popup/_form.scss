@@ -1,0 +1,140 @@
+form {
+	.entry {
+		display: flex;
+
+		+ .entry,
+		+ .further-settings {
+			margin-top: 0.5rem;
+		}
+
+		> label {
+			flex: 0 0 8rem;
+			overflow: hidden;
+			text-align: right;
+			margin-right: 1rem;
+		}
+
+		.control {
+			flex: 1;
+			display: flex;
+			align-items: center;
+
+			[name] {
+			}
+
+			output {
+			}
+		}
+	}
+
+	input {
+		&[type='checkbox'] {
+			display: none;
+
+			+ .checkbox {
+				cursor: pointer;
+				width: 3.4rem;
+				height: 1.8rem;
+				background-color: var(--clrShadow);
+				border-radius: 4px;
+				position: relative;
+
+				&::before {
+					content: '';
+					display: block;
+					width: 1.2rem;
+					height: 1.2rem;
+					background-color: var(--clrHighlight);
+					border-radius: 3px;
+					position: absolute;
+					left: 0.3rem;
+					top: 50%;
+					transform: translate(0, -50%);
+					transition: all 0.2s;
+					transition-property: left, background-color, transform;
+				}
+			}
+
+			&:checked {
+				+ .checkbox {
+					background-color: var(--clrTheme);
+
+					&::before {
+						left: 100%;
+						transform: translate(calc(-100% - 0.3rem), -50%);
+					}
+				}
+			}
+		}
+
+		&[type='range'] {
+			appearance: none;
+			-webkit-appearance: none;
+			max-width: 12rem;
+			background-color: transparent;
+
+			&::-webkit-slider-runnable-track {
+				width: 100%;
+				height: 1.8rem;
+				background-color: var(--clrShadow);
+				border-radius: 4px;
+				padding: 3px;
+			}
+
+			&::-webkit-slider-thumb {
+				appearance: none;
+				-webkit-appearance: none;
+				width: 1.2rem;
+				height: 1.2rem;
+				background-color: var(--clrHighlight);
+				border-radius: 3px;
+				cursor: ew-resize;
+				transition: transform 0.2s;
+			}
+
+			&:hover::-webkit-slider-thumb {
+				// transform: scale(1.1);
+				box-shadow: none;
+			}
+		}
+	}
+
+	select {
+		appearance: none;
+		background-color: var(--clrShadow);
+		border: none;
+		border-radius: 4px;
+		height: 1.8rem;
+		padding: 0 1rem;
+		flex: 1;
+		color: var(--clrHighlight);
+		font-size: 1.2rem;
+	}
+
+	button {
+		background-color: var(--clrTheme);
+		padding: 0.6rem 2rem;
+		border-radius: 4px;
+		color: var(--clrHighlight);
+		transition: filter 0.2s;
+
+		&:hover {
+			filter: brightness(1.1);
+		}
+	}
+
+	output {
+		background-color: var(--clrBgDark);
+		font-size: 1.2rem;
+		height: 1.8rem;
+		width: 4rem;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: 4px;
+		flex: 1;
+		margin-left: 0.5rem;
+		overflow: hidden;
+		color: var(--clrTextLight);
+	}
+}

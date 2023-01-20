@@ -1,0 +1,18 @@
+:root {
+	--clrTheme: #9146ff;
+	--clrBg: #eee;
+	--clrBgDark: #ddd;
+	--clrText: #333;
+	--clrTextLight: #777;
+	--clrShadow: #888;
+	--clrHighlight: #f0f0f0;
+
+	@media (prefers-color-scheme: dark) {
+		--clrBg: #222;
+		--clrBgDark: #444;
+		--clrShadow: #444;
+		--clrHighlight: #ddd;
+		--clrText: #ddd;
+		--clrTextLight: #aaa;
+	}
+}

@@ -8,60 +8,94 @@
 	</head>
 
 	<body>
+		<h2>__MSG_settingsTitle__</h2>
+		
+		<hr />
+
 		<form class="settings">
-			<h2>__MSG_settingsTitle__</h2>
-			<ul>
-				<li title="__MSG_tipEnable__">
-					<label class="item_name" for="enabled">__MSG_lblEnable__</label>
+			<div class="entry" title="__MSG_tipEnable__">
+				<label class="item-name" for="enabled">__MSG_lblEnable__</label>
+				<div class="control">
 					<input type="checkbox" checked data-toggle="toggle" name="enabled" id="enabled" />
+					<label class="checkbox" for="enabled"></label>
+				</div>
+			</div>
+
+
+			<ul class="further-settings">
+				<li class="entry" title="__MSG_tipUsername__">
+					<label class="item-name" for="showUsername">__MSG_lblUsername__</label>
+					<div class="control">
+						<input type="checkbox" data-toggle="toggle" name="showUsername" id="showUsername" />
+						<label class="checkbox" for="showUsername"></span>
+					</div>
 				</li>
-				<div id="further_settings">
-					<li title="__MSG_tipUsername__">
-						<label class="item_name" for="show_username">__MSG_lblUsername__</label>
-						<input type="checkbox" data-toggle="toggle" name="show_username" id="show_username" />
-					</li>
-					<li title="__MSG_tipDuration__">
-						<label class="item_name" for="duration">__MSG_lblDuration__</label>
+
+				<li class="entry" title="__MSG_tipDuration__">
+					<label class="item-name" for="duration">__MSG_lblDuration__</label>
+					<div class="control">
 						<input class="slider" type="range" id="duration" name="duration" min="1" step="1" max="20" value="15" />
-						<input type="text" id="duration-display" name="duration-display" readonly="readonly" />
-					</li>
-					<li title="__MSG_tipOpacity__">
-						<label class="item_name" for="opacity">__MSG_lblOpacity__</label>
+						<output data-source="display">output</output>
+					</div>
+				</li>
+
+				<li class="entry" title="__MSG_tipOpacity__">
+					<label class="item-name" for="opacity">__MSG_lblOpacity__</label>
+					<div class="control">
 						<input class="slider" type="range" id="opacity" name="opacity" min="0" step="0.1" max="1" value="1" />
-						<input type="text" id="opacity-display" name="opacity-display" readonly="readonly" />
-					</li>
-					<li title="__MSG_tipFont__">
-						<label class="item_name" for="font">__MSG_lblFont__</label>
+						<output data-source="opacity">output</output>
+					</div>
+				</li>
+
+				<li class="entry" title="__MSG_tipFont__">
+					<label class="item-name" for="font">__MSG_lblFont__</label>
+					<div class="control">
 						<select class="form-control" id="font"></select>
-					</li>
-					<li title="__MSG_tipBold__">
-						<label class="item_name" for="bold">__MSG_lblBold__</label>
+					</div>
+				</li>
+
+				<li class="entry" title="__MSG_tipBold__">
+					<label class="item-name" for="bold">__MSG_lblBold__</label>
+					<div class="control">
 						<input type="checkbox" checked data-toggle="toggle" name="bold" id="bold" />
-					</li>
-					<li title="__MSG_tipFontSize__">
-						<label class="item_name" for="fontSize">__MSG_lblFontSize__</label>
+						<label class="checkbox" for="bold"></label>
+					</div>
+				</li>
+
+				<li class="entry" title="__MSG_tipFontSize__">
+					<label class="item-name" for="fontSize">__MSG_lblFontSize__</label>
+					<div class="control">
 						<input class="slider" type="range" id="fontSize" name="fontSize" min="12" step="1" max="100" value="24" />
-						<input type="text" id="fontSize-display" name="fontSize-display" readonly="readonly" />
-					</li>
-					<li title="__MSG_tipTextDecoration__">
-						<label class="item_name" for="textDecoration">__MSG_lblTextDecoration__</label>
+						<output data-source="fontSize">output</output>
+					</div>
+				</li>
+
+				<li class="entry" title="__MSG_tipTextDecoration__">
+					<label class="item-name" for="textDecoration">__MSG_lblTextDecoration__</label>
+					<div class="control">
 						<select class="form-control" id="textDecoration">
 							<option value="none">__MSG_lblNone__</option>
 							<option value="shadow">__MSG_lblShadow__</option>
 							<option value="stroke" selected="selected">__MSG_lblStroke__</option>
 						</select>
-					</li>
-					<li title="__MSG_tipDanmakuDensity__">
-						<label class="item_name" for="danmaku_density">__MSG_lblDanmakuDensity__</label>
-						<input class="slider" type="range" id="danmaku_density" name="danmaku_density" min="0" step="1" max="3" value="3" />
-						<input type="text" id="danmaku_density-display" name="danmaku_density-display" readonly="readonly" />
-					</li>
-				</div>
+					</div>
+				</li>
+
+				<li class="entry" title="__MSG_tipDanmakuDensity__">
+					<label class="item-name" for="danmakuDensity">__MSG_lblDanmakuDensity__</label>
+					<div class="control">
+						<input class="slider" type="range" id="danmakuDensity" name="danmakuDensity" min="0" step="1" max="3" value="3" />
+						<output data-source="fontSize">output</output>
+					</div>
+				</li>
 			</ul>
+
 			<div class="buttonGroup">
-				<button class="btn myBtn" id="rtl" title="__MSG_tipResetToDefault__">__MSG_lblResetToDefault__</button>
+				<button id="resetToDefault" title="__MSG_tipResetToDefault__">__MSG_lblResetToDefault__</button>
 			</div>
-			<span class="copyright">&copy; <a href="https://github.com/wheatup" target="_blank">wheatup</a> 2019 - <a href="https://github.com/wheatup/TwitchChatDanmaku/blob/master/CHANGELOG.md" target="_blank">ver __VERSION__</a></span>
 		</form>
+		<hr />
+
+		<p class="copyright">&copy; <a href="https://github.com/wheatup" target="_blank">wheatup</a> 2019 - <a href="https://github.com/wheatup/TwitchChatDanmaku/blob/master/CHANGELOG.md" target="_blank">ver __VERSION__</a></p>
 	</body>
 </html>

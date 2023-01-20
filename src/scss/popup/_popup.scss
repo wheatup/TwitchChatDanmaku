@@ -1,0 +1,55 @@
+html {
+	body {
+		color: var(--clrText);
+		background-color: var(--clrBg);
+		padding: 1rem 2rem;
+		width: 30rem;
+		margin: 0 auto;
+	}
+}
+
+
+h2 {
+	text-align: center;
+	font-size: 1.8rem;
+	font-weight: normal;
+	line-height: initial;
+}
+
+form {
+	font-size: 1.4rem;
+
+	.buttonGroup {
+		display: flex;
+		justify-content: center;
+		margin-top: 1rem;
+
+		button {
+
+			& + button {
+				margin-left: 1rem;
+			}
+		}
+	}
+}
+
+.copyright {
+	text-align: center;
+	color: var(--clrTextLight);
+	font-size: 1.2rem;
+	opacity: 0.7;
+}
+
+a {
+	transition: color .2s;
+	&:hover {
+		color: var(--clrTheme);
+	}
+}
+
+hr {
+	background-color: none;
+	border: none;
+	border-top: solid 1px var(--clrBgDark);
+	margin: 1rem 0;
+}
