@@ -20,7 +20,3 @@ export const waitUntil = (condition, { timeout = 0, interval = 1000 / 60 } = {})
 		}, timeout);
 	}
 });
-
-export const getElementBySelectors = selectors => Promise.race(
-	selectors.map(selector => waitUntil(() => document.querySelector(selector)))
-);

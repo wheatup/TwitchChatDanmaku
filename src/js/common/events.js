@@ -33,8 +33,28 @@ export const off = (signal, callback) => {
 
 export const emit = (signal, data) => {
 	chrome.runtime.sendMessage({ signal, data });
+	sendToRelativeTabs(signal, data);
 }
 
+const getRelativeTabs = async () => {
+	return await chrome.tabs.query({ url: '*://*.twitch.tv/*' });
+}
+
+export const sendToTab = (tabId, signal, data) => {
+	chrome.tabs.sendMessage(tabId, { signal, data });
+}
+
+export const sendToRelativeTabs = (signal, data) => {
+	getRelativeTabs().then(tabs => {
+		if (tabs) {
+			tabs.forEach(tab => {
+				chrome.tabs.sendMessage(tab.id, { signal, data });
+			});
+		}
+	});
+}
+
+
 export default {
-	on, emit, off
+	on, emit, off, sendToTab, sendToRelativeTabs
 }

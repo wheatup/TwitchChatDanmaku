@@ -1,4 +1,4 @@
-import { emit, on } from "../common/events.js";
+import { emit, on, sendToRelativeTabs } from "../common/events.js";
 import { getUserSettings, updateSettings } from "../common/userSettings.js";
 import { waitUntil } from "../common/utils.js";
 
@@ -10,15 +10,15 @@ const init = async () => {
 	ready = true;
 };
 
-on('GET_USER_SETTINGS', async () => {
+on('GET_USER_SETTINGS', async (data, sender) => {
 	await waitUntil(() => ready);
 	emit('USER_SETTINGS', settings);
 });
 
-on('SET_USER_SETTINGS', async data => {
+on('SET_USER_SETTINGS', async (data, sender) => {
 	await waitUntil(() => ready);
 	settings = updateSettings(data);
-	// emit('USER_SETTINGS', settings);
+	sendToRelativeTabs('USER_SETTINGS', settings);
 });
 
 init();
