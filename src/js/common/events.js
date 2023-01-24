@@ -32,7 +32,11 @@ export const off = (signal, callback) => {
 }
 
 export const emit = (signal, data) => {
-	chrome.runtime.sendMessage({ signal, data });
+	try {
+		chrome.runtime.sendMessage({ signal, data });
+	} catch (ex) {
+		console.warn(ex);
+	}
 	sendToRelativeTabs(signal, data);
 }
 
@@ -41,14 +45,18 @@ const getRelativeTabs = async () => {
 }
 
 export const sendToTab = (tabId, signal, data) => {
-	chrome.tabs.sendMessage(tabId, { signal, data });
+	try {
+		chrome.tabs.sendMessage(tabId, { signal, data });
+	} catch (ex) {
+		console.warn(ex);
+	}
 }
 
 export const sendToRelativeTabs = (signal, data) => {
 	getRelativeTabs().then(tabs => {
 		if (tabs) {
 			tabs.forEach(tab => {
-				chrome.tabs.sendMessage(tab.id, { signal, data });
+				sendToTab(tab.id, signal, data);
 			});
 		}
 	});

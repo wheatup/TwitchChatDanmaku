@@ -2,12 +2,44 @@
 // import { waitUntil } from "../common/utils";
 
 (() => {
-	const VIDEO_CONTAINER_SELECTORS = ['.persistent-player'];
-	const CHAT_CONTAINER_SELECTORS = ['.chat-scrollable-area__message-container'];
-	const RAW_CHAT_SELECTORS = ['.chat-line__message'].map(e => `${e}:not([data-danmaku-ready])`);
+	const VIDEO_CONTAINER_SELECTORS = [
+		// stream
+		'.persistent-player'
+
+		// vod
+	];
+	const CHAT_CONTAINER_SELECTORS = [
+		// stream
+		'.chat-scrollable-area__message-container'
+
+		//vod
+	];
+
+	const RAW_CHAT_SELECTORS = [
+		// stream
+		'.chat-line__message'
+
+		// vod
+	].map(e => `${e}:not([data-danmaku-ready])`);
+
+	const CHAT_USERNAME_SELECTORS = [
+		// stream
+		'.chat-line__username-container'
+
+		// vod
+	];
+	const CHAT_MESSAGE_SELECTORS = [
+		// stream
+		'.chat-line__message-container .chat-line__username-container ~ span:last-of-type'
+
+		// vod
+	];
+
+	// danmaku mode, may add other modes in the future
+	const MODE = 'default';
 
 	// utils
-	const { waitUntil, getElementsBySelectors, getVideoContainer, getChatContainer, getUserSettings, onUserSettings, events } = (() => {
+	const { waitUntil, getElementsBySelectors, getVideoContainer, getChatContainer, getUserSettings, onUserSettingsChange, events } = (() => {
 		const waitUntil = (condition, { timeout = 0, interval = 1000 / 60 } = {}) => new Promise((resolve, reject) => {
 			let res;
 			const tick = () => {
@@ -85,7 +117,7 @@
 			};
 		})();
 
-		const onUserSettings = callback => {
+		const onUserSettingsChange = callback => {
 			events.on('USER_SETTINGS', callback);
 		}
 
@@ -100,16 +132,15 @@
 			getVideoContainer,
 			getChatContainer,
 			getUserSettings,
-			onUserSettings,
+			onUserSettingsChange,
 			events
 		}
 	})();
 
 
-	// persist worker
 	(async () => {
 		let $video, $chat, $danmakuContainer;
-		let observing = false, settings = {};
+		let settings = {}, mode = 'default', core;
 
 		const isDanmakuWorking = () => (
 			($danmakuContainer && document.body.contains($danmakuContainer)) &&
@@ -121,25 +152,54 @@
 
 		const processChat = async ($chat) => {
 			$chat.setAttribute('data-danmaku-ready', true);
-			console.log('process', $chat);
+			const $username = (await getElementsBySelectors(CHAT_USERNAME_SELECTORS, $chat))[0];
+			const $message = (await getElementsBySelectors(CHAT_MESSAGE_SELECTORS, $chat))[0];
+			core.onDanmaku?.($username.cloneNode(true), $message.cloneNode(true));
 		}
 
-		const onGetUserSettings = data => {
+		const onGetUserSettings = (data, init) => {
 			settings = data;
-			console.log('SETTINGS', data);
+			if (!init) {
+				core.onSettingsChange?.(data);
+			}
 		}
 
-		onGetUserSettings(await getUserSettings());
-		onUserSettings(onGetUserSettings);
+		const getCore = async () => {
+			try {
+				core = await waitUntil(() => window._twitchChatDanmaku?.[mode], { timeout: 10000 });
+			} catch (ex) {
+				console.error('TwitchChatDanmaku: core not found, abort!', ex);
+			}
+
+			return core;
+		}
+
+		await getCore();
+		if (!core) {
+			console.error('TwitchChatDanmaku: core not found, abort!');
+			return;
+		}
+		onGetUserSettings(await getUserSettings(), true);
+		onUserSettingsChange(data => onGetUserSettings(data));
+
+		const changeMode = async m => {
+			mode = m;
+			core = await getCore();
+		};
+
+		const reset = () => {
+			[...document.querySelectorAll('#danmaku-container')].forEach($el => $el.remove());
+		};
+
 
 		// init danmaku container
-		const init = async () => {
-			console.log('init', { $video, $chat });
-			[...document.querySelectorAll('#danmaku-container')].forEach($el => $el.remove());
-
+		const initDanmakuContainer = async () => {
+			reset();
 			$danmakuContainer = document.createElement('div');
 			$danmakuContainer.setAttribute('id', 'danmaku-container');
+			$danmakuContainer.setAttribute('data-danmaku-mode', MODE);
 			$video.appendChild($danmakuContainer);
+			core.init?.($danmakuContainer, settings);
 
 			(async () => {
 				let $orgContainer = $danmakuContainer;
@@ -152,16 +212,16 @@
 			})();
 		}
 
+		// persist worker
 		while (true) {
 			// for every second, check if the danmaku container is gone
 			if (await waitUntil(() => !isDanmakuWorking(), { interval: 1000 })) {
-				observing = false;
 				// if it is gone, wait until the video and chat container are ready
 				$chat = await getChatContainer();
 				$video = await getVideoContainer();
 
 				if (document.body.contains($chat) && document.body.contains($video)) {
-					await init();
+					await initDanmakuContainer();
 				}
 			}
 		}

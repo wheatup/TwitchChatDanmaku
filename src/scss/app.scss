@@ -1,11 +1,13 @@
+@import './app/danmaku/default';
+
 #danmaku-container {
 	position: absolute;
 	top: 0;
 	left: 0;
 	width: 100%;
 	height: 100%;
-	pointer-events: none;
+	// pointer-events: none;
 	overflow: hidden;
-	background-color: red;
+	background-color: rgba(255, 0, 0, 0.5);
 	z-index: 10000;
 }
