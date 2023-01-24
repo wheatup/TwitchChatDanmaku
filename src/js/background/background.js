@@ -21,4 +21,10 @@ on('SET_USER_SETTINGS', async (data, sender) => {
 	sendToRelativeTabs('USER_SETTINGS', settings);
 });
 
+on('RESET_USER_SETTINGS', async (data, sender) => {
+	await waitUntil(() => ready);
+	settings = updateSettings(data, true);
+	emit('USER_SETTINGS', settings);
+});
+
 init();

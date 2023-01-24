@@ -140,7 +140,7 @@
 
 	(async () => {
 		let $video, $chat, $danmakuContainer;
-		let settings = {}, mode = 'default', core;
+		let settings = {}, core;
 
 		const isDanmakuWorking = () => (
 			($danmakuContainer && document.body.contains($danmakuContainer)) &&
@@ -154,19 +154,24 @@
 			$chat.setAttribute('data-danmaku-ready', true);
 			const $username = (await getElementsBySelectors(CHAT_USERNAME_SELECTORS, $chat))[0];
 			const $message = (await getElementsBySelectors(CHAT_MESSAGE_SELECTORS, $chat))[0];
-			core.onDanmaku?.($username.cloneNode(true), $message.cloneNode(true));
+			core?.onDanmaku?.($username.cloneNode(true), $message.cloneNode(true));
 		}
 
 		const onGetUserSettings = (data, init) => {
+			let { mode } = settings;
 			settings = data;
 			if (!init) {
-				core.onSettingsChange?.(data);
+				core?.onSettingsChange?.(data);
+
+				if (mode !== settings.mode) {
+					reset();
+				}
 			}
 		}
 
 		const getCore = async () => {
 			try {
-				core = await waitUntil(() => window._twitchChatDanmaku?.[mode], { timeout: 10000 });
+				core = await waitUntil(() => window._twitchChatDanmaku?.[settings.mode], { timeout: 1000 });
 			} catch (ex) {
 				console.error('TwitchChatDanmaku: core not found, abort!', ex);
 			}
@@ -174,32 +179,28 @@
 			return core;
 		}
 
+		onGetUserSettings(await getUserSettings(), true);
+		onUserSettingsChange(data => onGetUserSettings(data));
+
 		await getCore();
 		if (!core) {
 			console.error('TwitchChatDanmaku: core not found, abort!');
 			return;
 		}
-		onGetUserSettings(await getUserSettings(), true);
-		onUserSettingsChange(data => onGetUserSettings(data));
 
-		const changeMode = async m => {
-			mode = m;
-			core = await getCore();
-		};
-
-		const reset = () => {
+		const reset = async () => {
+			await getCore();
 			[...document.querySelectorAll('#danmaku-container')].forEach($el => $el.remove());
 		};
 
-
 		// init danmaku container
 		const initDanmakuContainer = async () => {
-			reset();
+			await reset();
 			$danmakuContainer = document.createElement('div');
 			$danmakuContainer.setAttribute('id', 'danmaku-container');
 			$danmakuContainer.setAttribute('data-danmaku-mode', MODE);
 			$video.appendChild($danmakuContainer);
-			core.init?.($danmakuContainer, settings);
+			core?.init?.($danmakuContainer, settings);
 
 			(async () => {
 				let $orgContainer = $danmakuContainer;

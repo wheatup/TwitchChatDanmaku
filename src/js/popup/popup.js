@@ -1,8 +1,13 @@
 import { emit, on } from "../common/events.js";
 import { setup, $ } from "../common/i18n.js";
 
+
 const init = async () => {
 	await setup();
+	document.querySelector('#resetToDefault').addEventListener('click', e => {
+		e.preventDefault();
+		emit('RESET_USER_SETTINGS');
+	});
 	emit('GET_USER_SETTINGS');
 }
 

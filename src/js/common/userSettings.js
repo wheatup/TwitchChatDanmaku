@@ -7,7 +7,8 @@ const DEFAULT_SETTINGS = {
 	textDecoration: 'stroke',
 	font: 'Default',
 	bold: true,
-	danmakuDensity: 3
+	danmakuDensity: 3,
+	mode: 'default'
 };
 
 let settings = {
