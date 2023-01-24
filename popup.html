@@ -31,7 +31,17 @@
 					</div>
 				</li>
 
-				<li class="entry" data-entry="duration" title="__MSG_tipDuration__">
+				<!-- <li class="entry" data-entry="mode" title="danmaku mode">
+					<label class="item-name" for="mode">Mode</label>
+					<div class="control">
+						<select class="form-control" name="mode" id="mode">
+							<option value="default">Default</option>
+							<option value="template">Template</option>
+						</select>
+					</div>
+				</li> -->
+
+				<li class="entry" data-entry="duration" data-mode="default" title="__MSG_tipDuration__">
 					<label class="item-name" for="duration">__MSG_lblDuration__</label>
 					<div class="control">
 						<input class="slider" type="range" id="duration" name="duration" min="1" step="1" max="20" value="15" />
@@ -39,7 +49,7 @@
 					</div>
 				</li>
 
-				<li class="entry" data-entry="opacity" title="__MSG_tipOpacity__">
+				<li class="entry" data-entry="opacity" data-mode="default" title="__MSG_tipOpacity__">
 					<label class="item-name" for="opacity">__MSG_lblOpacity__</label>
 					<div class="control">
 						<input class="slider" type="range" id="opacity" name="opacity" min="0" step="0.1" max="1" value="1" />
@@ -47,14 +57,14 @@
 					</div>
 				</li>
 
-				<li class="entry" data-entry="font" title="__MSG_tipFont__">
+				<li class="entry" data-entry="font" data-mode="default template" title="__MSG_tipFont__">
 					<label class="item-name" for="font">__MSG_lblFont__</label>
 					<div class="control">
 						<select class="form-control" id="font" name="font"></select>
 					</div>
 				</li>
 
-				<li class="entry" data-entry="bold" title="__MSG_tipBold__">
+				<li class="entry" data-entry="bold" data-mode="default template" title="__MSG_tipBold__">
 					<label class="item-name" for="bold">__MSG_lblBold__</label>
 					<div class="control">
 						<input type="checkbox" data-toggle="toggle" name="bold" id="bold" />
@@ -62,7 +72,7 @@
 					</div>
 				</li>
 
-				<li class="entry" data-entry="fontSize" title="__MSG_tipFontSize__">
+				<li class="entry" data-entry="fontSize" data-mode="default template" title="__MSG_tipFontSize__">
 					<label class="item-name" for="fontSize">__MSG_lblFontSize__</label>
 					<div class="control">
 						<input class="slider" type="range" id="fontSize" name="fontSize" min="12" step="1" max="100" value="24" />
@@ -70,7 +80,7 @@
 					</div>
 				</li>
 
-				<li class="entry" data-entry="textDecoration" title="__MSG_tipTextDecoration__">
+				<li class="entry" data-entry="textDecoration" data-mode="default" title="__MSG_tipTextDecoration__">
 					<label class="item-name" for="textDecoration">__MSG_lblTextDecoration__</label>
 					<div class="control">
 						<select class="form-control" name="textDecoration" id="textDecoration">
@@ -81,23 +91,13 @@
 					</div>
 				</li>
 
-				<li class="entry" data-entry="danmakuDensity" title="__MSG_tipDanmakuDensity__">
+				<li class="entry" data-entry="danmakuDensity" data-mode="default" title="__MSG_tipDanmakuDensity__">
 					<label class="item-name" for="danmakuDensity">__MSG_lblDanmakuDensity__</label>
 					<div class="control">
 						<input class="slider" type="range" id="danmakuDensity" name="danmakuDensity" min="0" step="1" max="3" value="3" />
 						<output data-source="danmakuDensity">output</output>
 					</div>
 				</li>
-
-				<!-- <li class="entry" data-entry="mode" title="danmaku mode">
-					<label class="item-name" for="mode">Mode</label>
-					<div class="control">
-						<select class="form-control" name="mode" id="mode">
-							<option value="default">Default</option>
-							<option value="template">Template</option>
-						</select>
-					</div>
-				</li> -->
 			</ul>
 
 			<div class="buttonGroup">

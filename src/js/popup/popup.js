@@ -1,6 +1,6 @@
 import { emit, on } from "../common/events.js";
 import { setup, $ } from "../common/i18n.js";
-
+let settings;
 
 const init = async () => {
 	await setup();
@@ -9,10 +9,11 @@ const init = async () => {
 		emit('RESET_USER_SETTINGS');
 	});
 	emit('GET_USER_SETTINGS');
+	emit('GET_FONT_LIST');
 }
 
 on('USER_SETTINGS', data => {
-	console.log('GOT SETTINGS', data);
+	settings = data;
 
 	const updateOutput = (output, value) => {
 		if (output) {
@@ -44,6 +45,7 @@ on('USER_SETTINGS', data => {
 				console.warn(`No input for ${key}`);
 				return;
 			}
+
 			if (input.getAttribute('type') === 'checkbox') {
 				input.checked = value;
 			} else {
@@ -55,6 +57,14 @@ on('USER_SETTINGS', data => {
 
 			if (key === 'enabled') {
 				document.querySelector('.further-settings').classList[value ? 'remove' : 'add']('hidden');
+			} else if (key === 'mode') {
+				console.log('mode changed', value);
+				[...document.querySelectorAll(`[data-mode~=${value}]`)].forEach(e => {
+					e.classList.remove('hidden');
+				});
+				[...document.querySelectorAll(`[data-mode]:not([data-mode~=${value}])`)].forEach(e => {
+					e.classList.add('hidden');
+				});
 			}
 
 			if (!change) {
@@ -73,5 +83,18 @@ on('USER_SETTINGS', data => {
 		onSettingChange(key, value);
 	});
 });
+
+on('FONT_LIST', fonts => {
+	const select = document.querySelector('[name="font"]');
+	fonts.forEach(font => {
+		const option = document.createElement('option');
+		option.innerText = font;
+		option.value = font;
+		if (settings?.font === font) {
+			option.selected = true;
+		}
+		select.appendChild(option);
+	});
+})
 
 window.addEventListener('load', init);

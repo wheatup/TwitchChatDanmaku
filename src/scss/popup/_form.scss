@@ -18,6 +18,7 @@ form {
 			flex: 1;
 			display: flex;
 			align-items: center;
+			min-width: 0;
 
 			[name] {
 				flex: 1;
@@ -109,6 +110,7 @@ form {
 		flex: 1;
 		color: var(--clrHighlight);
 		font-size: 1.2rem;
+		max-width: 100%;
 	}
 
 	button {
