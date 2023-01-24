@@ -16,7 +16,7 @@
 	"host_permissions": ["*://*.twitch.tv/*"],
 	"content_scripts": [
 		{
-			"css": ["css/app.css"],
+			"css": ["src/css/app.css"],
 			"matches": ["*://*.twitch.tv/*"],
 			"js": ["src/js/app/app.js"]
 		}

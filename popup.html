@@ -4,7 +4,7 @@
 		<meta charset="utf-8" />
 		<title>Twitch Chat Danmaku</title>
 		<script src="src/js/popup/popup.js" type="module"></script>
-		<link type="text/css" rel="stylesheet" href="css/popup.css" />
+		<link type="text/css" rel="stylesheet" href="src/css/popup.css" />
 	</head>
 
 	<body>
@@ -16,13 +16,13 @@
 			<div class="entry" data-entry="enabled" title="__MSG_tipEnable__">
 				<label class="item-name" for="enabled">__MSG_lblEnable__</label>
 				<div class="control">
-					<input type="checkbox" data-toggle="toggle" name="enabled" id="enabled" />
+					<input type="checkbox" data-toggle="toggle" name="enabled" id="enabled" checked />
 					<label class="checkbox" for="enabled"></label>
 				</div>
 			</div>
 
 
-			<ul class="further-settings hidden">
+			<ul class="further-settings">
 				<li class="entry" data-entry="showUsername" title="__MSG_tipUsername__">
 					<label class="item-name" for="showUsername">__MSG_lblUsername__</label>
 					<div class="control">
@@ -96,6 +96,6 @@
 		</form>
 		<hr />
 
-		<p class="copyright">&copy; <a href="https://github.com/wheatup" target="_blank">wheatup</a> 2019 - <a href="https://github.com/wheatup/TwitchChatDanmaku/blob/master/CHANGELOG.md" target="_blank">ver __VERSION__</a></p>
+		<p class="copyright">&copy; <a href="https://github.com/wheatup" target="_blank">wheatup</a> 2023 - <a href="https://github.com/wheatup/TwitchChatDanmaku/blob/master/CHANGELOG.md" target="_blank">ver __VERSION__</a></p>
 	</body>
 </html>

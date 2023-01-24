@@ -4,7 +4,7 @@
 	"description": "<hr/>",
 	"main": "app.js",
 	"scripts": {
-		"sass": "sass src/scss/popup.scss:css/popup.css src/scss/app.scss:css/app.css --watch"
+		"sass": "sass src/scss/popup.scss:src/css/popup.css src/scss/app.scss:src/css/app.css --watch"
 	},
 	"repository": {
 		"type": "git",
