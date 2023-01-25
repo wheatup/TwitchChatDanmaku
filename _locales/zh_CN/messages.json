@@ -12,37 +12,37 @@
 		"message": "开启/关闭弹幕"
 	},
 	"lblEnable": {
-		"message": "弹幕: "
+		"message": "弹幕"
 	},
 	"tipUsername": {
 		"message": "是否显示弹幕的发送者"
 	},
 	"lblUsername": {
-		"message": "显示用户: "
+		"message": "显示用户"
 	},
 	"tipDuration": {
 		"message": "每条弹幕的持续时间"
 	},
 	"lblDuration": {
-		"message": "持续时间: "
+		"message": "持续时间"
 	},
 	"tipFontSize": {
 		"message": "弹幕的字体大小"
 	},
 	"lblFontSize": {
-		"message": "字体大小: "
+		"message": "字体大小"
 	},
 	"tipOpacity": {
 		"message": "弹幕的透明度"
 	},
 	"lblOpacity": {
-		"message": "透明度: "
+		"message": "透明度"
 	},
 	"tipDanmakuDensity": {
 		"message": "弹幕的密度"
 	},
 	"lblDanmakuDensity": {
-		"message": "弹幕密度: "
+		"message": "弹幕密度"
 	},
 	"lblDanmakuDensity_0": {
 		"message": "1/4屏"
@@ -90,7 +90,7 @@
 		"message": "更改文字样式，可能会影响性能"
 	},
 	"lblTextDecoration": {
-		"message": "文字样式: "
+		"message": "文字样式"
 	},
 	"lblNone": {
 		"message": "无"

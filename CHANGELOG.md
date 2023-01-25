@@ -1,5 +1,9 @@
 ## <span id="ChangeLog">Change Logs</span>
 
+### 2.0.0
+> * Completely rebuilt the app, visually upgraded(or downgrade) the UI, upgraded to manifest v3.
+> * Collapsing the chat now still keeps the danmaku flowing(may have bugs).
+
 ### 1.4.11
 > * Fixed a problem that danmaku is not showing.
 
@@ -112,6 +116,10 @@
 <hr/>
 
 ## <span id="ChangeLogCN">更新日志</span>
+
+### 2.0.0
+> * 完全重构了代码，升级至manifest v3，UI升级（降级？）。
+> * 折叠聊天区域现在不会导致弹幕无法加载了（可能会有BUG）。
 
 ### 1.4.11
 > * 修复了弹幕无法显示的问题。

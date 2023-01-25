@@ -1,0 +1,23 @@
+{
+	"name": "twitch-chat-danmaku",
+	"version": "2.0.0",
+	"description": "<hr/>",
+	"main": "app.js",
+	"scripts": {
+		"sass": "sass src/scss/popup.scss:src/css/popup.css src/scss/app.scss:src/css/app.css --watch"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/wheatup/TwitchChatDanmaku.git"
+	},
+	"keywords": [],
+	"author": "wheatup",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/wheatup/TwitchChatDanmaku/issues"
+	},
+	"homepage": "https://github.com/wheatup/TwitchChatDanmaku#readme",
+	"devDependencies": {
+		"sass": "^1.57.1"
+	}
+}

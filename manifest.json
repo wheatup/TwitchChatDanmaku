@@ -1,32 +1,35 @@
 {
-   "manifest_version": 2,
-   "name": "__MSG_appName__",
-   "version": "1.4.11",
-   "description": "__MSG_appDescription__",
-   "background": {
-      "scripts": ["lib/jQuery/jquery-3.3.1.min.js", "background.js"],
-      "persistant": false
-   },
-   "icons": {
-      "128": "icons/icon-128.png",
-      "48": "icons/icon-48.png",
-      "16": "icons/icon-16.png"
-   },
-   "permissions": ["*://*.twitch.tv/*", "declarativeContent", "fontSettings"],
-   "content_scripts": [{
-      "css": ["css/danmaku.css"],
-      "matches": ["*://*.twitch.tv/*"],
-      "js": ["lib/jQuery/jquery-3.3.1.min.js", "danmaku.js", "twitchChatDanmaku.js"]
-   }],
-   "page_action": {
-      "default_title": "__MSG_appName__",
-      "default_icon": {
-         "16": "icons/icon-16.png",
-         "48": "icons/icon-48.png",
-         "64": "icons/icon-64.png",
-         "128": "icons/icon-128.png"
-      },
-      "default_popup": "popup.html"
-   },
-   "default_locale": "en"
+	"manifest_version": 3,
+	"name": "__MSG_appName__",
+	"version": "2.0.0",
+	"description": "__MSG_appDescription__",
+	"background": {
+		"service_worker": "src/js/background/background.js",
+		"type": "module"
+	},
+	"icons": {
+		"128": "icons/icon-128.png",
+		"48": "icons/icon-48.png",
+		"16": "icons/icon-16.png"
+	},
+	"permissions": ["declarativeContent", "fontSettings", "storage"],
+	"host_permissions": ["*://*.twitch.tv/*"],
+	"content_scripts": [
+		{
+			"css": ["src/css/app.css"],
+			"matches": ["*://*.twitch.tv/*"],
+			"js": ["src/js/app/danmaku/default.js", "src/js/app/app.js"]
+		}
+	],
+	"action": {
+		"default_title": "__MSG_appName__",
+		"default_icon": {
+			"16": "icons/icon-16.png",
+			"48": "icons/icon-48.png",
+			"64": "icons/icon-64.png",
+			"128": "icons/icon-128.png"
+		},
+		"default_popup": "popup.html"
+	},
+	"default_locale": "en"
 }

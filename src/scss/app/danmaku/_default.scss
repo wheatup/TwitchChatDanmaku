@@ -1,0 +1,69 @@
+#danmaku-container {
+	&[data-danmaku-mode='default'] {
+		font-family: var(--font-family), 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+		opacity: var(--opacity, 1);
+
+		.danmaku-chat {
+			font-family: inherit;
+			position: absolute;
+			font-size: calc(var(--fontSize, 24) * 1px);
+			top: 0;
+			animation: danmaku-move-default calc(var(--duration, 7) * (var(--length, 0) + 1) * 1s) cubic-bezier(0.3, 0.49, 0.74, 0.53) both;
+			white-space: nowrap;
+			margin-top: calc(var(--stack, 0) * 1.25em);
+
+			.danmaku-username {
+				font-size: 0.8em;
+
+				&::after {
+					content: ': ';
+					color: white;
+				}
+			}
+
+			.danmaku-message {
+				color: white;
+			}
+
+			.move {
+			}
+		}
+
+		&[data-text-decoration='stroke'] {
+			.danmaku-chat {
+				text-shadow: -2px -2px 0 rgba(0, 0, 0, 0.6), 2px -2px 0 rgba(0, 0, 0, 0.6), -2px 2px 0 rgba(0, 0, 0, 0.6), 2px 2px 0 rgba(0, 0, 0, 0.6);
+			}
+		}
+
+		&[data-text-decoration='shadow'] {
+			.danmaku-chat {
+				text-shadow: 0px 2px 1px rgba(0, 0, 0, 0.6);
+			}
+		}
+
+		&.hide-username {
+			.danmaku-chat {
+				.danmaku-username {
+					display: none;
+				}
+			}
+		}
+
+		&.bold {
+			.danmaku-chat {
+				font-weight: bold;
+			}
+		}
+	}
+}
+
+@keyframes danmaku-move-default {
+	0% {
+		transform: translate3d(0, 0, 0);
+		left: 100%;
+	}
+	100% {
+		transform: translate3d(-100%, 0, 0);
+		left: 0;
+	}
+}

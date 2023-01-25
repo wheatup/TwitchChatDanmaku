@@ -12,37 +12,37 @@
 		"message": "Turn on/off danmaku"
 	},
 	"lblEnable": {
-		"message": "Danmaku: "
+		"message": "Danmaku"
 	},
 	"tipUsername": {
 		"message": "Show the username of the comment"
 	},
 	"lblUsername": {
-		"message": "Username: "
+		"message": "Username"
 	},
 	"tipDuration": {
 		"message": "How long will the danmaku stay on the screen"
 	},
 	"lblDuration": {
-		"message": "Duration: "
+		"message": "Duration"
 	},
 	"tipFontSize": {
 		"message": "The font size of the danmaku"
 	},
 	"lblFontSize": {
-		"message": "Font Size: "
+		"message": "Font Size"
 	},
 	"tipOpacity": {
 		"message": "The transparency of the danmaku"
 	},
 	"lblOpacity": {
-		"message": "Opacity: "
+		"message": "Opacity"
 	},
 	"tipDanmakuDensity": {
 		"message": "The maximum height of the danmaku"
 	},
 	"lblDanmakuDensity": {
-		"message": "Density: "
+		"message": "Density"
 	},
 	"lblDanmakuDensity_0": {
 		"message": "1/4"
@@ -92,7 +92,7 @@
 		"message": "Change the text decoration, might affect the performance."
 	},
 	"lblTextDecoration": {
-		"message": "Text Style: "
+		"message": "Text Style"
 	},
 	"lblNone": {
 		"message": "None"
@@ -104,13 +104,13 @@
 		"message": "Stroke"
 	},
 	"lblFont": {
-		"message": "Font: "
+		"message": "Font"
 	},
 	"tipFont": {
 		"message": "Set the font of the danmaku."
 	},
 	"lblBold": {
-		"message": "Bold: "
+		"message": "Bold"
 	},
 	"tipBold": {
 		"message": "Bold text?"

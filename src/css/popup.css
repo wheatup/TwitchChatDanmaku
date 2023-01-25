@@ -1,0 +1,238 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  outline: none;
+}
+
+html {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+  font-size: 62.5%;
+}
+html body {
+  font-size: 1.6rem;
+  line-height: 1.5;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+input, select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+button {
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+:root {
+  --clrTheme: #9146ff;
+  --clrBg: #eee;
+  --clrBgDark: #ddd;
+  --clrText: #333;
+  --clrTextLight: #777;
+  --clrShadow: #777;
+  --clrHighlight: #f0f0f0;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --clrBg: #222;
+    --clrBgDark: #444;
+    --clrShadow: #444;
+    --clrHighlight: #ddd;
+    --clrText: #ddd;
+    --clrTextLight: #aaa;
+  }
+}
+
+html body {
+  color: var(--clrText);
+  background-color: var(--clrBg);
+  padding: 1rem 1.2rem;
+  width: 28rem;
+  margin: 0 auto;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+h2 {
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: normal;
+  line-height: initial;
+}
+
+form {
+  font-size: 1.4rem;
+}
+form .further-settings {
+  overflow-y: hidden;
+  max-height: 240px;
+  transition: max-height 0.3s;
+}
+form .further-settings.hidden {
+  max-height: 0;
+}
+form .buttonGroup {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+form .buttonGroup button + button {
+  margin-left: 1rem;
+}
+
+.copyright {
+  text-align: center;
+  color: var(--clrTextLight);
+  font-size: 1.2rem;
+  opacity: 0.7;
+}
+
+a {
+  transition: color 0.2s;
+}
+a:hover {
+  color: var(--clrTheme);
+}
+
+hr {
+  background-color: none;
+  border: none;
+  border-top: solid 1px var(--clrBgDark);
+  margin: 1rem 0;
+}
+
+.hidden {
+  display: none !important;
+}
+
+form .entry {
+  display: flex;
+}
+form .entry + .entry,
+form .entry + .further-settings {
+  margin-top: 0.5rem;
+}
+form .entry > label {
+  flex: 0 0 8rem;
+  overflow: hidden;
+  text-align: right;
+  margin-right: 1rem;
+}
+form .entry .control {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  min-width: 0;
+}
+form .entry .control [name] {
+  flex: 1;
+}
+form input[type=checkbox] {
+  display: none;
+}
+form input[type=checkbox] + .checkbox {
+  cursor: pointer;
+  width: 3.4rem;
+  height: 1.8rem;
+  background-color: var(--clrShadow);
+  border-radius: 4px;
+  position: relative;
+}
+form input[type=checkbox] + .checkbox::before {
+  content: "";
+  display: block;
+  width: 1.2rem;
+  height: 1.2rem;
+  background-color: var(--clrHighlight);
+  border-radius: 3px;
+  position: absolute;
+  left: 0.3rem;
+  top: 50%;
+  transform: translate(0, -50%);
+  transition: all 0.2s;
+  transition-property: left, background-color, transform;
+}
+form input[type=checkbox]:checked + .checkbox {
+  background-color: var(--clrTheme);
+}
+form input[type=checkbox]:checked + .checkbox::before {
+  left: 100%;
+  transform: translate(calc(-100% - 0.3rem), -50%);
+}
+form input[type=range] {
+  appearance: none;
+  -webkit-appearance: none;
+  background-color: transparent;
+  width: 100%;
+}
+form input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 1.8rem;
+  background-color: var(--clrShadow);
+  border-radius: 4px;
+  padding: 3px;
+}
+form input[type=range]::-webkit-slider-thumb {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 1.2rem;
+  height: 1.2rem;
+  background-color: var(--clrHighlight);
+  border-radius: 3px;
+  cursor: ew-resize;
+  transition: transform 0.2s;
+}
+form input[type=range]:hover::-webkit-slider-thumb {
+  box-shadow: none;
+}
+form select {
+  appearance: none;
+  background-color: var(--clrShadow);
+  border: none;
+  border-radius: 4px;
+  height: 1.8rem;
+  padding: 0 4px;
+  flex: 1;
+  color: var(--clrHighlight);
+  font-size: 1.2rem;
+  max-width: 100%;
+}
+form button {
+  background-color: var(--clrTheme);
+  padding: 0.6rem 2rem;
+  border-radius: 4px;
+  color: var(--clrHighlight);
+  transition: filter 0.2s;
+}
+form button:hover {
+  filter: brightness(1.1);
+}
+form output {
+  background-color: var(--clrBgDark);
+  font-size: 1.2rem;
+  height: 1.8rem;
+  width: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  margin-left: 0.5rem;
+  overflow: hidden;
+  color: var(--clrTextLight);
+}
+
+/*# sourceMappingURL=popup.css.map */

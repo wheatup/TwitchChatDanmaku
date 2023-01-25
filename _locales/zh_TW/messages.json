@@ -12,19 +12,19 @@
 		"message": "打開/關閉彈幕"
 	},
 	"lblEnable": {
-		"message": "彈幕: "
+		"message": "彈幕"
 	},
 	"tipUsername": {
 		"message": "是否顯示彈幕的發送人"
 	},
 	"lblUsername": {
-		"message": "發送人: "
+		"message": "發送人"
 	},
 	"tipDuration": {
 		"message": "每條彈幕的持續時間"
 	},
 	"lblDuration": {
-		"message": "持續時間: "
+		"message": "持續時間"
 	},
 	"tipFontSize": {
 		"message": "彈幕的文字大小"
@@ -42,7 +42,7 @@
 		"message": "彈幕的高度限制"
 	},
 	"lblDanmakuDensity": {
-		"message": "最大高度: "
+		"message": "最大高度"
 	},
 	"lblDanmakuDensity_0": {
 		"message": "1/4"
@@ -90,7 +90,7 @@
 		"message": "更改文字樣式，可能會影響效能"
 	},
 	"lblTextDecoration": {
-		"message": "文字樣式: "
+		"message": "文字樣式"
 	},
 	"lblNone": {
 		"message": "無"
