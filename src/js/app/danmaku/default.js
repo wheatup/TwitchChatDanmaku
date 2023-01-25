@@ -115,12 +115,12 @@ if (typeof window._twitchChatDanmaku === 'undefined') {
 			const BIAS = 0.5;
 
 			setTimeout(() => {
-				const length = Math.min($message.getBoundingClientRect().width / $container.getBoundingClientRect().width * BIAS, 2);
+				let length = Math.min($message.getBoundingClientRect().width / $container.getBoundingClientRect().width * BIAS, 2) || 0;
 				$chat.style.setProperty('--length', length);
 
 				setTimeout(() => {
 					stacks[stack] = stacks[stack].filter($c => $c !== $chat);
-				}, settings.duration * (length + 1) * 1000 * 0.5)
+				}, settings.duration * (length + 1) * 1000 * 0.7)
 			}, 0);
 		}
 	};

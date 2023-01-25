@@ -7,7 +7,7 @@
   position: absolute;
   font-size: calc(var(--fontSize, 24) * 1px);
   top: 0;
-  animation: danmaku-move-default calc(var(--duration, 7) * (var(--length, 0) + 1) * 1s) linear both;
+  animation: danmaku-move-default calc(var(--duration, 7) * (var(--length, 0) + 1) * 1s) cubic-bezier(0.3, 0.49, 0.74, 0.53) both;
   white-space: nowrap;
   margin-top: calc(var(--stack, 0) * 1.25em);
 }
