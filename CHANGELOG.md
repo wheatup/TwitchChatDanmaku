@@ -1,8 +1,11 @@
 ## <span id="ChangeLog">Change Logs</span>
 
+### 2.0.1
+> * Added a button for full webside mode.
+> * Bunch of bug fixes.
+
 ### 2.0.0
 > * Completely rebuilt the app, visually upgraded(or downgrade) the UI, upgraded to manifest v3.
-> * Collapsing the chat now still keeps the danmaku flowing(may have bugs).
 
 ### 1.4.11
 > * Fixed a problem that danmaku is not showing.
@@ -116,6 +119,10 @@
 <hr/>
 
 ## <span id="ChangeLogCN">更新日志</span>
+
+### 2.0.1
+> * 增加了一个可以网页全屏的按钮。
+> * 很多BUG修复。
 
 ### 2.0.0
 > * 完全重构了代码，升级至manifest v3，UI升级（降级？）。

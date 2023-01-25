@@ -102,13 +102,13 @@
 		"message": "描邊"
 	},
 	"lblFont": {
-		"message": "字體："
+		"message": "字體"
 	},
 	"tipFont": {
 		"message": "設置彈幕的字體"
 	},
 	"lblBold": {
-		"message": "粗體："
+		"message": "粗體"
 	},
 	"tipBold": {
 		"message": "是否以粗體顯示"

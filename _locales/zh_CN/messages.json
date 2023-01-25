@@ -102,13 +102,13 @@
 		"message": "描边"
 	},
 	"lblFont": {
-		"message": "字体："
+		"message": "字体"
 	},
 	"tipFont": {
 		"message": "设置弹幕的字体"
 	},
 	"lblBold": {
-		"message": "粗体："
+		"message": "粗体"
 	},
 	"tipBold": {
 		"message": "是否为粗体"

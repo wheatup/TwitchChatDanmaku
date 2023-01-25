@@ -14,3 +14,36 @@
 		pointer-events: none !important;
 	}
 }
+
+.danmaku_full-page-view {
+	position: fixed !important;
+	z-index: 1000 !important;
+	top: 0 !important;
+	left: 0 !important;
+	width: 100vw !important;
+	height: 100vh !important;
+	max-height: 100vh !important;
+	cursor: initial !important;
+
+	video {
+		width: 100% !important;
+		height: 100% !important;
+	}
+
+	.player-controls__right-control-group {
+		> div:nth-last-of-type(2) {
+			display: none !important;
+		}
+	}
+}
+
+.full-page-view_btn {
+	margin-left: 4px;
+	font-size: 18px !important;
+}
+
+.video-player__container--theatre {
+	.full-page-view_btn {
+		display: none;
+	}
+}
