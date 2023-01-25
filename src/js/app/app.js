@@ -10,29 +10,34 @@
 	];
 	const CHAT_CONTAINER_SELECTORS = [
 		// stream
-		'.chat-scrollable-area__message-container'
+		'.chat-scrollable-area__message-container',
 
 		//vod
+		'[data-test-selector="video-chat-message-list-wrapper"]',
+		'.video-chat__message-list-wrapper',
 	];
 
 	const RAW_CHAT_SELECTORS = [
 		// stream
-		'.chat-line__message'
+		'.chat-line__message',
 
 		// vod
+		'.vod-message'
 	].map(e => `${e}:not([data-danmaku-ready])`);
 
 	const CHAT_USERNAME_SELECTORS = [
 		// stream
-		'.chat-line__username-container'
+		'.chat-line__username-container',
 
 		// vod
+		'.video-chat__message-author'
 	];
 	const CHAT_MESSAGE_SELECTORS = [
 		// stream
-		'.chat-line__message-container .chat-line__username-container ~ span:last-of-type'
+		'.chat-line__message-container .chat-line__username-container ~ span:last-of-type',
 
 		// vod
+		'.video-chat__message > span ~ span:last-of-type'
 	];
 
 	// danmaku mode, may add other modes in the future
