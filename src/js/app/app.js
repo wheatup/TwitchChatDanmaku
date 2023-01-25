@@ -4,7 +4,7 @@
 (() => {
 	const VIDEO_CONTAINER_SELECTORS = [
 		// stream
-		'.persistent-player'
+		'.video-player__container'
 
 		// vod
 	];
@@ -95,9 +95,9 @@
 					});
 				}
 			};
-
-			chrome.runtime.onMessage.addListener(listener);
-			window.addEventListener('unload', () => chrome.runtime.onMessage.removeListener(listener));
+			
+			chrome?.runtime?.onMessage.addListener(listener);
+			window.addEventListener('unload', () => chrome?.runtime?.onMessage.removeListener(listener));
 
 			const on = (signal, callback, once) => {
 				if (eventMap[signal]) {
@@ -114,7 +114,7 @@
 			}
 
 			const emit = (signal, data) => {
-				chrome.runtime.sendMessage({ signal, data });
+				chrome?.runtime?.sendMessage({ signal, data });
 			}
 
 			return {

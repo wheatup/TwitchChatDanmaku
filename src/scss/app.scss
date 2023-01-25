@@ -8,6 +8,9 @@
 	height: 100%;
 	pointer-events: none;
 	overflow: hidden;
-	background-color: rgba(255, 0, 0, 0.5);
 	z-index: 10000;
+
+	* {
+		pointer-events: none !important;
+	}
 }

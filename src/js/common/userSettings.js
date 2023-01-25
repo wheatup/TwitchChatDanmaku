@@ -22,7 +22,6 @@ export const uploadSettings = (() => {
 			clearTimeout(timer);
 		}
 		timer = setTimeout(async () => {
-			console.log('UPLOADING SETTINGS', settings);
 			await chrome.storage.sync.set({ USER_SETTINGS: settings });
 			return settings;
 		}, 2000);

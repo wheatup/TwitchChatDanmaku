@@ -58,7 +58,6 @@ on('USER_SETTINGS', data => {
 			if (key === 'enabled') {
 				document.querySelector('.further-settings').classList[value ? 'remove' : 'add']('hidden');
 			} else if (key === 'mode') {
-				console.log('mode changed', value);
 				[...document.querySelectorAll(`[data-mode~=${value}]`)].forEach(e => {
 					e.classList.remove('hidden');
 				});

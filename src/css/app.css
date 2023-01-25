@@ -1,3 +1,49 @@
+#danmaku-container[data-danmaku-mode=default] {
+  font-family: var(--font-family), "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  opacity: var(--opacity, 1);
+}
+#danmaku-container[data-danmaku-mode=default] .danmaku-chat {
+  font-family: inherit;
+  position: absolute;
+  font-size: calc(var(--fontSize, 24) * 1px);
+  top: 0;
+  animation: danmaku-move-default calc(var(--duration, 7) * (var(--length, 0) + 1) * 1s) linear both;
+  white-space: nowrap;
+  margin-top: calc(var(--stack, 0) * 1.25em);
+}
+#danmaku-container[data-danmaku-mode=default] .danmaku-chat .danmaku-username {
+  font-size: 0.8em;
+}
+#danmaku-container[data-danmaku-mode=default] .danmaku-chat .danmaku-username::after {
+  content: ": ";
+  color: white;
+}
+#danmaku-container[data-danmaku-mode=default] .danmaku-chat .danmaku-message {
+  color: white;
+}
+#danmaku-container[data-danmaku-mode=default][data-text-decoration=stroke] .danmaku-chat {
+  text-shadow: -2px -2px 0 rgba(0, 0, 0, 0.6), 2px -2px 0 rgba(0, 0, 0, 0.6), -2px 2px 0 rgba(0, 0, 0, 0.6), 2px 2px 0 rgba(0, 0, 0, 0.6);
+}
+#danmaku-container[data-danmaku-mode=default][data-text-decoration=shadow] .danmaku-chat {
+  text-shadow: 0px 2px 1px rgba(0, 0, 0, 0.6);
+}
+#danmaku-container[data-danmaku-mode=default].hide-username .danmaku-chat .danmaku-username {
+  display: none;
+}
+#danmaku-container[data-danmaku-mode=default].bold .danmaku-chat {
+  font-weight: bold;
+}
+
+@keyframes danmaku-move-default {
+  0% {
+    transform: translate3d(0, 0, 0);
+    left: 100%;
+  }
+  100% {
+    transform: translate3d(-100%, 0, 0);
+    left: 0;
+  }
+}
 #danmaku-container {
   position: absolute;
   top: 0;
@@ -6,8 +52,10 @@
   height: 100%;
   pointer-events: none;
   overflow: hidden;
-  background-color: rgba(255, 0, 0, 0.5);
   z-index: 10000;
+}
+#danmaku-container * {
+  pointer-events: none !important;
 }
 
 /*# sourceMappingURL=app.css.map */
