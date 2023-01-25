@@ -27,21 +27,21 @@
 
 	const CHAT_USERNAME_SELECTORS = [
 		// stream
-		'.chat-line__username-container',
+		'.chat-line__username',
 
 		// vod
-		'.video-chat__message-author'
+		'.vod-message .video-chat__message-author'
 	];
 	const CHAT_MESSAGE_SELECTORS = [
 		// stream
 		'.chat-line__message-container .chat-line__username-container ~ span:last-of-type',
 
 		// vod
-		'.video-chat__message > span ~ span:last-of-type'
+		'.vod-message .video-chat__message > span ~ span:last-of-type'
 	];
 
-	// danmaku mode, may add other modes in the future
-	const MODE = 'default';
+	const COLLAPSE_CLASS = 'fsJutT';
+	const EXPAND_CLASS = 'eekshR';
 
 	// utils
 	const { waitUntil, getElementsBySelectors, getVideoContainer, getChatContainer, getUserSettings, onUserSettingsChange, events } = (() => {
@@ -144,8 +144,58 @@
 
 
 	(async () => {
-		let $video, $chat, $danmakuContainer;
+		let $video, $chat, $danmakuContainer, $collapseBtn;
 		let settings = {}, core;
+		let isOriginallyCollapsed, isOverridden;
+
+		const onClickCollapse = e => {
+			const $column = document.querySelector('.right-column__toggle-visibility');
+			const $shell = document.querySelector('.chat-shell');
+			const $channelRoot = document.querySelector('.channel-root');
+			const $rightColumn = document.querySelector('.channel-root__right-column');
+
+			if (isOriginallyCollapsed && !isOverridden) {
+				isOriginallyCollapsed = false;
+				return;
+			}
+			isOverridden = true;
+			e.preventDefault();
+			e.stopPropagation();
+			if ($collapseBtn.classList.contains(COLLAPSE_CLASS)) {
+				$collapseBtn.classList.remove(COLLAPSE_CLASS);
+				$collapseBtn.classList.add(EXPAND_CLASS);
+				$collapseBtn.style.transform = 'translateX(-50px)';
+				$collapseBtn.querySelector('svg path').setAttribute('d', 'M16 16V4h2v12h-2zM6 9l2.501-2.5-1.5-1.5-5 5 5 5 1.5-1.5-2.5-2.5h8V9H6z');
+				$column?.classList.remove('toggle-visibility__right-column--expanded');
+				$shell?.classList.remove('chat-shell__expanded');
+				$channelRoot?.classList.remove('channel-root--watch-chat');
+				$channelRoot?.querySelector('.channel-root__info')?.classList.remove('channel-root__info--with-chat');
+				$rightColumn?.classList.remove('channel-root__right-column--expanded');
+				document.querySelector('.top-nav + div > div[style]').style.width = '0';
+			} else {
+				$collapseBtn.classList.remove(EXPAND_CLASS);
+				$collapseBtn.classList.add(COLLAPSE_CLASS);
+				$collapseBtn.style.transform = 'translateX(0px)';
+				$collapseBtn.querySelector('svg path').setAttribute('d', 'M4 16V4H2v12h2zM13 15l-1.5-1.5L14 11H6V9h8l-2.5-2.5L13 5l5 5-5 5z');
+				$column?.classList.add('toggle-visibility__right-column--expanded');
+				$shell?.classList.add('chat-shell__expanded');
+				$channelRoot?.classList.add('channel-root--watch-chat');
+				$channelRoot?.querySelector('.channel-root__info')?.classList.add('channel-root__info--with-chat');
+				$rightColumn?.classList.add('channel-root__right-column--expanded');
+				document.querySelector('.top-nav + div > div[style]').style.width = 'fit-content';
+			}
+		};
+
+		// this overrides the behavior of the collapse button, to prevent disconnecting from chat
+		const overrideCollapseAndExpand = () => {
+			$collapseBtn = document.querySelector('[data-a-target="right-column__toggle-collapse-btn"]');
+			isOriginallyCollapsed = $collapseBtn.classList.contains(EXPAND_CLASS);
+
+			if ($collapseBtn) {
+				$collapseBtn.removeEventListener('click', onClickCollapse);
+				$collapseBtn.addEventListener('click', onClickCollapse, true);
+			}
+		}
 
 		const isDanmakuWorking = () => (
 			($danmakuContainer && document.body.contains($danmakuContainer)) &&
@@ -195,6 +245,7 @@
 
 		const reset = async () => {
 			await getCore();
+			overrideCollapseAndExpand();
 			[...document.querySelectorAll('#danmaku-container')].forEach($el => $el.remove());
 		};
 
@@ -203,7 +254,7 @@
 			await reset();
 			$danmakuContainer = document.createElement('div');
 			$danmakuContainer.setAttribute('id', 'danmaku-container');
-			$danmakuContainer.setAttribute('data-danmaku-mode', MODE);
+			$danmakuContainer.setAttribute('data-danmaku-mode', settings.mode);
 			$video.appendChild($danmakuContainer);
 			core?.init?.($danmakuContainer, settings);
 
