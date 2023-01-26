@@ -12,7 +12,7 @@
 		"48": "icons/icon-48.png",
 		"16": "icons/icon-16.png"
 	},
-	"permissions": ["declarativeContent", "fontSettings", "storage"],
+	"permissions": ["fontSettings", "storage"],
 	"host_permissions": ["*://*.twitch.tv/*"],
 	"content_scripts": [
 		{

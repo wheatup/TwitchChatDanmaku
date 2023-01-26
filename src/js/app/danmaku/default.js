@@ -131,7 +131,7 @@ if (typeof window._twitchChatDanmaku === 'undefined') {
 
 				setTimeout(() => {
 					stacks[stack] = stacks[stack]?.filter($c => $c !== $chat) || [];
-				}, settings.duration * Math.max(length * 1.5, 0.5) * 1000)
+				}, settings.duration * Math.max(length * 1.5, 0.55) * 1000)
 			}, 0);
 		}
 	};
