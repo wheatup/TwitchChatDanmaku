@@ -68,12 +68,23 @@
 			}
 		});
 
-		const getElementsBySelectors = (selectors, $parent) => Promise.race(
-			selectors.map(selector => waitUntil(() => {
-				const $els = [...($parent || document).querySelectorAll(selector)];
-				return $els.length ? $els : null;
-			}))
-		);
+		const getElementsBySelectors = (selectors, $parent) => {
+			let fulfilled = false;
+			return Promise.race(
+				selectors.map(selector => waitUntil(() => {
+					if (fulfilled) {
+						return true;
+					}
+					const $els = [...($parent || document).querySelectorAll(selector)];
+					if ($els.length) {
+						fulfilled = true;
+						return $els;
+					} else {
+						return false;
+					}
+				}))
+			);
+		};
 
 		const getVideoContainer = () => getElementsBySelectors(VIDEO_CONTAINER_SELECTORS).then($els => $els[0]);
 		const getChatContainer = () => getElementsBySelectors(CHAT_CONTAINER_SELECTORS).then($els => $els[0]);
