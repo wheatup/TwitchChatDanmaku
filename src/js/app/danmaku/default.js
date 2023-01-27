@@ -12,10 +12,10 @@ if (typeof window._twitchChatDanmaku === 'undefined') {
 		const { danmakuDensity, fontSize } = settings;
 		const percent = ((+danmakuDensity || 0) + 1) / 4;
 		const lineHeight = fontSize * 1.2;
-		const containerHeight = $container.offsetHeight || 480;
-		const containerWidth = $container.offsetWidth || 854;
+		const containerHeight = $container?.offsetHeight || 480;
+		const containerWidth = $container?.offsetWidth || 854;
 		maxStack = Math.max(Math.floor(containerHeight / lineHeight * percent), 1);
-		$container.style.setProperty('--width', `${containerWidth}px`);
+		$container?.style.setProperty('--width', `${containerWidth}px`);
 	}
 
 	window.addEventListener('resize', calculateMaxStack);
@@ -53,16 +53,19 @@ if (typeof window._twitchChatDanmaku === 'undefined') {
 		if ($container) {
 			calculateMaxStack();
 
-			const { enabled, showUsername, textDecoration, bold, font, danmakuDensity, ...rest } = settings;
+			const { enabled, showUsername, textDecoration, bold, font, danmakuDensity, mode, ...rest } = settings;
 
 			Object.entries(rest).forEach(([key, value]) => {
 				$container.style.setProperty(`--${key}`, value);
 			});
 
+			if (!enabled || mode !== 'default') {
+				$container.innerHTML = '';
+				stacks = [];
+			}
+
 			if (!enabled) {
 				$container.style.setProperty('display', 'none');
-				stacks = [];
-				$container.innerHTML = '';
 			} else {
 				$container.style.removeProperty('display');
 			}

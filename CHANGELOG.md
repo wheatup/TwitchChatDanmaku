@@ -1,5 +1,9 @@
 ## <span id="ChangeLog">Change Logs</span>
 
+### 2.0.2
+> * Added a new mode for Danmaku: scroll
+> * Fixed a performance issue.
+
 ### 2.0.1
 > * Added a button for full webside mode.
 > * Bunch of bug fixes.
@@ -119,6 +123,10 @@
 <hr/>
 
 ## <span id="ChangeLogCN">更新日志</span>
+
+### 2.0.2
+> * 增加新的弹幕模式：滚动
+> * 修复性能问题。
 
 ### 2.0.1
 > * 增加了一个可以网页全屏的按钮。

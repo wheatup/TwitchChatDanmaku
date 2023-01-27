@@ -115,5 +115,35 @@
 	},
 	"default": {
 		"message": "默認"
+	},
+	"lblMode": {
+		"message": "模式"
+	},
+	"lblModeDefault": {
+		"message": "彈幕"
+	},
+	"lblModeScroll": {
+		"message": "滾動"
+	},
+	"tipMode": {
+		"message": "彈幕的呈現方式"
+	},
+	"lblScrollLocation": {
+		"message": "位置"
+	},
+	"tipScrollLocation": {
+		"message": "聊天訊息的顯示位置"
+	},
+	"lblScrollLocationLeft": {
+		"message": "左"
+	},
+	"lblScrollLocationRight": {
+		"message": "右"
+	},
+	"lblScrollWidth": {
+		"message": "寬度"
+	},
+	"tipScrollWidth": {
+		"message": "聊天訊息的寬度"
 	}
 }

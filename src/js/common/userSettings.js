@@ -8,7 +8,9 @@ const DEFAULT_SETTINGS = {
 	font: 'Default',
 	bold: true,
 	danmakuDensity: 3,
-	mode: 'default'
+	mode: 'default',
+	scrollLocation: 'left',
+	scrollWidth: 30
 };
 
 let settings = {

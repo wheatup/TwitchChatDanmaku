@@ -31,6 +31,9 @@ on('USER_SETTINGS', data => {
 				case 'danmakuDensity':
 					output.innerText = $`lblDanmakuDensity_${value}`;
 					break;
+				case 'scrollWidth':
+					output.innerText = value + '%';
+					break;
 				default:
 					output.innerText = value;
 			}

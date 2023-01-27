@@ -99,5 +99,35 @@
 	},
 	"default": {
 		"message": "Standard"
+	},
+	"lblMode": {
+		"message": "Modus"
+	},
+	"lblModeDefault": {
+		"message": "Danmaku"
+	},
+	"lblModeScroll": {
+		"message": "Scrollen"
+	},
+	"tipMode": {
+		"message": "Wie danmaku angezeigt wird"
+	},
+	"lblScrollLocation": {
+		"message": "Position"
+	},
+	"tipScrollLocation": {
+		"message": "Wo der chat angezeigt wird"
+	},
+	"lblScrollLocationLeft": {
+		"message": "Linke"
+	},
+	"lblScrollLocationRight": {
+		"message": "Rechte"
+	},
+	"lblScrollWidth": {
+		"message": "Breite"
+	},
+	"tipScrollWidth": {
+		"message": "Wie breit der chat ist"
 	}
 }

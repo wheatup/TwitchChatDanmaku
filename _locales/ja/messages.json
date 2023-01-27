@@ -117,5 +117,35 @@
 	},
 	"default": {
 		"message": "既定"
+	},
+	"lblMode": {
+		"message": "モード"
+	},
+	"lblModeDefault": {
+		"message": "弾幕"
+	},
+	"lblModeScroll": {
+		"message": "スクロール"
+	},
+	"tipMode": {
+		"message": "弾幕の表示モード"
+	},
+	"lblScrollLocation": {
+		"message": "位置"
+	},
+	"tipScrollLocation": {
+		"message": "チャットの位置"
+	},
+	"lblScrollLocationLeft": {
+		"message": "左"
+	},
+	"lblScrollLocationRight": {
+		"message": "右"
+	},
+	"lblScrollWidth": {
+		"message": "幅"
+	},
+	"tipScrollWidth": {
+		"message": "チャットの幅"
 	}
 }

@@ -1,0 +1,77 @@
+#danmaku-container {
+	&[data-danmaku-mode='scroll'] {
+		--gap: 1rem;
+		font-family: var(--font-family), 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+		opacity: var(--opacity, 1);
+		font-size: calc(var(--fontSize, 24) * 1px);
+
+		.danmaku-scroll-container {
+			height: calc(100% - var(--gap) * 2 - 3rem);
+			overflow: hidden;
+			width: calc(var(--scrollWidth, 30) * 1%);
+			max-width: calc(100% - var(--gap) * 2);
+			position: absolute;
+			left: var(--gap);
+			bottom: calc(var(--gap) + 30px);
+			scroll-behavior: auto;
+
+			&::before {
+				content: '';
+				height: 100%;
+				display: block;
+			}
+		}
+
+		&[data-scroll-location='right'] {
+			.danmaku-scroll-container {
+				left: initial;
+				right: var(--gap);
+			}
+		}
+
+		.danmaku-chat {
+			background-color: rgba(0, 0, 0, 0.5);
+			animation: danmaku-scroll-default calc(var(--duration, 7) * 1s + 5s) linear both;
+			padding: 0 1rem;
+			line-height: 1.66;
+
+			.danmaku-username {
+				font-size: 0.8em;
+
+				&::after {
+					content: ': ';
+					color: white;
+				}
+			}
+		}
+
+		&.hide-username {
+			.danmaku-chat {
+				.danmaku-username {
+					display: none;
+				}
+			}
+		}
+
+		&.bold {
+			.danmaku-chat {
+				font-weight: bold;
+			}
+		}
+	}
+}
+
+@keyframes danmaku-scroll-default {
+	0% {
+		opacity: 0;
+	}
+	1% {
+		opacity: 1;
+	}
+	80% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
