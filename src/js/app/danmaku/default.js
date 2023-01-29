@@ -7,11 +7,34 @@ if (typeof window._twitchChatDanmaku === 'undefined') {
 	let settings = {};
 	let stacks = [], maxStack = 20;
 
+	const waitUntil = (condition, { timeout = 0, interval = 1000 / 60 } = {}) => new Promise((resolve, reject) => {
+		let res;
+		const tick = () => {
+			if (res = condition()) {
+				resolve(res);
+			} else {
+				if (interval || typeof requestAnimationFrame !== 'function') {
+					setTimeout(tick, interval);
+				} else {
+					requestAnimationFrame(tick);
+				}
+			}
+		};
+
+		tick();
+
+		if (timeout) {
+			setTimeout(() => {
+				reject('timeout');
+			}, timeout);
+		}
+	});
+
 	const calculateMaxStack = () => {
 		if (!settings) return;
 		const { danmakuDensity, fontSize } = settings;
 		const percent = ((+danmakuDensity || 0) + 1) / 4;
-		const lineHeight = fontSize * 1.2;
+		const lineHeight = fontSize * 1.25;
 		const containerHeight = $container?.offsetHeight || 480;
 		const containerWidth = $container?.offsetWidth || 854;
 		maxStack = Math.max(Math.floor(containerHeight / lineHeight * percent), 1);
@@ -22,27 +45,24 @@ if (typeof window._twitchChatDanmaku === 'undefined') {
 	setInterval(calculateMaxStack, 500);
 
 	const getProperStack = $chat => {
-		let min = maxStack - 1, currentMin = Infinity;
+		let min = maxStack, currentMin = Infinity;
 		for (let i = 0; i < maxStack; i++) {
-			if (!stacks[i]?.length) {
-				if (!stacks[i]) {
-					stacks[i] = [];
-				}
+			if (!stacks[i]) {
+				stacks[i] = 0;
 				min = i;
 				break;
-			} else {
-				if (stacks[i].length < currentMin) {
-					min = i;
-					currentMin = stacks[i].length;
-				}
+			} else if (stacks[i] < currentMin) {
+				min = i;
+				currentMin = stacks[i];
 			}
 		}
-		min = Math.min(min, maxStack - 1);
+		min = Math.min(min, maxStack);
 		if ($chat) {
 			if (!stacks[min]) {
-				stacks[min] = [];
+				stacks[min] = 1;
+			} else {
+				stacks[min]++;
 			}
-			stacks[min].push($chat);
 			$chat.setAttribute('data-stack', min);
 			$chat.style.setProperty('--stack', min);
 		}
@@ -126,15 +146,18 @@ if (typeof window._twitchChatDanmaku === 'undefined') {
 
 			$container.appendChild($chat);
 
-			const BIAS = 0.5;
-
 			setTimeout(() => {
-				let length = Math.min($message.getBoundingClientRect().width / $container.getBoundingClientRect().width * BIAS, 2) || 0;
+				let length = $message.getBoundingClientRect().width / $container.getBoundingClientRect().width || 0;
 				$chat.style.setProperty('--length', length);
 
-				setTimeout(() => {
-					stacks[stack] = stacks[stack]?.filter($c => $c !== $chat) || [];
-				}, settings.duration * Math.max(length * 1.5, 0.55) * 1000)
+				waitUntil(() =>
+					!$container || !$container.contains($chat) || (
+						$container.getBoundingClientRect().left + $container.getBoundingClientRect().width >=
+						$chat.getBoundingClientRect().left + $chat.getBoundingClientRect().width + 200
+					)
+				).then(() => {
+					stacks[stack] = Math.max(stacks[stack] - 1, 0) || 0;
+				})
 			}, 0);
 		}
 	};

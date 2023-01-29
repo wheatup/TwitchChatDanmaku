@@ -1,5 +1,10 @@
 ## <span id="ChangeLog">Change Logs</span>
 
+### 2.0.3
+> * Improve the i18n for Japanese [@siloneco](https://github.com/siloneco)
+> * The danmaku should be more compact now.
+> * Adjusted the settings for scroll mode.
+
 ### 2.0.2
 > * Added a new mode for Danmaku: scroll
 > * Fixed a performance issue.
@@ -123,6 +128,11 @@
 <hr/>
 
 ## <span id="ChangeLogCN">更新日志</span>
+
+### 2.0.3
+> * 改善了日语的翻译质量 [@siloneco](https://github.com/siloneco)
+> * 弹幕现在会在尽可能不重叠的情况下尽量紧凑。
+> * 调整了滚动模式的一些设置。
 
 ### 2.0.2
 > * 增加新的弹幕模式：滚动

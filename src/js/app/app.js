@@ -172,6 +172,10 @@
 
 			$button.addEventListener('click', () => {
 				fullPageView = !fullPageView;
+				
+				if ($danmakuContainer)
+					$danmakuContainer.innerHTML = '';
+
 				if (fullPageView) {
 					$video?.classList.add('danmaku_full-page-view');
 					document.body.appendChild($video);

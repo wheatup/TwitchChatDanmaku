@@ -3,7 +3,7 @@
 		--gap: 1rem;
 		font-family: var(--font-family), 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 		opacity: var(--opacity, 1);
-		font-size: calc(var(--fontSize, 24) * 1px);
+		font-size: calc(var(--fontSize, 24) * 0.5 * 1px);
 
 		.danmaku-scroll-container {
 			height: calc(100% - var(--gap) * 2 - 3rem);
@@ -42,20 +42,6 @@
 					content: ': ';
 					color: white;
 				}
-			}
-		}
-
-		&.hide-username {
-			.danmaku-chat {
-				.danmaku-username {
-					display: none;
-				}
-			}
-		}
-
-		&.bold {
-			.danmaku-chat {
-				font-weight: bold;
 			}
 		}
 	}
