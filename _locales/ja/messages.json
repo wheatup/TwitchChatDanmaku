@@ -3,7 +3,7 @@
 		"message": "Twitchチャット弾幕"
 	},
 	"appDescription": {
-		"message": "Twitchのコメントが弾幕で表示て、動画の中で放送する。TwitchやBetterTTVの顔文字が表示されます。"
+		"message": "Twitchのコメントを弾幕で表示します。TwitchやBetterTTVの絵文字に対応しています。"
 	},
 	"settingsTitle": {
 		"message": "設定"
@@ -15,22 +15,22 @@
 		"message": "弾幕"
 	},
 	"tipUsername": {
-		"message": "コメントの名前が表示"
+		"message": "ユーザー名の表示"
 	},
 	"lblUsername": {
 		"message": "名前"
 	},
 	"tipDuration": {
-		"message": "弾幕が表示の期間"
+		"message": "弾幕の表示時間"
 	},
 	"lblDuration": {
-		"message": "期間"
+		"message": "時間"
 	},
 	"tipFontSize": {
-		"message": "弾幕の文字のサイズ"
+		"message": "チャットの文字サイズ"
 	},
 	"lblFontSize": {
-		"message": "サイズ"
+		"message": "文字サイズ"
 	},
 	"tipOpacity": {
 		"message": "弾幕の透明度"
@@ -63,10 +63,10 @@
 		"message": "適用"
 	},
 	"tipResetToDefault": {
-		"message": "既定の設定を戻る"
+		"message": "初期設定に戻す"
 	},
 	"lblResetToDefault": {
-		"message": "既定の設定を戻る"
+		"message": "初期設定に戻す"
 	},
 	"enable": {
 		"message": "有効"
@@ -89,7 +89,7 @@
 		"description": "seconds"
 	},
 	"tipTextDecoration": {
-		"message": "弾幕のスタイルを変更する、パフォーマンスに影響する可能性があります"
+		"message": "弾幕のスタイル (パフォーマンスに影響する可能性があります)"
 	},
 	"lblTextDecoration": {
 		"message": "スタイル"
@@ -98,7 +98,7 @@
 		"message": "無し"
 	},
 	"lblShadow": {
-		"message": "陰影"
+		"message": "影"
 	},
 	"lblStroke": {
 		"message": "ストローク"
@@ -107,7 +107,7 @@
 		"message": "フォント"
 	},
 	"tipFont": {
-		"message": "弾幕のフォントを設定する"
+		"message": "弾幕のフォント"
 	},
 	"lblBold": {
 		"message": "太字"
@@ -116,7 +116,7 @@
 		"message": "太字"
 	},
 	"default": {
-		"message": "既定"
+		"message": "デフォルト"
 	},
 	"lblMode": {
 		"message": "モード"
@@ -128,7 +128,7 @@
 		"message": "スクロール"
 	},
 	"tipMode": {
-		"message": "弾幕の表示モード"
+		"message": "チャットの表示モード"
 	},
 	"lblScrollLocation": {
 		"message": "位置"
