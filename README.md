@@ -28,7 +28,7 @@
 > 3. Turn on Developer Mode at the top right corner.
 > 4. Click and drag the downloaded file into the viewport.
 
-### For Firefox Users
+### ~~For Firefox Users~~ (Obsolete, need updates)
 
 * Thanks to [Chih-Hsuan Fan](https://github.com/pc035860), this extension now ~~partially~~ supports FireFox!
 * *The custom font feature is disabled for FireFox due to support discrepancies, sorry for the inconvenience.*
@@ -39,10 +39,6 @@
 ## Preview
 
 ![preview](https://lh3.googleusercontent.com/eQeZIQNlqrZe_dtKCtNZdv_ZDZoh-vKJ3hPFDI1FmOHyIdQpQDfmZPof8H_1yNvn1803lBj6=w640-h400-e365)
-
-## Known Problems
-
-* This extension conflicts with [FrankerFaceZ](https://chrome.google.com/webstore/detail/frankerfacez/fadndhdgpmmaapbmfcknlfgcflmmmieb) and will not show danmaku properly if both are installed.
 
 # <span id="中文说明-1">中文说明</span>
 
@@ -66,7 +62,7 @@
 > 3. 在页面右上角，启用开发者模式。
 > 4. 将下载的crx文件拖曳至浏览器窗口中完成安装。
 
-### 火狐浏览器安装方法
+### ~~火狐浏览器安装方法~~ (已过期，需更新)
 
 * 感谢 [Chih-Hsuan Fan](https://github.com/pc035860) 的贡献，本扩展现已~~部分~~支持火狐浏览器！
 * *因浏览器支持原因，火狐版本暂不支持自定义字体，望理解。*
@@ -76,7 +72,3 @@
 ## 预览
 
 ![preview](https://lh3.googleusercontent.com/eQeZIQNlqrZe_dtKCtNZdv_ZDZoh-vKJ3hPFDI1FmOHyIdQpQDfmZPof8H_1yNvn1803lBj6=w640-h400-e365)
-
-## 已知问题
-
-* 本扩展与 [FrankerFaceZ](https://chrome.google.com/webstore/detail/frankerfacez/fadndhdgpmmaapbmfcknlfgcflmmmieb) 扩展冲突，两者都安装的情况下无法正常显示弹幕。
