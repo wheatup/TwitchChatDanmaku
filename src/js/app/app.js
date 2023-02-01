@@ -197,10 +197,8 @@
 
 		const processChat = async ($chat) => {
 			$chat.setAttribute('data-danmaku-ready', true);
-			console.log('get');
 			const $username = (await getElementsBySelectors(CHAT_USERNAME_SELECTORS, $chat))[0];
 			const $message = (await getElementsBySelectors(CHAT_MESSAGE_SELECTORS, $chat))[0];
-			console.log('got');
 			core?.onDanmaku?.($username.cloneNode(true), $message.cloneNode(true));
 		}
 
