@@ -28,6 +28,7 @@
 	const CHAT_USERNAME_SELECTORS = [
 		// stream
 		'.chat-line__username',
+		'.chat-author__display-name',
 
 		// vod
 		'.vod-message .video-chat__message-author'
@@ -35,13 +36,11 @@
 	const CHAT_MESSAGE_SELECTORS = [
 		// stream
 		'.chat-line__message-container .chat-line__username-container ~ span:last-of-type',
+		'.message',
 
 		// vod
 		'.vod-message .video-chat__message > span ~ span:last-of-type'
 	];
-
-	const COLLAPSE_CLASS = 'fsJutT';
-	const EXPAND_CLASS = 'eekshR';
 
 	// utils
 	const { waitUntil, getElementsBySelectors, getVideoContainer, getChatContainer, getUserSettings, onUserSettingsChange, events } = (() => {
@@ -69,15 +68,15 @@
 		});
 
 		const getElementsBySelectors = (selectors, $parent) => {
-			let fulfilled = false;
+			let fulfilled;
 			return Promise.race(
 				selectors.map(selector => waitUntil(() => {
 					if (fulfilled) {
-						return true;
+						return fulfilled;
 					}
 					const $els = [...($parent || document).querySelectorAll(selector)];
 					if ($els.length) {
-						fulfilled = true;
+						fulfilled = $els;
 						return $els;
 					} else {
 						return false;
@@ -172,7 +171,7 @@
 
 			$button.addEventListener('click', () => {
 				fullPageView = !fullPageView;
-				
+
 				if ($danmakuContainer)
 					$danmakuContainer.innerHTML = '';
 
@@ -198,8 +197,10 @@
 
 		const processChat = async ($chat) => {
 			$chat.setAttribute('data-danmaku-ready', true);
+			console.log('get');
 			const $username = (await getElementsBySelectors(CHAT_USERNAME_SELECTORS, $chat))[0];
 			const $message = (await getElementsBySelectors(CHAT_MESSAGE_SELECTORS, $chat))[0];
+			console.log('got');
 			core?.onDanmaku?.($username.cloneNode(true), $message.cloneNode(true));
 		}
 

@@ -1,5 +1,8 @@
 ## <span id="ChangeLog">Change Logs</span>
 
+### 2.0.4
+> * Fixed the Danmaku not showing up together with Extension [FrankerFaceZ](https://chrome.google.com/webstore/detail/frankerfacez/fadndhdgpmmaapbmfcknlfgcflmmmieb).
+
 ### 2.0.3
 > * Improve the i18n for Japanese [@siloneco](https://github.com/siloneco)
 > * The danmaku should be more compact now.
@@ -128,6 +131,9 @@
 <hr/>
 
 ## <span id="ChangeLogCN">更新日志</span>
+
+### 2.0.4
+> * 修复在用户安装扩展[FrankerFaceZ](https://chrome.google.com/webstore/detail/frankerfacez/fadndhdgpmmaapbmfcknlfgcflmmmieb)后弹幕不显示的问题。
 
 ### 2.0.3
 > * 改善了日语的翻译质量 [@siloneco](https://github.com/siloneco)

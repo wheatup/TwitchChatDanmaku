@@ -40,6 +40,11 @@
 
 ![preview](https://lh3.googleusercontent.com/eQeZIQNlqrZe_dtKCtNZdv_ZDZoh-vKJ3hPFDI1FmOHyIdQpQDfmZPof8H_1yNvn1803lBj6=w640-h400-e365)
 
+## Development
+
+1. Run ```npm install``` to install dependencies.
+2. Run ```npm run sass``` to watch and compile sass files.
+
 # <span id="中文说明-1">中文说明</span>
 
 ## 简介
