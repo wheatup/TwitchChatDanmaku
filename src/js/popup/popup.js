@@ -40,7 +40,6 @@ const filterSetup = list => {
 			return acc;
 		}, []);
 
-		console.log(list);
 		emit('SET_USER_SETTINGS', { filterList: JSON.stringify(list) });
 	};
 
@@ -105,7 +104,6 @@ on('USER_SETTINGS', data => {
 	}
 
 	const onSettingChange = (key, value, change) => {
-		console.log({ key, value, change })
 		if (key === 'filterList') {
 			let filterList;
 			try {

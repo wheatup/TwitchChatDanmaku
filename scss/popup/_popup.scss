@@ -53,6 +53,8 @@ form {
 			display: flex;
 			flex-direction: column;
 			gap: 1rem;
+			max-height: 40rem;
+			overflow-y: auto;
 
 			input {
 				width: 100%;
