@@ -8,118 +8,139 @@
 	</head>
 
 	<body>
-		<h2>__MSG_settingsTitle__</h2>
-		
-		<hr />
+		<form class="settings" data-current="general">
+			<div class="page" data-page="general">
+				<h2>__MSG_settingsTitle__</h2>
 
-		<form class="settings">
-			<div class="entry" data-entry="enabled" title="__MSG_tipEnable__">
-				<label class="item-name" for="enabled">__MSG_lblEnable__</label>
-				<div class="control">
-					<input type="checkbox" data-toggle="toggle" name="enabled" id="enabled" checked />
-					<label class="checkbox" for="enabled"></label>
+				<hr />
+				<div class="entry" data-entry="enabled" title="__MSG_tipEnable__">
+					<label class="item-name" for="enabled">__MSG_lblEnable__</label>
+					<div class="control">
+						<input type="checkbox" data-toggle="toggle" name="enabled" id="enabled" checked />
+						<label class="checkbox" for="enabled"></label>
+					</div>
+				</div>
+
+				<ul class="further-settings">
+					<li class="entry" data-entry="showUsername" data-mode="default" title="__MSG_tipUsername__">
+						<label class="item-name" for="showUsername">__MSG_lblUsername__</label>
+						<div class="control">
+							<input type="checkbox" data-toggle="toggle" name="showUsername" id="showUsername" />
+							<label class="checkbox" for="showUsername"></label>
+						</div>
+					</li>
+
+					<li class="entry" data-entry="mode" title="__MSG_tipMode__">
+						<label class="item-name" for="mode">__MSG_lblMode__</label>
+						<div class="control">
+							<select class="form-control" name="mode" id="mode">
+								<option value="default">__MSG_lblModeDefault__</option>
+								<option value="scroll">__MSG_lblModeScroll__</option>
+							</select>
+						</div>
+					</li>
+
+					<li class="entry" data-entry="duration" title="__MSG_tipDuration__">
+						<label class="item-name" for="duration">__MSG_lblDuration__</label>
+						<div class="control">
+							<input class="slider" type="range" id="duration" name="duration" min="0.5" step="0.5" max="10" value="5" />
+							<output data-source="duration">output</output>
+						</div>
+					</li>
+
+					<li class="entry" data-entry="opacity" title="__MSG_tipOpacity__">
+						<label class="item-name" for="opacity">__MSG_lblOpacity__</label>
+						<div class="control">
+							<input class="slider" type="range" id="opacity" name="opacity" min="0" step="0.1" max="1" value="1" />
+							<output data-source="opacity">output</output>
+						</div>
+					</li>
+
+					<li class="entry" data-entry="font" title="__MSG_tipFont__">
+						<label class="item-name" for="font">__MSG_lblFont__</label>
+						<div class="control">
+							<select class="form-control" id="font" name="font"></select>
+						</div>
+					</li>
+
+					<li class="entry" data-entry="bold" data-mode="default" title="__MSG_tipBold__">
+						<label class="item-name" for="bold">__MSG_lblBold__</label>
+						<div class="control">
+							<input type="checkbox" data-toggle="toggle" name="bold" id="bold" />
+							<label class="checkbox" for="bold"></label>
+						</div>
+					</li>
+
+					<li class="entry" data-entry="fontSize" title="__MSG_tipFontSize__">
+						<label class="item-name" for="fontSize">__MSG_lblFontSize__</label>
+						<div class="control">
+							<input class="slider" type="range" id="fontSize" name="fontSize" min="8" step="2" max="128" value="24" />
+							<output data-source="fontSize">output</output>
+						</div>
+					</li>
+
+					<li class="entry" data-entry="textDecoration" data-mode="default" title="__MSG_tipTextDecoration__">
+						<label class="item-name" for="textDecoration">__MSG_lblTextDecoration__</label>
+						<div class="control">
+							<select class="form-control" name="textDecoration" id="textDecoration">
+								<option value="none">__MSG_lblNone__</option>
+								<option value="shadow">__MSG_lblShadow__</option>
+								<option value="stroke">__MSG_lblStroke__</option>
+							</select>
+						</div>
+					</li>
+
+					<li class="entry" data-entry="danmakuDensity" data-mode="default" title="__MSG_tipDanmakuDensity__">
+						<label class="item-name" for="danmakuDensity">__MSG_lblDanmakuDensity__</label>
+						<div class="control">
+							<input class="slider" type="range" id="danmakuDensity" name="danmakuDensity" min="0" step="1" max="3" value="3" />
+							<output data-source="danmakuDensity">output</output>
+						</div>
+					</li>
+
+					<li class="entry" data-entry="scrollLocation" data-mode="scroll" title="__MSG_tipScrollLocation__">
+						<label class="item-name" for="scrollLocation">__MSG_lblScrollLocation__</label>
+						<div class="control">
+							<select class="form-control" name="scrollLocation" id="scrollLocation">
+								<option value="left">__MSG_lblScrollLocationLeft__</option>
+								<option value="right">__MSG_lblScrollLocationRight__</option>
+							</select>
+						</div>
+					</li>
+
+					<li class="entry" data-entry="scrollWidth" data-mode="scroll" title="__MSG_tipScrollWidth__">
+						<label class="item-name" for="scrollWidth">__MSG_lblScrollWidth__</label>
+						<div class="control">
+							<input class="slider" type="range" id="scrollWidth" name="scrollWidth" min="5" step="5" max="100" value="30" />
+							<output data-source="scrollWidth">output</output>
+						</div>
+					</li>
+
+					<li class="entry" data-entry="filters">
+						<label class="item-name" for="filters">__MSG_lblFilters__</label>
+						<div class="control">
+							<input type="checkbox" data-toggle="toggle" name="filters" id="filters" checked />
+							<label class="checkbox" for="filters"></label>
+							<button id="filterSettings">__MSG_lblFilterSettings__</button>
+						</div>
+					</li>
+				</ul>
+
+				<div class="buttonGroup">
+					<button id="resetToDefault" title="__MSG_tipResetToDefault__">__MSG_lblResetToDefault__</button>
 				</div>
 			</div>
 
-
-			<ul class="further-settings">
-				<li class="entry" data-entry="showUsername" data-mode="default" title="__MSG_tipUsername__">
-					<label class="item-name" for="showUsername">__MSG_lblUsername__</label>
-					<div class="control">
-						<input type="checkbox" data-toggle="toggle" name="showUsername" id="showUsername" />
-						<label class="checkbox" for="showUsername"></span>
-					</div>
-				</li>
-
-				<li class="entry" data-entry="mode" title="__MSG_tipMode__">
-					<label class="item-name" for="mode">__MSG_lblMode__</label>
-					<div class="control">
-						<select class="form-control" name="mode" id="mode">
-							<option value="default">__MSG_lblModeDefault__</option>
-							<option value="scroll">__MSG_lblModeScroll__</option>
-						</select>
-					</div>
-				</li>
-
-				<li class="entry" data-entry="duration" title="__MSG_tipDuration__">
-					<label class="item-name" for="duration">__MSG_lblDuration__</label>
-					<div class="control">
-						<input class="slider" type="range" id="duration" name="duration" min="0.5" step="0.5" max="10" value="5" />
-						<output data-source="duration">output</output>
-					</div>
-				</li>
-
-				<li class="entry" data-entry="opacity" title="__MSG_tipOpacity__">
-					<label class="item-name" for="opacity">__MSG_lblOpacity__</label>
-					<div class="control">
-						<input class="slider" type="range" id="opacity" name="opacity" min="0" step="0.1" max="1" value="1" />
-						<output data-source="opacity">output</output>
-					</div>
-				</li>
-
-				<li class="entry" data-entry="font" title="__MSG_tipFont__">
-					<label class="item-name" for="font">__MSG_lblFont__</label>
-					<div class="control">
-						<select class="form-control" id="font" name="font"></select>
-					</div>
-				</li>
-
-				<li class="entry" data-entry="bold" data-mode="default" title="__MSG_tipBold__">
-					<label class="item-name" for="bold">__MSG_lblBold__</label>
-					<div class="control">
-						<input type="checkbox" data-toggle="toggle" name="bold" id="bold" />
-						<label class="checkbox" for="bold"></label>
-					</div>
-				</li>
-
-				<li class="entry" data-entry="fontSize" title="__MSG_tipFontSize__">
-					<label class="item-name" for="fontSize">__MSG_lblFontSize__</label>
-					<div class="control">
-						<input class="slider" type="range" id="fontSize" name="fontSize" min="8" step="2" max="128" value="24" />
-						<output data-source="fontSize">output</output>
-					</div>
-				</li>
-
-				<li class="entry" data-entry="textDecoration" data-mode="default" title="__MSG_tipTextDecoration__">
-					<label class="item-name" for="textDecoration">__MSG_lblTextDecoration__</label>
-					<div class="control">
-						<select class="form-control" name="textDecoration" id="textDecoration">
-							<option value="none">__MSG_lblNone__</option>
-							<option value="shadow">__MSG_lblShadow__</option>
-							<option value="stroke">__MSG_lblStroke__</option>
-						</select>
-					</div>
-				</li>
-
-				<li class="entry" data-entry="danmakuDensity" data-mode="default" title="__MSG_tipDanmakuDensity__">
-					<label class="item-name" for="danmakuDensity">__MSG_lblDanmakuDensity__</label>
-					<div class="control">
-						<input class="slider" type="range" id="danmakuDensity" name="danmakuDensity" min="0" step="1" max="3" value="3" />
-						<output data-source="danmakuDensity">output</output>
-					</div>
-				</li>
-
-				<li class="entry" data-entry="scrollLocation" data-mode="scroll" title="__MSG_tipScrollLocation__">
-					<label class="item-name" for="scrollLocation">__MSG_lblScrollLocation__</label>
-					<div class="control">
-						<select class="form-control" name="scrollLocation" id="scrollLocation">
-							<option value="left">__MSG_lblScrollLocationLeft__</option>
-							<option value="right">__MSG_lblScrollLocationRight__</option>
-						</select>
-					</div>
-				</li>
-
-				<li class="entry" data-entry="scrollWidth" data-mode="scroll" title="__MSG_tipScrollWidth__">
-					<label class="item-name" for="scrollWidth">__MSG_lblScrollWidth__</label>
-					<div class="control">
-						<input class="slider" type="range" id="scrollWidth" name="scrollWidth" min="5" step="5" max="100" value="30" />
-						<output data-source="scrollWidth">output</output>
-					</div>
-				</li>
-			</ul>
-
-			<div class="buttonGroup">
-				<button id="resetToDefault" title="__MSG_tipResetToDefault__">__MSG_lblResetToDefault__</button>
+			<div class="page" data-page="filters">
+				<h2>__MSG_filtersTitle__</h2>
+				<hr />
+				<p>__MSG_filtersTips__</p>
+				<div class="filter-list">
+					<input type="text" />
+				</div>
+				<div class="buttonGroup">
+					<button id="back">__MSG_lblBack__</button>
+				</div>
 			</div>
 		</form>
 		<hr />

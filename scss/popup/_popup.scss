@@ -10,7 +10,6 @@ html {
 	}
 }
 
-
 h2 {
 	text-align: center;
 	font-size: 1.8rem;
@@ -21,25 +20,49 @@ h2 {
 form {
 	font-size: 1.4rem;
 
-	.further-settings {
-		overflow-y: hidden;
-		max-height: 240px;
-		transition: max-height 0.3s;
+	$pages: 'general', 'filters';
 
-		&.hidden {
-			max-height: 0;
+	.page {
+		display: none;
+
+		.further-settings {
+			&.hidden {
+				display: none;
+			}
+		}
+
+		.buttonGroup {
+			display: flex;
+			justify-content: center;
+			margin-top: 1rem;
+
+			button {
+				& + button {
+					margin-left: 1rem;
+				}
+			}
+		}
+
+		p {
+			color: var(--clrTextLight);
+			font-size: 1.2rem;
+		}
+
+		.filter-list {
+			margin-top: 1rem;
+			display: flex;
+			flex-direction: column;
+			gap: 1rem;
+
+			input {
+				width: 100%;
+			}
 		}
 	}
 
-	.buttonGroup {
-		display: flex;
-		justify-content: center;
-		margin-top: 1rem;
-
-		button {
-			& + button {
-				margin-left: 1rem;
-			}
+	@each $page in $pages {
+		&[data-current='#{$page}'] .page[data-page='#{$page}'] {
+			display: block;
 		}
 	}
 }
@@ -52,7 +75,7 @@ form {
 }
 
 a {
-	transition: color .2s;
+	transition: color 0.2s;
 	&:hover {
 		color: var(--clrTheme);
 	}

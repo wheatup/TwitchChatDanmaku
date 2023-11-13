@@ -145,5 +145,20 @@
 	},
 	"tipScrollWidth": {
 		"message": "调整聊天的显示宽度"
+	},
+	"lblFilters": {
+		"message": "聊天过滤"
+	},
+	"lblFilterSettings": {
+		"message": "过滤设定"
+	},
+	"filtersTitle": {
+		"message": "聊天过滤"
+	},
+	"filtersTips": {
+		"message": "过滤设定，如需使用正则表达式，请用斜杠括起您的规则（例：“/.{32}/”用于过滤包含至少32个字符的消息）"
+	},
+	"lblBack": {
+		"message": "返回"
 	}
 }

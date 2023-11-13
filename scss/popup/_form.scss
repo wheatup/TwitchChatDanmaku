@@ -1,6 +1,8 @@
 form {
 	.entry {
 		display: flex;
+		align-items: center;
+		gap: 1rem;
 
 		+ .entry,
 		+ .further-settings {
@@ -11,7 +13,6 @@ form {
 			flex: 0 0 8rem;
 			overflow: hidden;
 			text-align: right;
-			margin-right: 1rem;
 		}
 
 		.control {
@@ -19,6 +20,7 @@ form {
 			display: flex;
 			align-items: center;
 			min-width: 0;
+			gap: 1rem;
 
 			[name] {
 				flex: 1;
@@ -26,7 +28,17 @@ form {
 
 			output {
 			}
+
+			> button {
+				height: 1.8rem;
+				display: flex;
+				align-items: center;
+				padding: 0px 1rem;
+				font-size: 1.2rem;
+
+			}
 		}
+
 	}
 
 	input {
@@ -97,6 +109,14 @@ form {
 			&:hover::-webkit-slider-thumb {
 				box-shadow: none;
 			}
+		}
+
+		&[type='text'] {
+			background-color: var(--clrShadow);
+			color: var(--clrText);
+			border-radius: 3px;
+			border: none;
+			padding: 4px 6px;
 		}
 	}
 

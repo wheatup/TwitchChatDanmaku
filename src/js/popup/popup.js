@@ -4,13 +4,77 @@ let settings;
 
 const init = async () => {
 	await setup();
+	filterSetup();
 	document.querySelector('#resetToDefault').addEventListener('click', e => {
 		e.preventDefault();
 		emit('RESET_USER_SETTINGS');
 	});
+
+	document.querySelector('#filterSettings').addEventListener('click', e => {
+		e.preventDefault();
+		document.querySelector('form[data-current]').setAttribute('data-current', 'filters');
+	});
+
+	document.querySelector('#back').addEventListener('click', e => {
+		e.preventDefault();
+		document.querySelector('form[data-current]').setAttribute('data-current', 'general');
+	});
+
 	emit('GET_USER_SETTINGS');
 	emit('GET_FONT_LIST');
 }
+
+const filterSetup = list => {
+	const $filterList = document.querySelector('.filter-list');
+	let timer;
+
+	const cleanup = () => {
+		const list = [...$filterList.querySelectorAll('input')].reduce((acc, $ipt, index, arr) => {
+			const text = $ipt.value.trim();
+			if (text) {
+				acc.push(text);
+			} else if (index < arr.length - 1) {
+				$ipt.remove();
+			}
+
+			return acc;
+		}, []);
+
+		console.log(list);
+		emit('SET_USER_SETTINGS', { filterList: JSON.stringify(list) });
+	};
+
+	const onInputChange = $ipt => {
+		timer && clearTimeout(timer);
+		timer = setTimeout(cleanup, 1000);
+		if ([...$filterList.querySelectorAll('input')].every($ipt => $ipt.value.trim())) {
+			addInput();
+		}
+	}
+
+	const setupInput = $ipt => {
+		$ipt.addEventListener('input', () => onInputChange($ipt));
+	}
+
+	const addInput = text => {
+		const $ipt = document.createElement('input');
+		$ipt.setAttribute('type', 'text');
+		if (text) {
+			$ipt.value = text;
+		}
+		setupInput($ipt);
+		$filterList.append($ipt);
+	}
+
+	if (list?.length) {
+		[...$filterList.querySelectorAll('input')].forEach($ipt => $ipt.remove());
+		list.forEach(filter => addInput(filter));
+		addInput();
+	} else {
+		[...$filterList.querySelectorAll('input')].forEach(setupInput);
+	}
+
+};
 
 on('USER_SETTINGS', data => {
 	settings = data;
@@ -41,6 +105,19 @@ on('USER_SETTINGS', data => {
 	}
 
 	const onSettingChange = (key, value, change) => {
+		console.log({ key, value, change })
+		if (key === 'filterList') {
+			let filterList;
+			try {
+				filterList = JSON.parse(value);
+			} catch (ex) {
+				console.error(ex);
+			}
+			filterList = Array.isArray(filterList) ? filterList : [];
+			filterSetup(filterList);
+			return;
+		}
+
 		const entry = document.querySelector(`.entry[data-entry="${key}"]`);
 		if (entry) {
 			const input = entry.querySelector(`[name="${key}"]`);

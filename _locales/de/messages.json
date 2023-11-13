@@ -129,5 +129,20 @@
 	},
 	"tipScrollWidth": {
 		"message": "Wie breit der chat ist"
+	},
+	"lblFilters": {
+		"message": "Filter"
+	},
+	"lblFilterSettings": {
+		"message": "Einstellungen"
+	},
+	"filtersTitle": {
+		"message": "Filter"
+	},
+	"filtersTips": {
+		"message": "Filtereinstellungen für Regex: Um deine Regel einzuschließen, verwende Schrägstriche (z. B. \"/.{32}/\" für Nachrichten mit mindestens 32 Zeichen)."
+	},
+	"lblBack": {
+		"message": "Zurückkehren"
 	}
 }
