@@ -35,10 +35,8 @@ form {
 				align-items: center;
 				padding: 0px 1rem;
 				font-size: 1.2rem;
-
 			}
 		}
-
 	}
 
 	input {
@@ -113,10 +111,15 @@ form {
 
 		&[type='text'] {
 			background-color: var(--clrShadow);
-			color: var(--clrText);
+			color: var(--clrHighlight);
 			border-radius: 3px;
 			border: none;
 			padding: 4px 6px;
+			font-family: ui-monospace, 'Cascadia Mono', 'Segoe UI Mono', 'Liberation Mono', Menlo, Monaco, Consolas, monospace;
+
+			&.regex {
+				color: var(--clrRegex);
+			}
 		}
 	}
 
@@ -154,7 +157,6 @@ form {
 		align-items: center;
 		justify-content: center;
 		border-radius: 4px;
-		margin-left: 0.5rem;
 		overflow: hidden;
 		color: var(--clrTextLight);
 	}

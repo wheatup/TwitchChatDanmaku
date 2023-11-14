@@ -39,12 +39,13 @@ button {
 
 :root {
   --clrTheme: #9146ff;
-  --clrBg: #eee;
+  --clrBg: #f9f9f9;
   --clrBgDark: #ddd;
   --clrText: #333;
   --clrTextLight: #777;
   --clrShadow: #777;
   --clrHighlight: #f0f0f0;
+  --clrRegex: #bcf2c8;
 }
 @media (prefers-color-scheme: dark) {
   :root {
@@ -54,6 +55,7 @@ button {
     --clrHighlight: #ddd;
     --clrText: #ddd;
     --clrTextLight: #aaa;
+    --clrRegex: #92dda4;
   }
 }
 
@@ -229,10 +231,14 @@ form input[type=range]:hover::-webkit-slider-thumb {
 }
 form input[type=text] {
   background-color: var(--clrShadow);
-  color: var(--clrText);
+  color: var(--clrHighlight);
   border-radius: 3px;
   border: none;
   padding: 4px 6px;
+  font-family: ui-monospace, "Cascadia Mono", "Segoe UI Mono", "Liberation Mono", Menlo, Monaco, Consolas, monospace;
+}
+form input[type=text].regex {
+  color: var(--clrRegex);
 }
 form select {
   appearance: none;
@@ -265,7 +271,6 @@ form output {
   align-items: center;
   justify-content: center;
   border-radius: 4px;
-  margin-left: 0.5rem;
   overflow: hidden;
   color: var(--clrTextLight);
 }

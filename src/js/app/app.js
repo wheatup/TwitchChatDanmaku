@@ -196,7 +196,7 @@
 		const getUnprocessedChats = () => waitUntil(() => getElementsBySelectors(RAW_CHAT_SELECTORS, $chat));
 
 		const isFilterHit = (filter, message) => {
-			let [_, regex, flags] = /^\/(.*)\/(\w*)$/[Symbol.match](filter) || [];
+			let [_, regex, flags] = /^\/(.+)\/([gmiyuvsd]*)$/[Symbol.match](filter) || [];
 			if (regex) {
 				try {
 					regex = new RegExp(regex, flags);

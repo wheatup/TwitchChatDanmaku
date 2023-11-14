@@ -25,6 +25,19 @@ const init = async () => {
 }
 
 const filterSetup = list => {
+	const isRegex = text => {
+		let [_, regex, flags] = /^\/(.+)\/([gmiyuvsd]*)$/[Symbol.match](text) || [];
+		if (regex) {
+			try {
+				regex = new RegExp(regex, flags);
+				console.log(regex);
+				return true;
+			} catch (ex) {
+			}
+		}
+		return false;
+	};
+
 	const $filterList = document.querySelector('.filter-list');
 	let timer;
 
@@ -46,6 +59,11 @@ const filterSetup = list => {
 	const onInputChange = $ipt => {
 		timer && clearTimeout(timer);
 		timer = setTimeout(cleanup, 1000);
+		if (isRegex($ipt.value)) {
+			$ipt.classList.add('regex');
+		} else {
+			$ipt.classList.remove('regex');
+		}
 		if ([...$filterList.querySelectorAll('input')].every($ipt => $ipt.value.trim())) {
 			addInput();
 		}
@@ -60,6 +78,9 @@ const filterSetup = list => {
 		$ipt.setAttribute('type', 'text');
 		if (text) {
 			$ipt.value = text;
+			if (isRegex(text)) {
+				$ipt.classList.add('regex');
+			}
 		}
 		setupInput($ipt);
 		$filterList.append($ipt);
@@ -83,7 +104,7 @@ on('USER_SETTINGS', data => {
 			const source = output.getAttribute('data-source');
 			switch (source) {
 				case 'opacity':
-					output.innerText = value * 100 + '%';
+					output.innerText = Math.round(value * 100) + '%';
 					break;
 				case 'duration':
 					output.innerText = value + 's';

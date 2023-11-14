@@ -72,8 +72,7 @@
 #danmaku-container[data-danmaku-mode=scroll] .danmaku-chat {
   background-color: rgba(0, 0, 0, 0.5);
   animation: danmaku-scroll-default calc(var(--duration, 7) * 1s + 5s) linear both;
-  padding: 0 1rem;
-  line-height: 1.66;
+  padding: 0.25em 1rem;
 }
 #danmaku-container[data-danmaku-mode=scroll] .danmaku-chat .danmaku-username {
   font-size: 0.8em;
@@ -81,6 +80,9 @@
 #danmaku-container[data-danmaku-mode=scroll] .danmaku-chat .danmaku-username::after {
   content: ": ";
   color: white;
+}
+#danmaku-container[data-danmaku-mode=scroll] .danmaku-chat .danmaku-message {
+  color: #fff !important;
 }
 
 @keyframes danmaku-scroll-default {
