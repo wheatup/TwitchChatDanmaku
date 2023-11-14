@@ -10,7 +10,8 @@ const DEFAULT_SETTINGS = {
 	danmakuDensity: 3,
 	mode: 'default',
 	scrollLocation: 'left',
-	scrollWidth: 30
+	scrollWidth: 30,
+	filters: false
 };
 
 let settings = {

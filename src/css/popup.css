@@ -39,12 +39,13 @@ button {
 
 :root {
   --clrTheme: #9146ff;
-  --clrBg: #eee;
+  --clrBg: #f9f9f9;
   --clrBgDark: #ddd;
   --clrText: #333;
   --clrTextLight: #777;
   --clrShadow: #777;
   --clrHighlight: #f0f0f0;
+  --clrRegex: #bcf2c8;
 }
 @media (prefers-color-scheme: dark) {
   :root {
@@ -54,6 +55,7 @@ button {
     --clrHighlight: #ddd;
     --clrText: #ddd;
     --clrTextLight: #aaa;
+    --clrRegex: #92dda4;
   }
 }
 
@@ -77,21 +79,40 @@ h2 {
 form {
   font-size: 1.4rem;
 }
-form .further-settings {
-  overflow-y: hidden;
-  max-height: 240px;
-  transition: max-height 0.3s;
+form .page {
+  display: none;
 }
-form .further-settings.hidden {
-  max-height: 0;
+form .page .further-settings.hidden {
+  display: none;
 }
-form .buttonGroup {
+form .page .buttonGroup {
   display: flex;
   justify-content: center;
   margin-top: 1rem;
 }
-form .buttonGroup button + button {
+form .page .buttonGroup button + button {
   margin-left: 1rem;
+}
+form .page p {
+  color: var(--clrTextLight);
+  font-size: 1.2rem;
+}
+form .page .filter-list {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-height: 40rem;
+  overflow-y: auto;
+}
+form .page .filter-list input {
+  width: 100%;
+}
+form[data-current=general] .page[data-page=general] {
+  display: block;
+}
+form[data-current=filters] .page[data-page=filters] {
+  display: block;
 }
 
 .copyright {
@@ -121,6 +142,8 @@ hr {
 
 form .entry {
   display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 form .entry + .entry,
 form .entry + .further-settings {
@@ -130,16 +153,23 @@ form .entry > label {
   flex: 0 0 8rem;
   overflow: hidden;
   text-align: right;
-  margin-right: 1rem;
 }
 form .entry .control {
   flex: 1;
   display: flex;
   align-items: center;
   min-width: 0;
+  gap: 1rem;
 }
 form .entry .control [name] {
   flex: 1;
+}
+form .entry .control > button {
+  height: 1.8rem;
+  display: flex;
+  align-items: center;
+  padding: 0px 1rem;
+  font-size: 1.2rem;
 }
 form input[type=checkbox] {
   display: none;
@@ -199,6 +229,17 @@ form input[type=range]::-webkit-slider-thumb {
 form input[type=range]:hover::-webkit-slider-thumb {
   box-shadow: none;
 }
+form input[type=text] {
+  background-color: var(--clrShadow);
+  color: var(--clrHighlight);
+  border-radius: 3px;
+  border: none;
+  padding: 4px 6px;
+  font-family: ui-monospace, "Cascadia Mono", "Segoe UI Mono", "Liberation Mono", Menlo, Monaco, Consolas, monospace;
+}
+form input[type=text].regex {
+  color: var(--clrRegex);
+}
 form select {
   appearance: none;
   background-color: var(--clrShadow);
@@ -230,7 +271,6 @@ form output {
   align-items: center;
   justify-content: center;
   border-radius: 4px;
-  margin-left: 0.5rem;
   overflow: hidden;
   color: var(--clrTextLight);
 }

@@ -1,11 +1,12 @@
 :root {
 	--clrTheme: #9146ff;
-	--clrBg: #eee;
+	--clrBg: #f9f9f9;
 	--clrBgDark: #ddd;
 	--clrText: #333;
 	--clrTextLight: #777;
 	--clrShadow: #777;
 	--clrHighlight: #f0f0f0;
+	--clrRegex: #bcf2c8;
 
 	@media (prefers-color-scheme: dark) {
 		--clrBg: #222;
@@ -14,5 +15,6 @@
 		--clrHighlight: #ddd;
 		--clrText: #ddd;
 		--clrTextLight: #aaa;
+		--clrRegex: #92dda4;
 	}
 }

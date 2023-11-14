@@ -147,5 +147,20 @@
 	},
 	"tipScrollWidth": {
 		"message": "The width of the chat"
+	},
+	"lblFilters": {
+		"message": "Filters"
+	},
+	"lblFilterSettings": {
+		"message": "Settings"
+	},
+	"filtersTitle": {
+		"message": "Filters"
+	},
+	"filtersTips": {
+		"message": "Filter settings, for regex, enclose your rules in forward slashes (eg: \"/.{32}/\" for messages which contain at least 32 characters)"
+	},
+	"lblBack": {
+		"message": "Back"
 	}
 }

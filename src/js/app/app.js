@@ -195,11 +195,42 @@
 
 		const getUnprocessedChats = () => waitUntil(() => getElementsBySelectors(RAW_CHAT_SELECTORS, $chat));
 
+		const isFilterHit = (filter, message) => {
+			let [_, regex, flags] = /^\/(.+)\/([gmiyuvsd]*)$/[Symbol.match](filter) || [];
+			if (regex) {
+				try {
+					regex = new RegExp(regex, flags);
+				} catch (ex) {
+					console.error(`Malformed regex: ${filter}`);
+				}
+			}
+
+			if (regex instanceof RegExp) {
+				return regex.test(message);
+			} else {
+				return message?.includes(filter);
+			}
+		}
+
 		const processChat = async ($chat) => {
 			$chat.setAttribute('data-danmaku-ready', true);
 			const $username = (await getElementsBySelectors(CHAT_USERNAME_SELECTORS, $chat))[0];
 			const $message = (await getElementsBySelectors(CHAT_MESSAGE_SELECTORS, $chat))[0];
-			core?.onDanmaku?.($username.cloneNode(true), $message.cloneNode(true));
+
+			let { filters, filterList = [] } = settings;
+
+			if (!Array.isArray(filterList)) {
+				try {
+					filterList = JSON.parse(filterList);
+				} catch(ex) {
+					console.error(`filter is wrong`, filterList);
+					filterList = [];
+				}
+			}
+
+			if (!filters || !filterList.some(filter => isFilterHit(filter, $message.innerText))) {
+				core?.onDanmaku?.($username.cloneNode(true), $message.cloneNode(true));
+			}
 		}
 
 		const onGetUserSettings = (data, init) => {

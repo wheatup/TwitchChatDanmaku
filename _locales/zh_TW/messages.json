@@ -145,5 +145,20 @@
 	},
 	"tipScrollWidth": {
 		"message": "聊天訊息的寬度"
+	},
+	"lblFilters": {
+		"message": "聊天過濾"
+	},
+	"lblFilterSettings": {
+		"message": "聊天過濾設定"
+	},
+	"filtersTitle": {
+		"message": "聊天過濾"
+	},
+	"filtersTips": {
+		"message": "過濾器設定，對於正則表達式，請用斜槓括起您的規則（例如：對於包含至少32個字符的消息，請使用「/.{32}/」）。"
+	},
+	"lblBack": {
+		"message": "返回"
 	}
 }

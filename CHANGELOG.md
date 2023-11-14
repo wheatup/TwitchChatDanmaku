@@ -1,5 +1,8 @@
 ## <span id="ChangeLog">Change Logs</span>
 
+### 2.1.0
+> * Added filter settings, you now may filter messages with your own rules
+
 ### 2.0.4
 > * Fixed the Danmaku not showing up together with Extension [FrankerFaceZ](https://chrome.google.com/webstore/detail/frankerfacez/fadndhdgpmmaapbmfcknlfgcflmmmieb).
 
@@ -131,6 +134,9 @@
 <hr/>
 
 ## <span id="ChangeLogCN">更新日志</span>
+
+### 2.1.0
+> * 增加了聊天过滤，现在你可以通过过滤器来过滤聊天消息！
 
 ### 2.0.4
 > * 修复在用户安装扩展[FrankerFaceZ](https://chrome.google.com/webstore/detail/frankerfacez/fadndhdgpmmaapbmfcknlfgcflmmmieb)后弹幕不显示的问题。
