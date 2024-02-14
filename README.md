@@ -16,7 +16,7 @@
 > * Two modes - danmaku for a barrage of comments on screen, or scroll to overlay the traditional chat on screen.
 > * Have fun!
 
-## Installlation
+## Installation
 
 ### Online Version (Recommended)
 > Download from: [Chrome Web Store](https://chrome.google.com/webstore/detail/twitch-chat-danmaku/koiphfkghjgmncbkcpfnegnbcbomlchg)
@@ -44,6 +44,7 @@
 
 ## Example (Scroll mode)
 ![preview](https://lh3.googleusercontent.com/pw/ABLVV84yGxhbCuEgqPDr56e87p5BXZPz7IIejEsrufBSVsgvQBsRQClXoxU-XHP9RN-BSFIZq38h4k6AVoGprrZettaqPFs_1RbeNNM55N6GKOLS91o74PMoRuy4cXB96de7XuK9L29UXHlF80wzRyGNdTCTEl_IfVBt7WglGXWwuj9FSwTXtCi0e8sDn-2UPt4eQYvGePy1TxlLhPNlSKR-CfYH3ruqD38ojcH9zUiz4SzkxmxyjKUhGDgQ5AQxFFY79x2qdJvIzid6TPGb6vktFV1VFEUPBPQk5p6_571XJbwZE6dvMNcISB45Uvbcn8AmRAwsHVUfKRWEIgDUAzZLyKGqNc6VmahQ3Zec6D7641Qmz_H0w5KCXPNe0fICTsDnkQbyZJMJMZQU_z50YfiS92w-7VGX1IX33RGAS-6kG37PI1EDSUgMoe8Gi4-_GBiRt84xyYUelMLYCmRB6tADgRDY3HXVhxdKJ_wz7_ISwhUDIaBD00mHAKXEUrZcX22_m4af6h-Hpmk3c2TV8aQJM-PdHHm6WSnNNKgHEu1kxSNDHmNiEf-YcgL69ts1XqBeAlzgZeLkRUSQ5lY2nH42CVxGJfE5znkEJJltpDoU9sZIuGWERwFdfWE9ZfIJlp6pNSIjdPmtzFkyhK9L_K5wazPZPpQpnmdYqxWIk2iaTVWQ-aGg0XyEHxY6yc76wK0lAxphQhEnh49Lj0kQN0u1CiQRRvuTo9CRnUX9JXWxPT9jQAFSlgEp5kMoMsJhkRsohKbEB42vfHiQUnj5xq2ASAPEvZj1Ff7ZEHiDF-K9xtuQu51ejemWWWM6JekvH-Pp7D_ZII99yPYbifLUcVrydKveMiH2hFjbZ8lraitnLfm1lbt5AjIitk7MGxkY0DfIEu28_YxNjQ1uKOKUdYNAHCbELqQEw7NomhFTXolkXnRxMbMdutUaFIzGoy2CaPGFuCW6fVyTly1IQ0l2dHOMIrAztWrJNsw0MHE=w1623-h911-s-no-gm)
+
 ## Settings 
 > 1. Danmaku - Enables/disables this extension's features.
 > 2. Username - Enable this to show the username of the poster with each comment in Danmkau mode.
@@ -59,6 +60,7 @@
 > * Scroll mode only settings
 > 1. Position - The location on screen where. the chat is overlayed.
 > 2. Width - Width of the chat overlay rectangle
+
 ## Development
 
 1. Run ```npm install``` to install dependencies.
