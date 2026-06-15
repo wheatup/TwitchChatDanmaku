@@ -1,121 +1,166 @@
 {
-	"appName": {
-		"message": "Twitch Chat Danmaku"
-	},
-	"appDescription": {
-		"message": "Display the chat as danmaku(chat overlay) with fully customizable settings, compatible with emoticons!"
-	},
-	"settingsTitle": {
-		"message": "Danmaku Settings"
-	},
-	"tipEnable": {
-		"message": "Turn on/off danmaku"
-	},
-	"lblEnable": {
-		"message": "Danmaku: "
-	},
-	"tipUsername": {
-		"message": "Show the username of the comment"
-	},
-	"lblUsername": {
-		"message": "Username: "
-	},
-	"tipDuration": {
-		"message": "How long will the danmaku stay on the screen"
-	},
-	"lblDuration": {
-		"message": "Duration: "
-	},
-	"tipFontSize": {
-		"message": "The font size of the danmaku"
-	},
-	"lblFontSize": {
-		"message": "Font Size: "
-	},
-	"tipOpacity": {
-		"message": "The transparency of the danmaku"
-	},
-	"lblOpacity": {
-		"message": "Opacity: "
-	},
-	"tipDanmakuDensity": {
-		"message": "The maximum height of the danmaku"
-	},
-	"lblDanmakuDensity": {
-		"message": "Density: "
-	},
-	"lblDanmakuDensity_0": {
-		"message": "1/4"
-	},
-	"lblDanmakuDensity_1": {
-		"message": "Half"
-	},
-	"lblDanmakuDensity_2": {
-		"message": "3/4"
-	},
-	"lblDanmakuDensity_3": {
-		"message": "Full"
-	},
-	"tipApply": {
-		"message": "Apply the current settings."
-	},
-	"lblApply": {
-		"message": "Apply"
-	},
-	"tipResetToDefault": {
-		"message": "Reset to default settings and apply"
-	},
-	"lblResetToDefault": {
-		"message": "Reset to Default"
-	},
-	"enable": {
-		"message": "Enable"
-	},
-	"disable": {
-		"message": "Disable"
-	},
-	"show": {
-		"message": "Show"
-	},
-	"hide": {
-		"message": "Hide"
-	},
-	"px": {
-		"message": "px",
-		"description": "pixel"
-	},
-	"s": {
-		"message": "s",
-		"description": "seconds"
-	},
-	"tipTextDecoration": {
-		"message": "Change the text decoration, might affect the performance."
-	},
-	"lblTextDecoration": {
-		"message": "Text Style: "
-	},
-	"lblNone": {
-		"message": "None"
-	},
-	"lblShadow": {
-		"message": "Shadow"
-	},
-	"lblStroke": {
-		"message": "Stroke"
-	},
-	"lblFont": {
-		"message": "Font: "
-	},
-	"tipFont": {
-		"message": "Set the font of the danmaku."
-	},
-	"lblBold": {
-		"message": "Bold: "
-	},
-	"tipBold": {
-		"message": "Bold text?"
-	},
-	"default": {
-		"message": "Default"
-	}
+   "appDescription": {
+      "message": "Display the chat as danmaku(chat overlay) with fully customizable settings, compatible with emoticons!"
+   },
+   "appName": {
+      "message": "Twitch Chat Danmaku"
+   },
+   "default": {
+      "message": "Default"
+   },
+   "disable": {
+      "message": "Disable"
+   },
+   "enable": {
+      "message": "Enable"
+   },
+   "filtersTips": {
+      "message": "Filter settings, for regex, enclose your rules in forward slashes (eg: \"/.{32}/\" for messages which contain at least 32 characters)"
+   },
+   "filtersTitle": {
+      "message": "Filters"
+   },
+   "hide": {
+      "message": "Hide"
+   },
+   "lblApply": {
+      "message": "Apply"
+   },
+   "lblBack": {
+      "message": "Back"
+   },
+   "lblBold": {
+      "message": "Bold"
+   },
+   "lblDanmakuDensity": {
+      "message": "Density"
+   },
+   "lblDanmakuDensity_0": {
+      "message": "1/4"
+   },
+   "lblDanmakuDensity_1": {
+      "message": "Half"
+   },
+   "lblDanmakuDensity_2": {
+      "message": "3/4"
+   },
+   "lblDanmakuDensity_3": {
+      "message": "Full"
+   },
+   "lblDuration": {
+      "message": "Duration"
+   },
+   "lblEnable": {
+      "message": "Danmaku"
+   },
+   "lblFilterSettings": {
+      "message": "Settings"
+   },
+   "lblFilters": {
+      "message": "Filters"
+   },
+   "lblFont": {
+      "message": "Font"
+   },
+   "lblFontSize": {
+      "message": "Font Size"
+   },
+   "lblMode": {
+      "message": "Mode"
+   },
+   "lblModeDefault": {
+      "message": "Danmaku"
+   },
+   "lblModeScroll": {
+      "message": "Scroll"
+   },
+   "lblNone": {
+      "message": "None"
+   },
+   "lblOpacity": {
+      "message": "Opacity"
+   },
+   "lblResetToDefault": {
+      "message": "Reset to Default"
+   },
+   "lblScrollLocation": {
+      "message": "Position"
+   },
+   "lblScrollLocationLeft": {
+      "message": "Left"
+   },
+   "lblScrollLocationRight": {
+      "message": "Right"
+   },
+   "lblScrollWidth": {
+      "message": "Width"
+   },
+   "lblShadow": {
+      "message": "Shadow"
+   },
+   "lblStroke": {
+      "message": "Stroke"
+   },
+   "lblTextDecoration": {
+      "message": "Text Style"
+   },
+   "lblUsername": {
+      "message": "Username"
+   },
+   "px": {
+      "description": "pixel",
+      "message": "px"
+   },
+   "s": {
+      "description": "seconds",
+      "message": "s"
+   },
+   "settingsTitle": {
+      "message": "Danmaku Settings"
+   },
+   "show": {
+      "message": "Show"
+   },
+   "tipApply": {
+      "message": "Apply the current settings."
+   },
+   "tipBold": {
+      "message": "Bold text?"
+   },
+   "tipDanmakuDensity": {
+      "message": "The maximum height of the danmaku"
+   },
+   "tipDuration": {
+      "message": "How long will the danmaku stay on the screen"
+   },
+   "tipEnable": {
+      "message": "Turn on/off danmaku"
+   },
+   "tipFont": {
+      "message": "Set the font of the danmaku."
+   },
+   "tipFontSize": {
+      "message": "The font size of the danmaku"
+   },
+   "tipMode": {
+      "message": "How danmaku is displayed"
+   },
+   "tipOpacity": {
+      "message": "The transparency of the danmaku"
+   },
+   "tipResetToDefault": {
+      "message": "Reset to default settings and apply"
+   },
+   "tipScrollLocation": {
+      "message": "Where the chat is displayed"
+   },
+   "tipScrollWidth": {
+      "message": "The width of the chat"
+   },
+   "tipTextDecoration": {
+      "message": "Change the text decoration, might affect the performance."
+   },
+   "tipUsername": {
+      "message": "Show the username of the comment"
+   }
 }

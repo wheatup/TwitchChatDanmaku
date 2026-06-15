@@ -1,103 +1,148 @@
 {
-	"appName": {
-		"message": "Twitch Chat Danmaku"
-	},
-	"appDescription": {
-		"message": "Betten Sie den Chat mit einem Danmaku-Stil in dem Stream ein. Kompatibel mit BetterTTV und anderen Emoticons!"
-	},
-	"settingsTitle": {
-		"message": "Einstellungen"
-	},
-	"tipEnable": {
-		"message": "Ein-/ausschalten"
-	},
-	"lblEnable": {
-		"message": "Danmaku: "
-	},
-	"tipUsername": {
-		"message": "Zeige der Benutzername des Kommentars"
-	},
-	"lblUsername": {
-		"message": "Benutzername: "
-	},
-	"tipDuration": {
-		"message": "Wie lange werden die Danmaku auf dem Bildschirm bleiben"
-	},
-	"lblDuration": {
-		"message": "Dauer: "
-	},
-	"tipFontSize": {
-		"message": "Schriftgröße des Danmaku"
-	},
-	"lblFontSize": {
-		"message": "Schriftgröße: "
-	},
-	"tipOpacity": {
-		"message": "Die Transparenz des Danmaku"
-	},
-	"lblOpacity": {
-		"message": "Opazität: "
-	},
-	"tipApply": {
-		"message": "Übernehmen Sie die aktuellen Einstellungen."
-	},
-	"lblApply": {
-		"message": "Übernehmen"
-	},
-	"tipResetToDefault": {
-		"message": "Auf Standardeinstellungen zurücksetzen und anwenden"
-	},
-	"lblResetToDefault": {
-		"message": "Standardeinstellungen"
-	},
-	"enable": {
-		"message": "Aktivieren"
-	},
-	"disable": {
-		"message": "Deaktivieren"
-	},
-	"show": {
-		"message": "Zeigen"
-	},
-	"hide": {
-		"message": "Ausblenden"
-	},
-	"px": {
-		"message": "px",
-		"description": "pixel"
-	},
-	"s": {
-		"message": "s",
-		"description": "seconds"
-	},
-	"tipTextDecoration": {
-		"message": "Ändern Sie die Textdekoration (kann sich auf die Leistung auswirken)"
-	},
-	"lblTextDecoration": {
-		"message": "Text-Stil: "
-	},
-	"lblNone": {
-		"message": "Nichts"
-	},
-	"lblShadow": {
-		"message": "Schatten"
-	},
-	"lblStroke": {
-		"message": "Kante"
-	},
-	"lblFont": {
-		"message": "Schriftart: "
-	},
-	"tipFont": {
-		"message": "Stellen Sie die Schriftart des Danmaku ein."
-	},
-	"lblBold": {
-		"message": "Fett: "
-	},
-	"tipBold": {
-		"message": "Fett"
-	},
-	"default": {
-		"message": "Standard"
-	}
+   "appDescription": {
+      "message": "Betten Sie den Chat mit einem Danmaku-Stil in dem Stream ein. Kompatibel mit BetterTTV und anderen Emoticons!"
+   },
+   "appName": {
+      "message": "Twitch Chat Danmaku"
+   },
+   "default": {
+      "message": "Standard"
+   },
+   "disable": {
+      "message": "Deaktivieren"
+   },
+   "enable": {
+      "message": "Aktivieren"
+   },
+   "filtersTips": {
+      "message": "Filtereinstellungen für Regex: Um deine Regel einzuschließen, verwende Schrägstriche (z. B. \"/.{32}/\" für Nachrichten mit mindestens 32 Zeichen)."
+   },
+   "filtersTitle": {
+      "message": "Filter"
+   },
+   "hide": {
+      "message": "Ausblenden"
+   },
+   "lblApply": {
+      "message": "Übernehmen"
+   },
+   "lblBack": {
+      "message": "Zurückkehren"
+   },
+   "lblBold": {
+      "message": "Fett"
+   },
+   "lblDuration": {
+      "message": "Dauer"
+   },
+   "lblEnable": {
+      "message": "Danmaku"
+   },
+   "lblFilterSettings": {
+      "message": "Einstellungen"
+   },
+   "lblFilters": {
+      "message": "Filter"
+   },
+   "lblFont": {
+      "message": "Schriftart"
+   },
+   "lblFontSize": {
+      "message": "Schriftgröße"
+   },
+   "lblMode": {
+      "message": "Modus"
+   },
+   "lblModeDefault": {
+      "message": "Danmaku"
+   },
+   "lblModeScroll": {
+      "message": "Scrollen"
+   },
+   "lblNone": {
+      "message": "Nichts"
+   },
+   "lblOpacity": {
+      "message": "Opazität"
+   },
+   "lblResetToDefault": {
+      "message": "Standardeinstellungen"
+   },
+   "lblScrollLocation": {
+      "message": "Position"
+   },
+   "lblScrollLocationLeft": {
+      "message": "Linke"
+   },
+   "lblScrollLocationRight": {
+      "message": "Rechte"
+   },
+   "lblScrollWidth": {
+      "message": "Breite"
+   },
+   "lblShadow": {
+      "message": "Schatten"
+   },
+   "lblStroke": {
+      "message": "Kante"
+   },
+   "lblTextDecoration": {
+      "message": "Text-Stil"
+   },
+   "lblUsername": {
+      "message": "Benutzername"
+   },
+   "px": {
+      "description": "pixel",
+      "message": "px"
+   },
+   "s": {
+      "description": "seconds",
+      "message": "s"
+   },
+   "settingsTitle": {
+      "message": "Einstellungen"
+   },
+   "show": {
+      "message": "Zeigen"
+   },
+   "tipApply": {
+      "message": "Übernehmen Sie die aktuellen Einstellungen."
+   },
+   "tipBold": {
+      "message": "Fett"
+   },
+   "tipDuration": {
+      "message": "Wie lange werden die Danmaku auf dem Bildschirm bleiben"
+   },
+   "tipEnable": {
+      "message": "Ein-/ausschalten"
+   },
+   "tipFont": {
+      "message": "Stellen Sie die Schriftart des Danmaku ein."
+   },
+   "tipFontSize": {
+      "message": "Schriftgröße des Danmaku"
+   },
+   "tipMode": {
+      "message": "Wie danmaku angezeigt wird"
+   },
+   "tipOpacity": {
+      "message": "Die Transparenz des Danmaku"
+   },
+   "tipResetToDefault": {
+      "message": "Auf Standardeinstellungen zurücksetzen und anwenden"
+   },
+   "tipScrollLocation": {
+      "message": "Wo der chat angezeigt wird"
+   },
+   "tipScrollWidth": {
+      "message": "Wie breit der chat ist"
+   },
+   "tipTextDecoration": {
+      "message": "Ändern Sie die Textdekoration (kann sich auf die Leistung auswirken)"
+   },
+   "tipUsername": {
+      "message": "Zeige der Benutzername des Kommentars"
+   }
 }

@@ -1,121 +1,166 @@
 {
-	"appName": {
-		"message": "Twitchチャット弾幕"
-	},
-	"appDescription": {
-		"message": "Twitchのコメントが弾幕で表示て、動画の中で放送する。TwitchやBetterTTVの顔文字が表示されます。"
-	},
-	"settingsTitle": {
-		"message": "設定"
-	},
-	"tipEnable": {
-		"message": "弾幕の表示"
-	},
-	"lblEnable": {
-		"message": "弾幕: "
-	},
-	"tipUsername": {
-		"message": "コメントの名前が表示"
-	},
-	"lblUsername": {
-		"message": "名前: "
-	},
-	"tipDuration": {
-		"message": "弾幕が表示の期間"
-	},
-	"lblDuration": {
-		"message": "期間: "
-	},
-	"tipFontSize": {
-		"message": "弾幕の文字のサイズ"
-	},
-	"lblFontSize": {
-		"message": "サイズ: "
-	},
-	"tipOpacity": {
-		"message": "弾幕の透明度"
-	},
-	"lblOpacity": {
-		"message": "透明度: "
-	},
-	"tipDanmakuDensity": {
-		"message": "弾幕の高さ制限"
-	},
-	"lblDanmakuDensity": {
-		"message": "高さ制限: "
-	},
-	"lblDanmakuDensity_0": {
-		"message": "1/4"
-	},
-	"lblDanmakuDensity_1": {
-		"message": "半分"
-	},
-	"lblDanmakuDensity_2": {
-		"message": "3/4"
-	},
-	"lblDanmakuDensity_3": {
-		"message": "なし"
-	},
-	"tipApply": {
-		"message": "現在の設定を適用する"
-	},
-	"lblApply": {
-		"message": "適用"
-	},
-	"tipResetToDefault": {
-		"message": "既定の設定を戻る"
-	},
-	"lblResetToDefault": {
-		"message": "既定の設定を戻る"
-	},
-	"enable": {
-		"message": "有効"
-	},
-	"disable": {
-		"message": "無効"
-	},
-	"show": {
-		"message": "表示"
-	},
-	"hide": {
-		"message": "表示しない"
-	},
-	"px": {
-		"message": "px",
-		"description": "pixel"
-	},
-	"s": {
-		"message": "秒",
-		"description": "seconds"
-	},
-	"tipTextDecoration": {
-		"message": "弾幕のスタイルを変更する、パフォーマンスに影響する可能性があります"
-	},
-	"lblTextDecoration": {
-		"message": "スタイル: "
-	},
-	"lblNone": {
-		"message": "無し"
-	},
-	"lblShadow": {
-		"message": "陰影"
-	},
-	"lblStroke": {
-		"message": "ストローク"
-	},
-	"lblFont": {
-		"message": "フォント: "
-	},
-	"tipFont": {
-		"message": "弾幕のフォントを設定する"
-	},
-	"lblBold": {
-		"message": "太字："
-	},
-	"tipBold": {
-		"message": "太字"
-	},
-	"default": {
-		"message": "既定"
-	}
+   "appDescription": {
+      "message": "Twitchのコメントを弾幕で表示します。TwitchやBetterTTVの絵文字に対応しています。"
+   },
+   "appName": {
+      "message": "Twitchチャット弾幕"
+   },
+   "default": {
+      "message": "デフォルト"
+   },
+   "disable": {
+      "message": "無効"
+   },
+   "enable": {
+      "message": "有効"
+   },
+   "filtersTips": {
+      "message": "フィルター設定において、正規表現を使用する場合は、ルールをスラッシュで囲んでください（例：メッセージに少なくとも32文字を含む場合は「/.{32}/」）。"
+   },
+   "filtersTitle": {
+      "message": "フィルタ"
+   },
+   "hide": {
+      "message": "表示しない"
+   },
+   "lblApply": {
+      "message": "適用"
+   },
+   "lblBack": {
+      "message": "戻る"
+   },
+   "lblBold": {
+      "message": "太字"
+   },
+   "lblDanmakuDensity": {
+      "message": "高さ制限"
+   },
+   "lblDanmakuDensity_0": {
+      "message": "1/4"
+   },
+   "lblDanmakuDensity_1": {
+      "message": "半分"
+   },
+   "lblDanmakuDensity_2": {
+      "message": "3/4"
+   },
+   "lblDanmakuDensity_3": {
+      "message": "なし"
+   },
+   "lblDuration": {
+      "message": "時間"
+   },
+   "lblEnable": {
+      "message": "弾幕"
+   },
+   "lblFilterSettings": {
+      "message": "フィルタ設定"
+   },
+   "lblFilters": {
+      "message": "フィルタ"
+   },
+   "lblFont": {
+      "message": "フォント"
+   },
+   "lblFontSize": {
+      "message": "文字サイズ"
+   },
+   "lblMode": {
+      "message": "モード"
+   },
+   "lblModeDefault": {
+      "message": "弾幕"
+   },
+   "lblModeScroll": {
+      "message": "スクロール"
+   },
+   "lblNone": {
+      "message": "無し"
+   },
+   "lblOpacity": {
+      "message": "透明度"
+   },
+   "lblResetToDefault": {
+      "message": "初期設定に戻す"
+   },
+   "lblScrollLocation": {
+      "message": "位置"
+   },
+   "lblScrollLocationLeft": {
+      "message": "左"
+   },
+   "lblScrollLocationRight": {
+      "message": "右"
+   },
+   "lblScrollWidth": {
+      "message": "幅"
+   },
+   "lblShadow": {
+      "message": "影"
+   },
+   "lblStroke": {
+      "message": "ストローク"
+   },
+   "lblTextDecoration": {
+      "message": "スタイル"
+   },
+   "lblUsername": {
+      "message": "名前"
+   },
+   "px": {
+      "description": "pixel",
+      "message": "px"
+   },
+   "s": {
+      "description": "seconds",
+      "message": "秒"
+   },
+   "settingsTitle": {
+      "message": "設定"
+   },
+   "show": {
+      "message": "表示"
+   },
+   "tipApply": {
+      "message": "現在の設定を適用する"
+   },
+   "tipBold": {
+      "message": "太字"
+   },
+   "tipDanmakuDensity": {
+      "message": "弾幕の高さ制限"
+   },
+   "tipDuration": {
+      "message": "弾幕の表示時間"
+   },
+   "tipEnable": {
+      "message": "弾幕の表示"
+   },
+   "tipFont": {
+      "message": "弾幕のフォント"
+   },
+   "tipFontSize": {
+      "message": "チャットの文字サイズ"
+   },
+   "tipMode": {
+      "message": "チャットの表示モード"
+   },
+   "tipOpacity": {
+      "message": "弾幕の透明度"
+   },
+   "tipResetToDefault": {
+      "message": "初期設定に戻す"
+   },
+   "tipScrollLocation": {
+      "message": "チャットの位置"
+   },
+   "tipScrollWidth": {
+      "message": "チャットの幅"
+   },
+   "tipTextDecoration": {
+      "message": "弾幕のスタイル (パフォーマンスに影響する可能性があります)"
+   },
+   "tipUsername": {
+      "message": "ユーザー名の表示"
+   }
 }

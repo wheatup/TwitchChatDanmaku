@@ -1,32 +1,42 @@
 {
-   "manifest_version": 2,
-   "name": "__MSG_appName__",
-   "version": "1.4.9",
-   "description": "__MSG_appDescription__",
-   "background": {
-      "scripts": ["lib/jQuery/jquery-3.3.1.min.js", "background.js"],
-      "persistant": false
-   },
-   "icons": {
-      "128": "icons/icon-128.png",
-      "48": "icons/icon-48.png",
-      "16": "icons/icon-16.png"
-   },
-   "permissions": ["*://*.twitch.tv/*", "declarativeContent", "fontSettings", "tabs"],
-   "content_scripts": [{
-      "css": ["css/danmaku.css"],
-      "matches": ["*://*.twitch.tv/*"],
-      "js": ["lib/jQuery/jquery-3.3.1.min.js", "danmaku.js", "twitchChatDanmaku.js"]
-   }],
-   "page_action": {
-      "default_title": "__MSG_appName__",
+   "action": {
       "default_icon": {
+         "128": "icons/icon-128.png",
          "16": "icons/icon-16.png",
          "48": "icons/icon-48.png",
-         "64": "icons/icon-64.png",
-         "128": "icons/icon-128.png"
+         "64": "icons/icon-64.png"
       },
-      "default_popup": "popup.html"
+      "default_popup": "popup.html",
+      "default_title": "__MSG_appName__"
    },
-   "default_locale": "en"
+   "background": {
+      "scripts": [ "src/js/background/background.js" ],
+      "type": "module"
+   },
+   "content_scripts": [ {
+      "css": [ "src/css/app.css" ],
+      "js": [ "src/js/app/danmaku/default.js", "src/js/app/danmaku/scroll.js", "src/js/app/app.js" ],
+      "matches": [ "*://*.twitch.tv/*" ]
+   } ],
+   "default_locale": "en",
+   "description": "__MSG_appDescription__",
+   "host_permissions": [ "*://*.twitch.tv/*" ],
+   "icons": {
+      "128": "icons/icon-128.png",
+      "16": "icons/icon-16.png",
+      "48": "icons/icon-48.png"
+   },
+   "manifest_version": 3,
+   "name": "__MSG_appName__",
+   "permissions": [ "storage" ],
+   "browser_specific_settings": {
+      "gecko": {
+         "id": "twitchchatdanmaku@wheatup",
+         "strict_min_version": "112.0",
+         "data_collection_permissions": {
+            "required": [ "none" ]
+         }
+      }
+   },
+   "version": "2.1.1"
 }

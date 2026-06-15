@@ -1,119 +1,164 @@
 {
-	"appName": {
-		"message": "Twitch聊天弹幕"
-	},
-	"appDescription": {
-		"message": "将Twitch聊天嵌入直播视频内部且以弹幕方式呈现，支持Twitch表情符号和BetterTTV自定义表情符号！"
-	},
-	"settingsTitle": {
-		"message": "弹幕设置"
-	},
-	"tipEnable": {
-		"message": "开启/关闭弹幕"
-	},
-	"lblEnable": {
-		"message": "弹幕: "
-	},
-	"tipUsername": {
-		"message": "是否显示弹幕的发送者"
-	},
-	"lblUsername": {
-		"message": "显示用户: "
-	},
-	"tipDuration": {
-		"message": "每条弹幕的持续时间"
-	},
-	"lblDuration": {
-		"message": "持续时间: "
-	},
-	"tipFontSize": {
-		"message": "弹幕的字体大小"
-	},
-	"lblFontSize": {
-		"message": "字体大小: "
-	},
-	"tipOpacity": {
-		"message": "弹幕的透明度"
-	},
-	"lblOpacity": {
-		"message": "透明度: "
-	},
-	"tipDanmakuDensity": {
-		"message": "弹幕的密度"
-	},
-	"lblDanmakuDensity": {
-		"message": "弹幕密度: "
-	},
-	"lblDanmakuDensity_0": {
-		"message": "1/4屏"
-	},
-	"lblDanmakuDensity_1": {
-		"message": "半屏"
-	},
-	"lblDanmakuDensity_2": {
-		"message": "3/4屏"
-	},
-	"lblDanmakuDensity_3": {
-		"message": "不限"
-	},
-	"tipApply": {
-		"message": "应用当前设置"
-	},
-	"lblApply": {
-		"message": "应用"
-	},
-	"tipResetToDefault": {
-		"message": "恢复至默认设置并应用"
-	},
-	"lblResetToDefault": {
-		"message": "恢复默认"
-	},
-	"enable": {
-		"message": "开启"
-	},
-	"disable": {
-		"message": "关闭"
-	},
-	"show": {
-		"message": "显示"
-	},
-	"hide": {
-		"message": "隐藏"
-	},
-	"px": {
-		"message": "px"
-	},
-	"s": {
-		"message": "秒"
-	},
-	"tipTextDecoration": {
-		"message": "更改文字样式，可能会影响性能"
-	},
-	"lblTextDecoration": {
-		"message": "文字样式: "
-	},
-	"lblNone": {
-		"message": "无"
-	},
-	"lblShadow": {
-		"message": "投影"
-	},
-	"lblStroke": {
-		"message": "描边"
-	},
-	"lblFont": {
-		"message": "字体："
-	},
-	"tipFont": {
-		"message": "设置弹幕的字体"
-	},
-	"lblBold": {
-		"message": "粗体："
-	},
-	"tipBold": {
-		"message": "是否为粗体"
-	},
-	"default": {
-		"message": "默认"
-	}
+   "appDescription": {
+      "message": "将Twitch聊天嵌入直播视频内部且以弹幕方式呈现，支持Twitch表情符号和BetterTTV自定义表情符号！"
+   },
+   "appName": {
+      "message": "Twitch聊天弹幕"
+   },
+   "default": {
+      "message": "默认"
+   },
+   "disable": {
+      "message": "关闭"
+   },
+   "enable": {
+      "message": "开启"
+   },
+   "filtersTips": {
+      "message": "过滤设定，如需使用正则表达式，请用斜杠括起您的规则（例：“/.{32}/”用于过滤包含至少32个字符的消息）"
+   },
+   "filtersTitle": {
+      "message": "聊天过滤"
+   },
+   "hide": {
+      "message": "隐藏"
+   },
+   "lblApply": {
+      "message": "应用"
+   },
+   "lblBack": {
+      "message": "返回"
+   },
+   "lblBold": {
+      "message": "粗体"
+   },
+   "lblDanmakuDensity": {
+      "message": "弹幕密度"
+   },
+   "lblDanmakuDensity_0": {
+      "message": "1/4屏"
+   },
+   "lblDanmakuDensity_1": {
+      "message": "半屏"
+   },
+   "lblDanmakuDensity_2": {
+      "message": "3/4屏"
+   },
+   "lblDanmakuDensity_3": {
+      "message": "不限"
+   },
+   "lblDuration": {
+      "message": "持续时间"
+   },
+   "lblEnable": {
+      "message": "弹幕"
+   },
+   "lblFilterSettings": {
+      "message": "过滤设定"
+   },
+   "lblFilters": {
+      "message": "聊天过滤"
+   },
+   "lblFont": {
+      "message": "字体"
+   },
+   "lblFontSize": {
+      "message": "字体大小"
+   },
+   "lblMode": {
+      "message": "模式"
+   },
+   "lblModeDefault": {
+      "message": "弹幕"
+   },
+   "lblModeScroll": {
+      "message": "滚动"
+   },
+   "lblNone": {
+      "message": "无"
+   },
+   "lblOpacity": {
+      "message": "透明度"
+   },
+   "lblResetToDefault": {
+      "message": "恢复默认"
+   },
+   "lblScrollLocation": {
+      "message": "位置"
+   },
+   "lblScrollLocationLeft": {
+      "message": "左侧"
+   },
+   "lblScrollLocationRight": {
+      "message": "右侧"
+   },
+   "lblScrollWidth": {
+      "message": "宽度"
+   },
+   "lblShadow": {
+      "message": "投影"
+   },
+   "lblStroke": {
+      "message": "描边"
+   },
+   "lblTextDecoration": {
+      "message": "文字样式"
+   },
+   "lblUsername": {
+      "message": "显示用户"
+   },
+   "px": {
+      "message": "px"
+   },
+   "s": {
+      "message": "秒"
+   },
+   "settingsTitle": {
+      "message": "弹幕设置"
+   },
+   "show": {
+      "message": "显示"
+   },
+   "tipApply": {
+      "message": "应用当前设置"
+   },
+   "tipBold": {
+      "message": "是否为粗体"
+   },
+   "tipDanmakuDensity": {
+      "message": "弹幕的密度"
+   },
+   "tipDuration": {
+      "message": "每条弹幕的持续时间"
+   },
+   "tipEnable": {
+      "message": "开启/关闭弹幕"
+   },
+   "tipFont": {
+      "message": "设置弹幕的字体"
+   },
+   "tipFontSize": {
+      "message": "弹幕的字体大小"
+   },
+   "tipMode": {
+      "message": "弹幕的呈现模式"
+   },
+   "tipOpacity": {
+      "message": "弹幕的透明度"
+   },
+   "tipResetToDefault": {
+      "message": "恢复至默认设置并应用"
+   },
+   "tipScrollLocation": {
+      "message": "调整聊天的显示位置"
+   },
+   "tipScrollWidth": {
+      "message": "调整聊天的显示宽度"
+   },
+   "tipTextDecoration": {
+      "message": "更改文字样式，可能会影响性能"
+   },
+   "tipUsername": {
+      "message": "是否显示弹幕的发送者"
+   }
 }
